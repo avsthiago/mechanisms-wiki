@@ -13,7 +13,7 @@ All 507 movements are built, and every one has a family. This file says what a f
 - **STL export.** A "Download STL" button from the engine, labelled as a display model, not print-tested.
 - **Print-tested kits.** Hand-finished versions of popular movements: real clearances, involute teeth, a frame.
 - **Movements beyond Brown's 507.** Number them from 1001 so they never collide with the book's numbers.
-- **Real links** in `SITE.menu` (GitHub is empty for now) and final About text.
+- **Final About text.**
 
 ## 3. Deploying
 Any static host works: copy the folder as it is. The site needs no server code and no build.

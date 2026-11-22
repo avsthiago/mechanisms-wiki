@@ -3,7 +3,7 @@ window.SITE = {
   menu: [
     { label: "Index", href: "#index" },
     { label: "About", href: "#about" },
-    { label: "GitHub", href: "" }
+    { label: "GitHub", href: "https://github.com/avsthiago/mechanisms-wiki" }
   ],
   /* Families for the buttons on the contents page, in display order. A family shows once a movement uses it. */
   families: [
