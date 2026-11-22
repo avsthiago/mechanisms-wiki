@@ -28,7 +28,7 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 1. Read the entry in `data/movements.js` and `ref/NNN.png` if it exists. Do not search the web for the description unless both are missing; if they are, ask the owner for the engraving or the text.
 2. Copy `movements/_template/` to `movements/NNN/` and edit `movement.js`.
 3. Add or update the entry in `data/movements.js` with `built: true` and a `family`.
-4. Run `python3 scripts/shot.py NNN --view front` once and look at the image. Fix what is wrong, then run it once more at most. Make the second shot the `3d` or `side` view, because gaps and parts buried in supports do not show from the front. If Playwright is not installed, run `uv run --with playwright==1.48.0 python scripts/shot.py ...`; that version matches the Chromium already on this machine.
+4. Run `python3 scripts/shot.py NNN --view front` once and look at the image. Fix what is wrong, then run it once more at most. Make the second shot the `3d` or `side` view, because gaps and parts buried in supports do not show from the front. If Playwright is not installed, run `uv run --with playwright==1.48.0 python scripts/shot.py ...`; pin a Playwright version that matches the Chromium you have installed.
 5. When the model is right, run `python3 scripts/thumbs.py NNN` to make its card picture. This does not count as a screenshot; do not look at it unless the opening view is unusual.
 6. Say what was invented (supports, proportions, tooth counts) in the movement's `note`.
 
