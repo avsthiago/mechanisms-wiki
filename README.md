@@ -33,6 +33,10 @@ adding or changing a movement; it applies to people as much as to Claude Code.
        python3 scripts/shot.py 53 --view front
        python3 scripts/thumbs.py 53
 
+## License
+MIT, see `LICENSE`. This covers the code, the models and the written explanations. Brown's own text and
+engravings are public domain and stay so.
+
 ## Credits
 Text and engravings: Henry T. Brown, 1868, public domain. 3D rendering: three.js (MIT, see
 `vendor/THREE-LICENSE`).
