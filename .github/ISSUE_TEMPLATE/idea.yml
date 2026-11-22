@@ -1,0 +1,11 @@
+name: Idea or new movement
+description: Suggest an improvement, or a mechanism beyond Brown's 507.
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: For a new movement, add a drawing or source and say what it teaches.
+    validations:
+      required: true
