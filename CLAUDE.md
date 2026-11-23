@@ -25,7 +25,9 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 - `data/movements.js`: `window.SITE` (menu links, families, About text) and `window.MOVEMENTS` (one entry per movement). Set `built: true` when a model exists. `family` is one id from `SITE.families` and puts the movement under that button on the contents page. `text` holds Brown's wording only when checked against the book; it is shown on the page as "In Brown's words".
 - `ref/NNN.png` (optional): the original engraving. Look at it before modelling when present.
 - `data/index.js`: `window.INDEX`, Brown's own index (term, movement numbers). Shown at `/brown/index` and searched by the contents page. Not yet proofread against the scan; doubts are listed at the top of the file.
-- `thumbs/NNN.webp`: the card picture on the contents page, made by `scripts/thumbs.py`.
+- `thumbs/NNN.webp`: the card picture on the contents page, made by `scripts/thumbs.py`, with a half-size copy in `thumbs/s/` for ordinary screens.
+- `sitemap.xml` and `robots.txt`: for search engines. `scripts/sitemap.py` rebuilds the sitemap from `data/movements.js`.
+- `vendor/fonts/`: Atkinson Hyperlegible, served from the site (SIL Open Font License).
 - `scripts/serve.py`: local server that behaves like the host (any path that is not a file gets `index.html`). The other scripts start it themselves.
 - `scripts/shot.py`: screenshot and error check.
 - `scripts/clash.py`: runs a movement fast through every control setting and lists moving parts that pass through each other (`--family cams` for a whole family, `--fixed` to include supports).
@@ -38,7 +40,7 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 2. Copy `movements/_template/` to `movements/NNN/` and edit `movement.js`.
 3. Add or update the entry in `data/movements.js` with `built: true` and a `family`.
 4. Run `python3 scripts/shot.py NNN --view front` once and look at the image. Fix what is wrong, then run it once more at most. Make the second shot the `3d` or `side` view, because gaps and parts buried in supports do not show from the front. If Playwright is not installed, run `uv run --with playwright==1.48.0 python scripts/shot.py ...`; pin a Playwright version that matches the Chromium you have installed.
-5. When the model is right, run `python3 scripts/thumbs.py NNN` to make its card picture. This does not count as a screenshot; do not look at it unless the opening view is unusual.
+5. When the model is right, run `python3 scripts/thumbs.py NNN` to make its card picture, and `python3 scripts/sitemap.py` if the movement is new. This does not count as a screenshot; do not look at it unless the opening view is unusual.
 6. Say what was invented (supports, proportions, tooth counts) in the movement's `note`.
 
 ## The movement contract
