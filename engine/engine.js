@@ -540,10 +540,15 @@
       setPlay(true); vbtns[0].click(); camMoved = false;
     });
 
+    var lastW = 0, lastH = 0;
     function resize() {
-      var w = view.clientWidth, hh = view.clientHeight || w; renderer.setSize(w, hh, false); cam.aspect = w / hh;
+      var w = view.clientWidth, hh = view.clientHeight || w;
+      if (w === lastW && hh === lastH) return;   // resizing clears the canvas, so only when the size really changed
+      lastW = w; lastH = hh;
+      renderer.setSize(w, hh, false); cam.aspect = w / hh;
       cam.fov = 34 * Math.min(1.7, Math.max(.95, 1.3 / cam.aspect));      // keep the model in frame on tall phone stages
       cam.updateProjectionMatrix();
+      renderer.render(scene, cam);   // draw again at once, or the cleared canvas shows as a black flash until the next frame
     }
     var ro = window.ResizeObserver ? new ResizeObserver(resize) : null;
     if (ro) ro.observe(view); else window.addEventListener("resize", resize);
