@@ -1,0 +1,7 @@
+# local only
+.DS_Store
+.venv/
+__pycache__/
+out/
+# local copies of the book scans (large; the cleaned engravings in ref/ are what the site needs)
+mechanisms.net/

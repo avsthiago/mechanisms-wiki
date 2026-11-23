@@ -1,0 +1,36 @@
+name: Problem with a movement
+description: A model moves wrongly, looks wrong, or does not match Brown's engraving.
+labels: [movement]
+body:
+  - type: input
+    id: number
+    attributes:
+      label: Movement number
+      placeholder: "417"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - Motion is wrong (parts come apart, gears do not mesh, wrong direction)
+        - Parts float, overlap or pass through each other
+        - Does not match Brown's engraving
+        - Flickering surfaces
+        - Control or readout does not work
+        - Text is wrong or hard to understand
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What you see
+      description: Which view, which control setting, and a screenshot if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected

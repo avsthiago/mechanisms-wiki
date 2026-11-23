@@ -1,0 +1,21 @@
+name: Site bug
+description: Something on the page itself is broken (contents, search, controls, layout).
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you saw, and a screenshot if you can.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: "Safari 18 on iPhone, Chrome 131 on Windows..."
+  - type: input
+    id: address
+    attributes:
+      label: Page address
+      placeholder: "index.html#m53"
