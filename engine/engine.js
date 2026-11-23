@@ -145,7 +145,11 @@
     document.title = "About | mechanisms.wiki";
     app().appendChild(topStrip(0));
     app().appendChild(h("section", { "class": "sheet" }, [
-      h("h1", { text: "About" })].concat(((window.SITE || {}).about || []).map(function (t) { return h("p", { text: t }); }))));
+      h("h1", { text: "About" })].concat(((window.SITE || {}).about || []).map(function (t) {
+        // a paragraph is text, or a list of text and links: ["Find me on ", {text: "LinkedIn", href: "https://..."}, "."]
+        if (typeof t === "string") return h("p", { text: t });
+        return h("p", {}, t.map(function (x) { return typeof x === "string" ? x : h("a", { href: x.href, target: "_blank", rel: "noopener", text: x.text }); }));
+      }))));
     app().appendChild(h("nav", { "class": "bar", "aria-label": "Movements" }, [h("span"), randBtn(0), h("span")]));
   }
 
