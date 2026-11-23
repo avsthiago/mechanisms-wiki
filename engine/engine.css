@@ -1,7 +1,12 @@
+/* Atkinson Hyperlegible (SIL Open Font License, vendor/fonts/OFL.txt), Latin only, served from the site so the first paint waits on no other server */
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(/vendor/fonts/atkinson-400.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(/vendor/fonts/atkinson-700.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:italic;font-weight:400;font-display:swap;src:url(/vendor/fonts/atkinson-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:italic;font-weight:700;font-display:swap;src:url(/vendor/fonts/atkinson-700-italic.woff2) format("woff2")}
 :root{
   /* Quiet white page, always light, so the coloured model is the only loud thing. One readable family.
      Phone: title strip, model, parts strip, reading text; controls drawer and navigation fixed at the bottom. */
-  --paper:#FFFFFF; --ink:#22262B; --soft:#667079; --rule:#E6E8EA; --fill:#F4F5F6; --spot:#2F6FB3; --warm:#A86A24;
+  --paper:#FFFFFF; --ink:#22262B; --soft:#667079; --rule:#E6E8EA; --fill:#F4F5F6; --spot:#2F6FB3; --warm:#9A5F1E;
   --body:"Atkinson Hyperlegible","Helvetica Neue",Arial,sans-serif;
   --top:48px; --bar:72px; --drawer:50px; --stage:44vh;
   --plate:rgba(255,255,255,.9); --edge:#CFD3D7;

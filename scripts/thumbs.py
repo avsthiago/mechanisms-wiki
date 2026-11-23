@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Make the contents-page thumbnails: thumbs/NNN.webp, the opening view on a see-through background.
+"""Make the contents-page thumbnails: thumbs/NNN.webp, the opening view on a see-through background,
+and thumbs/s/NNN.webp, the same at half size for ordinary screens.
   python3 scripts/thumbs.py            # every folder in movements/
   python3 scripts/thumbs.py 53 54      # only these
 Run it for a movement after its model is finished or its opening view changes.
@@ -22,7 +23,7 @@ def fit(im):
     cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
     w = max(box[2] - box[0], (box[3] - box[1]) * W / H) * 1.1; h = w * H / W
     return im.crop((round(cx - w / 2), round(cy - h / 2), round(cx + w / 2), round(cy + h / 2))).resize((W, H), Image.LANCZOS)
-(root / "thumbs").mkdir(exist_ok=True); bad = []
+(root / "thumbs" / "s").mkdir(parents=True, exist_ok=True); bad = []
 with sync_playwright() as p:
     b = p.chromium.launch(args=["--use-gl=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"])
     for n in nums:
@@ -33,6 +34,7 @@ with sync_playwright() as p:
             pg.add_style_tag(content=CSS); pg.wait_for_timeout(900)
             im = fit(Image.open(io.BytesIO(pg.screenshot(omit_background=True))).convert("RGBA"))
             im.save(root / "thumbs" / f"{n:03d}.webp", quality=82, method=6); print("saved", f"thumbs/{n:03d}.webp")
+            im.resize((W // 2, H // 2), Image.LANCZOS).save(root / "thumbs" / "s" / f"{n:03d}.webp", quality=82, method=6)
         except Exception as e: errs.append(str(e))
         if errs: bad.append((n, errs))
         pg.close()

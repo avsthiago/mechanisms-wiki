@@ -89,7 +89,7 @@
   function goLink(n, dir) {
     var m = neighbour(n, dir);
     var t = h("span", { "class": "t" }, [h("small", { text: dir < 0 ? "Previous" : "Next" }), h("b", {}, [m ? "No. " + m.n : "None yet", m ? h("span", { "class": "nm", text: m.title }) : null])]);
-    return h("a", { "class": "go " + (dir < 0 ? "prev" : "next"), href: m ? mPath(m.n) : null, "aria-disabled": m ? null : "true", title: m ? m.title : null, "aria-label": m ? (dir < 0 ? "Previous: " : "Next: ") + "No. " + m.n + " " + m.title : null },
+    return h("a", { "class": "go " + (dir < 0 ? "prev" : "next"), href: m ? mPath(m.n) : null, "aria-disabled": m ? null : "true", title: m ? m.title : null },
       dir < 0 ? [icon(IC.left, 26), t] : [t, icon(IC.right, 26)]);
   }
 
@@ -176,7 +176,9 @@
       if (!m.built) pic.appendChild(img("eng", "/ref/" + pad(m.n) + ".png"));
       else {
         // the engraving only shows on hover, so it is fetched on the first hover; until it arrives the model stays
-        pic.classList.add("has-model"); pic.appendChild(img("model", "/thumbs/" + pad(m.n) + ".webp"));
+        pic.classList.add("has-model"); var mi = img("model", "/thumbs/" + pad(m.n) + ".webp");
+        mi.setAttribute("srcset", "/thumbs/s/" + pad(m.n) + ".webp 240w, /thumbs/" + pad(m.n) + ".webp 480w");
+        mi.setAttribute("sizes", "(min-width: 700px) 230px, calc(50vw - 24px)"); pic.appendChild(mi);   // measured: cards are 158 to 228 px wide
         if (hover) pic.addEventListener("mouseenter", function () {
           if (pic.querySelector(".eng")) return;
           var e = h("img", { "class": "eng", alt: "", decoding: "async" });
@@ -184,7 +186,7 @@
           e.src = "/ref/" + pad(m.n) + ".png"; pic.insertBefore(e, pic.firstChild);
         });
       }
-      var li = h("li", {}, [h("a", { "class": "card" + (m.built ? "" : " todo"), href: mPath(m.n), "aria-label": "No. " + m.n + ", " + m.title + (m.built ? "" : ", not built yet"), title: m.built ? null : "Not built yet" }, [pic,
+      var li = h("li", {}, [h("a", { "class": "card" + (m.built ? "" : " todo"), href: mPath(m.n), title: m.built ? null : "Not built yet" }, [pic,
         h("span", { "class": "cap" }, [h("b", { text: m.title })])])]);
       return { m: m, li: li, hay: (m.n + " " + m.title + " " + (m.text || "") + " " + (m.summary || "") + " " + (famName[m.family] || "") + (tags[m.n] || "")).toLowerCase() };
     });
