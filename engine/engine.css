@@ -64,6 +64,7 @@ svg{display:block}
 .hud div{display:flex;gap:8px}
 .hud dt{color:var(--soft)}
 .hud dd{margin:0;font-weight:700}
+@media (max-width:939px){.hud{display:none}}   /* on a phone the model area is small, so the readouts are left out to keep it clear */
 .views{position:absolute;right:12px;top:10px;display:flex;border-radius:999px;padding:3px;gap:2px;background:var(--plate);border:1px solid var(--rule)}
 .views button{font-size:13px;padding:5px 8px;border-radius:999px;min-height:32px;display:flex;align-items:center;justify-content:center;line-height:0}
 .views button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}

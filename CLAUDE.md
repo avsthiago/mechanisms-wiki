@@ -92,7 +92,7 @@ Read `movements/014/movement.js` as the model for tone before writing a new one.
 
 ## Page design (settled; for reference)
 - Top strip: home icon left (left empty on the contents page), "mechanisms.wiki" centred, menu right. The menu holds `SITE.menu` links; on wide screens it is expanded inline. The light/dark switch is an icon button (moon or sun) beside the menu, always in view. Light is the default and the choice is remembered.
-- The 3D view is pinned under the strip and the text scrolls beneath it. Over the model: readouts top left, camera views top right, reset and play/pause bottom right. Reset is greyed until something has changed.
+- The 3D view is pinned under the strip and the text scrolls beneath it. Over the model: readouts top left (wide screens only; hidden on a phone to keep the model clear), camera views top right, reset and play/pause bottom right. Reset is greyed until something has changed.
 - Text block: "No. N", the name, a grey one-paragraph summary, then "How it works", "In Brown's words" when `text` exists (with Brown's engraving `ref/NNN.png` above his text on a paper backing; tapping it opens it full size), and the note.
 - Phone: one row above the bottom bar holds two drawers, Parts and Controls. An open drawer fills exactly the text area and never covers the model. Part buttons are one sideways-scrolling row, each with a dot in the part's colour; picking one fades the others.
 - Bottom bar: Previous, a round Random button, Next. Arrow keys also move between movements.
