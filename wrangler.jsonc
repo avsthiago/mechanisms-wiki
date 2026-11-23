@@ -6,5 +6,7 @@
   "assets": {
     "directory": ".",
     "not_found_handling": "single-page-application"
-  }
+  },
+  // needed by `npx wrangler preview`, which Cloudflare runs for every branch other than main; empty is enough
+  "previews": {}
 }
