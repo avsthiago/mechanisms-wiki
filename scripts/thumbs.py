@@ -7,6 +7,8 @@ Needs: playwright (see shot.py) and Pillow."""
 import io, pathlib, sys
 from PIL import Image
 from playwright.sync_api import sync_playwright
+from serve import serve
+base = serve()
 root = pathlib.Path(__file__).resolve().parent.parent
 W, H = 480, 360
 nums = [int(x) for x in sys.argv[1:]] or sorted(int(d.name) for d in (root / "movements").iterdir() if d.name.isdigit())
@@ -27,7 +29,7 @@ with sync_playwright() as p:
         pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=2); errs = []
         pg.on("pageerror", lambda e: errs.append(str(e)))
         try:
-            pg.goto((root / "index.html").as_uri() + "?thumb#m" + str(n)); pg.wait_for_selector("#view canvas", timeout=8000)
+            pg.goto(base + "/brown/" + str(n) + "?thumb"); pg.wait_for_selector("#view canvas", timeout=8000)
             pg.add_style_tag(content=CSS); pg.wait_for_timeout(900)
             im = fit(Image.open(io.BytesIO(pg.screenshot(omit_background=True))).convert("RGBA"))
             im.save(root / "thumbs" / f"{n:03d}.webp", quality=82, method=6); print("saved", f"thumbs/{n:03d}.webp")

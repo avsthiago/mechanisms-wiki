@@ -1,6 +1,6 @@
 /* The index from the back of Brown's book. t: the term as printed. of: the heading a sub-entry sits under
    ("screw" of "Clamps" reads "Clamps, screw"). n: movement numbers, in the printed order.
-   It feeds the #index page and the search box on the contents page.
+   It feeds the /brown/index page and the search box on the contents page.
    Typed from a transcription, not yet proofread against the scan. Known doubts: "Hammer, steam, 47" (47 is a clutch;
    probably 470), "Lever, bell-crank or elbow ... 137" (perhaps 157), "valve gear for ... 171, 170" (order).
    Already corrected: Escapements 306 to 308 (transcribed as 36, 37, 38), "boat-detaching" (transcribed "beat"). */

@@ -20,7 +20,7 @@ M507.define({
     "The valve rod hangs from the middle of the lever, so it moves up and down with the lever, but only about half as far. Only the cam that is lined up with the lever matters. The others turn past beside it without touching.",
     "Try Smallest, then Biggest. Watch the cam stack slide, then watch the lever and the rod. A bigger bulge gives a longer stroke."
   ],
-  note: "This model is rebuilt from Brown's drawing. The number of cams, their sizes and the shape of each bulge were made up. The lever's pin post, the guide for the rod, the bearing wall behind the shaft and the base were added to hold it up. Brown draws the lever from the side. Here the lever's end is a small pointed foot, and the lever height is worked out exactly from the edge of the cam under it. The long key along the shaft is drawn to show how the cams slide yet turn with the shaft.",
+  note: "This model is rebuilt from Brown's drawing. The number of cams, their sizes and the shape of each bulge were made up. The lever's pin post, the guide for the rod, the bearing wall behind the shaft and the base were added to hold it up. Brown draws the lever from the side. Here the lever's end is a small pointed foot, and the lever height is worked out exactly from the edge of the cam under it. When a big bulge rises beside the foot, it lifts the lever by its bar. The long key along the shaft is drawn to show how the cams slide yet turn with the shaft.",
 
   G: { B: 45, TH: [10, 20, 30, 40], W: 1.2, PX: 190, PY: 48, L: 190, XR: 96, T: 18 },
 
@@ -70,6 +70,26 @@ M507.define({
     P.at(P.box(360, 12, 130, c.fixed), 70, -136, -25, scene);                  // base x -110..250, y -142..-130, z -90..40
   },
 
+  // Lever angle f below level (foot at PX - L cos f, PY - L sin f): the largest f at which the bar from the pin to the
+  // foot stays 4 clear of the edges of the cams under it, so a bulge beside the foot lifts the bar instead of cutting it.
+  clear: function (under, th, f) {
+    var G = this.G, fx = G.PX - G.L * Math.cos(f), fy = G.PY - G.L * Math.sin(f), dx = G.PX - fx, dy = G.PY - fy, dd = dx * dx + dy * dy, k, j;
+    for (k = 0; k < under.length; k++) for (j = 0; j < 240; j++) {
+      var a = 2 * Math.PI * j / 240, r = this.radius(under[k], a), px = r * Math.cos(a + th), py = r * Math.sin(a + th);
+      var t = Math.max(0, Math.min(1, ((px - fx) * dx + (py - fy) * dy) / dd)), ex = fx + t * dx - px, ey = fy + t * dy - py;
+      if (ex * ex + ey * ey < 16) return false;
+    }
+    return true;
+  },
+  drop: function (under, th) {
+    var lo = -0.6, hi, k;
+    if (!under.length) under = [0];
+    for (hi = lo; hi < 0.8; hi += 0.01) if (!this.clear(under, th, hi)) break;
+    lo = hi - 0.01;
+    for (k = 0; k < 20; k++) { var m = (lo + hi) / 2; if (this.clear(under, th, m)) lo = m; else hi = m; }
+    return lo;
+  },
+
   // local z of the centre of cam i in the stack (smallest in front)
   zl: function (i) { return 27 - 18 * i; },
 
@@ -80,15 +100,10 @@ M507.define({
     var d = goal - o.sz, mv = 70 * dt; o.sz += Math.abs(d) < mv ? d : (d > 0 ? mv : -mv);
     o.stack.position.z = o.sz;
     o.th += S.w * dt; o.rot.rotation.z = o.th;
-    // contact: highest edge among cams whose plate is under the foot (z -4..4)
-    var tx = G.PX - G.L, ky, h = 0, it;
-    for (it = 0; it < 4; it++) {
-      h = 0;
-      for (i = 0; i < 4; i++) { var zc = this.zl(i) + o.sz; if (zc + 8 > -4 && zc - 8 < 4) h = Math.max(h, this.edge(i, tx, o.th)); }
-      if (h === 0) h = G.B * Math.sin(Math.acos(tx / G.B));
-      ky = h + 3;
-      tx = G.PX - Math.sqrt(G.L * G.L - (ky - G.PY) * (ky - G.PY));
-    }
+    // contact: the lowest the lever can hang with its whole bar (radius 4) clear of every cam under it (plates at z -4..4)
+    var under = [];
+    for (i = 0; i < 4; i++) { var zc = this.zl(i) + o.sz; if (zc + 8 > -4 && zc - 8 < 4) under.push(i); }
+    var f = this.drop(under, o.th), tx = G.PX - G.L * Math.cos(f), ky = G.PY - G.L * Math.sin(f);
     o.bar.span(G.PX, G.PY, 0, tx, ky, 0);
     o.foot.position.set(tx, ky, 0);
     o.eyeL.position.set(tx, ky + 11, 0);
@@ -96,7 +111,8 @@ M507.define({
     var yE = G.PY + (ky - G.PY) * (G.PX - G.XR) / (G.PX - tx);
     o.eyeR.position.set(G.XR, yE, 0); o.rodm.position.y = yE;
     var rest = G.PY;
-    S.set("lift", Math.round(ky - 3 - G.B) + " mm");
+    if (o.ky0 === undefined) o.ky0 = G.PY - G.L * Math.sin(this.drop([0], -Math.PI / 2));   // bulge at the bottom: foot on the round part
+    S.set("lift", Math.round(ky - o.ky0) + " mm");
     S.set("rod", Math.round(yE - rest) + " mm");
   }
 });

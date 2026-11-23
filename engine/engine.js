@@ -1,13 +1,28 @@
 /* mechanisms.wiki: page shell and 3D runtime shared by every movement.
-   One page, routed by hash: index.html lists the movements, index.html#m53 shows No. 53, index.html#about the About page.
+   One page, routed by path: / lists the movements, /brown/53 shows No. 53, /brown/index Brown's index, /about the About page.
+   The host serves index.html for every path that is not a file (Cloudflare Pages does; locally use scripts/serve.py).
    A movement file calls M507.define({...}); see CLAUDE.md for the contract. */
 (function () {
   "use strict";
   var M = window.M507 = {}, defs = {}, pending = 0, current = null;
   var THUMB = /[?&]thumb\b/.test(location.search);      // scripts/thumbs.py: draw the model on a see-through background
   var popped = false, homeKey = "", homeY = { key: null, y: 0 };   // so Back returns to the same place in the contents
-  window.addEventListener("popstate", function () { popped = true; });
+  window.addEventListener("popstate", function () { popped = true; route(); });
   function pad(n) { return ("00" + n).slice(-3); }
+  /** Addresses. Brown's movements live under /brown/; another book would get its own prefix. */
+  function mPath(n) { return "/brown/" + n; }
+  var INDEX_PATH = "/brown/index", ABOUT_PATH = "/about";
+  /** Go to a path inside the site without reloading the page. */
+  function go(path, replace) {
+    if (path !== location.pathname + location.search) { try { history[replace ? "replaceState" : "pushState"](null, "", path); } catch (e) { location.href = path; return; } }
+    route();
+  }
+  // links inside the site are handled here, so the page and its 3D library load once
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[href^='/']");
+    if (!a || a.target || ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+    ev.preventDefault(); go(a.getAttribute("href"));
+  });
   function list() { return (window.MOVEMENTS || []).slice().sort(function (a, b) { return a.n - b.n; }); }
   function entry(n) { return list().filter(function (m) { return m.n === n; })[0]; }
   function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
@@ -30,7 +45,7 @@
     try { localStorage.setItem("mw-look", v); } catch (e) { /* not remembered, still applied */ }
   }
   try { if (localStorage.getItem("mw-look") === "dark") setLook("dark"); } catch (e) { /* storage unavailable */ }
-  function topStrip(n, title) {
+  function topStrip(n, title, isHome) {
     var site = window.SITE || { menu: [] };
     var btn = h("button", { "class": "menu-btn", type: "button", "aria-label": "Menu", "aria-expanded": "false", "aria-controls": "site-menu" }, [icon(IC.menu, 24)]);
     var links = site.menu.map(function (m) {
@@ -38,14 +53,15 @@
       var ext = /^https?:/.test(m.href);
       return h("a", { href: m.href, target: ext ? "_blank" : null, rel: ext ? "noopener" : null, text: m.label });
     });
+    // the light/dark switch is an icon only, always in view beside the menu
     var themeBtn = h("button", { "class": "theme-btn", type: "button", id: "theme" });
-    function paintTheme() { var d = look() === "dark"; themeBtn.textContent = ""; themeBtn.appendChild(icon(d ? IC.sun : IC.moon, 20)); themeBtn.appendChild(document.createTextNode(d ? "Light theme" : "Dark theme")); }
+    function paintTheme() { var d = look() === "dark", t = d ? "Light theme" : "Dark theme"; themeBtn.textContent = ""; themeBtn.appendChild(icon(d ? IC.sun : IC.moon, 20)); themeBtn.setAttribute("aria-label", t); themeBtn.title = t; }
     themeBtn.addEventListener("click", function () { setLook(look() === "dark" ? "light" : "dark"); paintTheme(); });
-    paintTheme(); links.push(themeBtn);
+    paintTheme();
     var header = h("header", { "class": "top" }, [
-      h("a", { "class": "tophome", href: "#", "aria-label": "Home: all mechanisms" }, [icon(IC.home, 24)]),
-      h("a", { "class": "brand", href: "#", "aria-label": "mechanisms.wiki, home" }, [h("b", { text: "mechanisms" }), h("span", { text: ".wiki" })]),
-      h("div", { "class": "right" }, [h("nav", { "class": "site-menu", id: "site-menu", "aria-label": "Site" }, links), btn])]);
+      isHome ? h("span") : h("a", { "class": "tophome", href: "/", "aria-label": "Home: all mechanisms" }, [icon(IC.home, 24)]),
+      h("a", { "class": "brand", href: "/", "aria-label": "mechanisms.wiki, home" }, [h("b", { text: "mechanisms" }), h("span", { text: ".wiki" })]),
+      h("div", { "class": "right" }, [h("nav", { "class": "site-menu", id: "site-menu", "aria-label": "Site" }, links), themeBtn, btn])]);
     btn.addEventListener("click", function (ev) { ev.stopPropagation(); var o = header.classList.toggle("open"); btn.setAttribute("aria-expanded", String(o)); });
     return header;
   }
@@ -62,7 +78,7 @@
   function goLink(n, dir) {
     var m = neighbour(n, dir);
     var t = h("span", { "class": "t" }, [h("small", { text: dir < 0 ? "Previous" : "Next" }), h("b", {}, [m ? "No. " + m.n : "None yet", m ? h("span", { "class": "nm", text: m.title }) : null])]);
-    return h("a", { "class": "go " + (dir < 0 ? "prev" : "next"), href: m ? "#m" + m.n : null, "aria-disabled": m ? null : "true", title: m ? m.title : null, "aria-label": m ? (dir < 0 ? "Previous: " : "Next: ") + "No. " + m.n + " " + m.title : null },
+    return h("a", { "class": "go " + (dir < 0 ? "prev" : "next"), href: m ? mPath(m.n) : null, "aria-disabled": m ? null : "true", title: m ? m.title : null, "aria-label": m ? (dir < 0 ? "Previous: " : "Next: ") + "No. " + m.n + " " + m.title : null },
       dir < 0 ? [icon(IC.left, 26), t] : [t, icon(IC.right, 26)]);
   }
 
@@ -71,32 +87,43 @@
     var b = h("button", { "class": "homebtn", id: "random", type: "button", "aria-label": "Show a random mechanism", title: "Random mechanism" }, [icon(IC.shuffle, 30)]);
     b.addEventListener("click", function () {
       var pool = list().filter(function (m) { return m.built && m.n !== n; });
-      if (pool.length) location.hash = "#m" + pool[Math.floor(Math.random() * pool.length)].n;
+      if (pool.length) go(mPath(pool[Math.floor(Math.random() * pool.length)].n));
     });
     return b;
   }
   function teardown() { if (document.querySelector(".home-wrap")) homeY = { key: homeKey, y: window.scrollY }; if (current) { current(); current = null; } app().textContent = ""; window.scrollTo(0, 0); }
 
   function route() {
-    var m = /^#m(\d+)$/.exec(location.hash), n = m ? +m[1] : 0, back = popped;
+    // old addresses (#m53, #index, #about, #q=...) still work: move them to the new path first
+    var old = location.hash, om = /^#m(\d+)$/.exec(old);
+    if (om || old === "#index" || old === "#about" || /^#(q|f)=/.test(old)) {
+      try { history.replaceState(null, "", om ? mPath(+om[1]) : old === "#index" ? INDEX_PATH : old === "#about" ? ABOUT_PATH : "/?" + old.slice(1)); } catch (e) { /* keep the old address */ }
+    }
+    var path = location.pathname.replace(/\/index\.html$/, "/").replace(/(.)\/$/, "$1");
+    var m = /^\/brown\/(\d+)$/.exec(path), n = m ? +m[1] : 0, back = popped;
     popped = false;
     teardown();
-    if (location.hash === "#about") return about();
-    if (location.hash === "#index") return indexPage();
+    if (path === ABOUT_PATH) return about();
+    if (path === INDEX_PATH) return indexPage();
     if (!n) return home(back);
     if (defs[n]) return start(defs[n]);
+    var e0 = entry(n);
+    if (e0 && !e0.built) return notBuilt();
     pending = n;
     var s = document.createElement("script");
-    s.src = "movements/" + pad(n) + "/movement.js";
-    s.onerror = function () {
+    s.src = "/movements/" + pad(n) + "/movement.js";
+    // the host answers a missing file with the contents page, which loads but defines nothing
+    s.onload = function () { if (pending === n) { pending = 0; notBuilt(); } };
+    s.onerror = function () { pending = 0; notBuilt(); };
+    function notBuilt() {
       var e = entry(n) || {};
       app().appendChild(topStrip(n, e.title));
       app().appendChild(h("section", { "class": "sheet" }, [h("h1", {}, [h("span", { "class": "n", text: "No. " + n }), e.title || "Not built yet"]), h("p", { "class": "lede", text: "This movement has no model yet." }), e.text ? h("blockquote", { text: e.text }) : null]));
       app().appendChild(h("nav", { "class": "bar" }, [goLink(n, -1), randBtn(n), goLink(n, 1)]));
-    };
+    }
     document.body.appendChild(s);
   }
-  M.boot = function (first) { window.addEventListener("hashchange", route); if (first && !location.hash) location.hash = "#m" + first; else route(); };
+  M.boot = function (first) { window.addEventListener("hashchange", function () { if (location.hash) route(); });   /* an old #m53 address typed in */ if (first && location.pathname === "/") go(mPath(first), true); else route(); };
   M.define = function (def) { if (!def.number) def.number = pending; defs[def.number] = def; if (pending === def.number) { pending = 0; start(def); } };
 
   function about() {
@@ -108,11 +135,11 @@
   }
 
   /* Contents: a search box, one button per family and a card for every movement.
-     The search and the family live in the address (#q=clutch&f=gears) so Back from a movement returns to them. */
+     The search and the family live in the address (/?q=clutch&f=gears) so Back from a movement returns to them. */
   function home(back) {
     document.title = "mechanisms.wiki";
     var all = list(), site = window.SITE || {}, built = all.filter(function (m) { return m.built; }).length, st = { q: "", f: "" };
-    location.hash.replace(/^#/, "").split("&").forEach(function (kv) {
+    location.search.replace(/^\?/, "").split("&").forEach(function (kv) {
       var p = kv.split("=");
       if (p[0] === "q" || p[0] === "f") { try { st[p[0]] = decodeURIComponent(p[1] || ""); } catch (e) { /* bad address, ignore */ } }
     });
@@ -130,18 +157,24 @@
         });
         return i;
       }
-      pic.appendChild(img("eng", "ref/" + pad(m.n) + ".png"));
-      if (m.built) { pic.classList.add("has-model"); pic.appendChild(img("model", "thumbs/" + pad(m.n) + ".webp")); }
-      var li = h("li", {}, [h("a", { "class": "card" + (m.built ? "" : " todo"), href: "#m" + m.n, "aria-label": "No. " + m.n + ", " + m.title + (m.built ? "" : ", not built yet"), title: m.built ? null : "Not built yet" }, [pic,
+      pic.appendChild(img("eng", "/ref/" + pad(m.n) + ".png"));
+      if (m.built) { pic.classList.add("has-model"); pic.appendChild(img("model", "/thumbs/" + pad(m.n) + ".webp")); }
+      var li = h("li", {}, [h("a", { "class": "card" + (m.built ? "" : " todo"), href: mPath(m.n), "aria-label": "No. " + m.n + ", " + m.title + (m.built ? "" : ", not built yet"), title: m.built ? null : "Not built yet" }, [pic,
         h("span", { "class": "cap" }, [h("b", { text: m.title })])])]);
       return { m: m, li: li, hay: (m.n + " " + m.title + " " + (m.text || "") + " " + (m.summary || "") + " " + (famName[m.family] || "") + (tags[m.n] || "")).toLowerCase() };
     });
-    var input = h("input", { id: "q", type: "search", placeholder: "Search by name, number or kind", "aria-label": "Search the movements", autocomplete: "off" });
+    var input = h("input", { id: "q", type: "search", placeholder: "Search: gear, pump, 53...", "aria-label": "Search the movements", autocomplete: "off" });
     input.value = st.q;
     var form = h("form", { "class": "find", role: "search" }, [icon(IC.search, 20), input]);
+    var surprise = h("button", { "class": "surprise", type: "button", id: "surprise", title: "Open a random movement" }, [icon(IC.shuffle, 22), h("span", { "class": "lbl", text: "Surprise me" })]);
+    surprise.addEventListener("click", function () {   // a random built movement, from the ones the search and family show
+      var pool = cards.filter(function (c) { return !c.li.hidden && c.m.built; });
+      if (!pool.length) pool = cards.filter(function (c) { return c.m.built; });
+      if (pool.length) go(mPath(pool[Math.floor(Math.random() * pool.length)].m.n));
+    });
     var used = (site.families || []).filter(function (f) { return all.some(function (m) { return m.family === f[0]; }); });
     var chips = [["", "All"]].concat(used).map(function (f) {
-      var b = h("button", { type: "button", id: "fam-" + (f[0] || "all"), text: f[1] });
+      var b = h("button", { type: "button", id: "fam-" + (f[0] || "all"), text: f[2] || f[1], title: f[2] && f[2] !== f[1] ? f[1] : null });
       b.addEventListener("click", function () { st.f = f[0]; apply(); });
       return { id: f[0], b: b };
     });
@@ -155,19 +188,19 @@
       chips.forEach(function (c) { c.b.setAttribute("aria-pressed", String(c.id === st.f)); });
       count.textContent = shown ? shown + (shown === 1 ? " movement" : " movements") : "Nothing matches. Try another word, or look in the index.";
       homeKey = [st.q ? "q=" + encodeURIComponent(st.q) : "", st.f ? "f=" + st.f : ""].filter(Boolean).join("&");
-      if (location.hash.replace(/^#/, "") !== homeKey) { try { history.replaceState(null, "", homeKey ? "#" + homeKey : location.pathname + location.search); } catch (e) { /* address not updated, filter still works */ } }
+      if (location.search.replace(/^\?/, "") !== homeKey) { try { history.replaceState(null, "", "/" + (homeKey ? "?" + homeKey : "")); } catch (e) { /* address not updated, filter still works */ } }
     }
     input.addEventListener("input", function () { st.q = input.value; apply(); });
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var q = st.q.trim(), vis = cards.filter(function (c) { return !c.li.hidden; });
-      if (/^\d+$/.test(q) && entry(+q)) location.hash = "#m" + (+q); else if (vis.length === 1) location.hash = "#m" + vis[0].m.n;
+      if (/^\d+$/.test(q) && entry(+q)) go(mPath(+q)); else if (vis.length === 1) go(mPath(vis[0].m.n));
     });
-    app().appendChild(topStrip(0));
+    app().appendChild(topStrip(0, null, true));
     app().appendChild(h("div", { "class": "home-wrap" }, [
-      h("h1", { text: "Mechanical movements you can turn, take apart and operate" }),
-      h("p", { "class": "lede" }, ["Starting with Henry T. Brown's 1868 collection of 507. " + built + " are ready so far. ", h("a", { href: "#index", text: "Browse Brown's index" }), "."]),
-      form,
+      h("h1", { text: "See how machines move" }),
+      h("p", { "class": "lede" }, [all.length + " mechanisms from Henry T. Brown's 1868 book, each one a working model you can spin round, run and change. " + (built < all.length ? built + " are ready so far. " : ""), h("a", { href: INDEX_PATH, text: "Browse Brown's index" }), "."]),
+      h("div", { "class": "findrow" }, [form, surprise]),
       h("div", { "class": "chips fam", role: "group", "aria-label": "Kinds of movement" }, chips.map(function (c) { return c.b; })),
       count,
       h("ul", { "class": "grid" }, cards.map(function (c) { return c.li; }))]));
@@ -189,7 +222,7 @@
       return h("section", {}, [h("h2", { text: L }), h("ul", { "class": "ix" }, by[L].map(function (e) {
         return h("li", { "class": e.of ? "sub" : null }, [h("span", { "class": "term", text: e.t })].concat(e.n.map(function (n) {
           var m = have[n];
-          return h("a", { href: "#m" + n, "class": m && m.built ? null : "todo", title: m ? m.title : "Not built yet", text: String(n) });
+          return h("a", { href: mPath(n), "class": m && m.built ? null : "todo", title: m ? m.title : "Not built yet", text: String(n) });
         })));
       }))]);
     });
@@ -357,7 +390,7 @@
 
     // Brown's engraving, shown with his words; a tap opens it full size in a dialog (Escape or a tap closes it).
     function figure() {
-      var src = "ref/" + ("00" + def.number).slice(-3) + ".png", lab = "Brown's figure " + def.number;
+      var src = "/ref/" + ("00" + def.number).slice(-3) + ".png", lab = "Brown's figure " + def.number;
       var img = h("img", { src: src, alt: "Brown's engraving for No. " + def.number + ", " + def.title, loading: "lazy" });
       var btn = h("button", { type: "button", "class": "fig-open", "aria-label": "Show " + lab + " full size" }, [img]);
       var fig = h("figure", { "class": "fig" }, [btn, h("figcaption", { text: lab })]);
@@ -376,7 +409,7 @@
     function keys(ev) {
       if (/INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) || ev.altKey || ev.ctrlKey || ev.metaKey || document.querySelector("dialog[open]")) return;
       var m = ev.key === "ArrowLeft" ? neighbour(def.number, -1) : ev.key === "ArrowRight" ? neighbour(def.number, 1) : null;
-      if (m) location.hash = "#m" + m.n;
+      if (m) go(mPath(m.n));
     }
     window.addEventListener("keydown", keys);
 

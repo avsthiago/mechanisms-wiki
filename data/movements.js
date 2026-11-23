@@ -1,19 +1,18 @@
 /* Site-wide settings. menu: links in the top-right menu; leave href empty until the link exists. */
 window.SITE = {
   menu: [
-    { label: "Index", href: "#index" },
-    { label: "About", href: "#about" },
+    { label: "About", href: "/about" },
     { label: "GitHub", href: "https://github.com/avsthiago/mechanisms-wiki" }
   ],
-  /* Families for the buttons on the contents page, in display order. A family shows once a movement uses it. */
+  /* Families for the buttons on the contents page, in display order: [id, full name, short button label]. The full name is searched and shown on hover. A family shows once a movement uses it. */
   families: [
-    ["belts", "Belt drives"], ["ropes", "Rope pulleys"], ["gears", "Gears"], ["clutches", "Clutches and joints"],
-    ["cranks", "Cranks and linkages"], ["cams", "Cams"], ["ratchets", "Ratchets and stop motions"],
-    ["screws", "Racks, screws and worms"], ["clocks", "Clocks and escapements"], ["engines", "Steam engines"],
-    ["wheels", "Wind and water wheels"], ["fluids", "Pumps and fluids"], ["tools", "Tools and instruments"], ["misc", "Other movements"]
+    ["belts", "Belt drives", "Belts"], ["ropes", "Rope pulleys", "Ropes"], ["gears", "Gears", "Gears"], ["clutches", "Clutches and joints", "Clutches"],
+    ["cranks", "Cranks and linkages", "Linkages"], ["cams", "Cams", "Cams"], ["ratchets", "Ratchets and stop motions", "Ratchets"],
+    ["screws", "Racks, screws and worms", "Screws"], ["clocks", "Clocks and escapements", "Clocks"], ["engines", "Steam engines", "Engines"],
+    ["wheels", "Wind and water wheels", "Wind and water"], ["fluids", "Pumps and fluids", "Pumps"], ["tools", "Tools and instruments", "Tools"], ["misc", "Other movements", "Other"]
   ],
   about: [
-    "mechanisms.wiki is a growing collection of mechanical movements, built as 3D models you can turn, take apart and operate.",
+    "mechanisms.wiki is a growing collection of mechanical movements, built as working 3D models you can spin round, run and change.",
     "It starts from Henry T. Brown's Five Hundred and Seven Mechanical Movements, first published in 1868 and long in the public domain. The numbers on each page are Brown's.",
     "The models are reconstructions from his engravings and descriptions. Where a support, a proportion or a tooth count had to be invented, the page says so."
   ]

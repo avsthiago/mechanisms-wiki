@@ -1,14 +1,14 @@
 :root{
   /* Quiet white page, always light, so the coloured model is the only loud thing. One readable family.
      Phone: title strip, model, parts strip, reading text; controls drawer and navigation fixed at the bottom. */
-  --paper:#FFFFFF; --ink:#22262B; --soft:#667079; --rule:#E6E8EA; --fill:#F4F5F6; --spot:#2F6FB3;
+  --paper:#FFFFFF; --ink:#22262B; --soft:#667079; --rule:#E6E8EA; --fill:#F4F5F6; --spot:#2F6FB3; --warm:#A86A24;
   --body:"Atkinson Hyperlegible","Helvetica Neue",Arial,sans-serif;
   --top:48px; --bar:72px; --drawer:50px; --stage:44vh;
   --plate:rgba(255,255,255,.9); --edge:#CFD3D7;
   color-scheme:light;
 }
 :root[data-look="dark"]{
-  --paper:#17191C; --ink:#ECEEF0; --soft:#9AA3AB; --rule:#2E3237; --fill:#1F2226; --spot:#7FB2E5;
+  --paper:#17191C; --ink:#ECEEF0; --soft:#9AA3AB; --rule:#2E3237; --fill:#1F2226; --spot:#7FB2E5; --warm:#E0A35E;
   --plate:rgba(32,35,39,.9); --edge:#3D4248;
   color-scheme:dark;
 }
@@ -38,7 +38,7 @@ svg{display:block}
 .site-menu a,.site-menu .off{display:flex;align-items:center;min-height:46px;padding:0 14px;border-radius:8px;text-decoration:none;font-size:16px}
 .site-menu a:hover{background:var(--fill)}
 .site-menu .off{color:var(--soft);opacity:.6}
-.theme-btn{display:flex;align-items:center;gap:10px;min-height:46px;padding:0 14px;border-radius:8px;font-size:16px;text-align:left;border-top:1px solid var(--rule);margin-top:4px;padding-top:4px}
+.theme-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:10px}
 .theme-btn:hover{background:var(--fill)}
 @media (min-width:940px){
   :root{--top:60px}
@@ -47,7 +47,7 @@ svg{display:block}
   .menu-btn{display:none}
   .site-menu{display:flex;position:static;min-width:0;padding:0;border:0;box-shadow:none;gap:4px}
   .site-menu a,.site-menu .off{min-height:36px;padding:0 12px;font-size:15px}
-  .theme-btn{min-height:36px;padding:0 12px;font-size:15px;border-top:0;margin-top:0}
+  .theme-btn{width:40px;height:40px;margin-left:4px}
 }
 
 /* model, pinned while the text scrolls under it */
@@ -116,7 +116,8 @@ input[type=range]{width:100%;margin:0;height:28px;accent-color:var(--ink)}
 #play{position:absolute;right:12px;bottom:12px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--plate);border:1px solid var(--rule);color:var(--ink)}
 #reset{position:absolute;right:66px;bottom:12px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--plate);border:1px solid var(--rule);color:var(--ink)}
 #reset:disabled{opacity:.35;cursor:default}
-.homebtn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--paper)}
+.homebtn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--warm) 35%,var(--paper));background:color-mix(in srgb,var(--warm) 8%,var(--paper));color:var(--warm)}
+.homebtn:hover{background:color-mix(in srgb,var(--warm) 15%,var(--paper))}   /* same brass as Surprise me */
 
 /* wide screens: the model fills the left with the navigation centred under it. The side column opens on a large
    number and the name, the text scrolls on its own, and Parts and Controls are sections docked under the text. */
@@ -185,11 +186,28 @@ input[type=range]{width:100%;margin:0;height:28px;accent-color:var(--ink)}
 /* contents page: search box, family buttons, one card per movement */
 .home-wrap{max-width:1240px;margin:0 auto;padding:28px 16px 60px}
 .home-wrap h1{font-weight:700;font-size:clamp(28px,7vw,44px);line-height:1.1;margin:0 0 12px;max-width:20ch;text-wrap:balance}
-.home-wrap .lede{max-width:52ch;margin:0 0 20px;color:var(--soft)}
-.find{display:flex;align-items:center;gap:10px;max-width:520px;height:48px;padding:0 14px;margin:0 0 14px;border:1px solid var(--edge);border-radius:12px;color:var(--soft)}
+.home-wrap .lede{max-width:60ch;margin:0 0 24px;color:var(--soft)}
+.home-wrap .lede a{font-weight:700;color:var(--ink)}
+@media (min-width:940px){
+  .home-wrap{padding-top:40px}
+  .home-wrap h1{font-size:48px;max-width:none}
+}
+
+.find{display:flex;align-items:center;gap:12px;height:56px;padding:0 18px;margin:0 0 16px;font-size:18px;border:1px solid var(--edge);border-radius:12px;color:var(--soft)}
+.findrow{display:flex;gap:10px;margin:0 0 16px}
+.findrow .find{flex:1;min-width:0;margin:0}
+.surprise{display:flex;align-items:center;gap:8px;height:56px;padding:0 18px;border:1px solid color-mix(in srgb,var(--warm) 35%,transparent);border-radius:12px;background:color-mix(in srgb,var(--warm) 8%,transparent);color:var(--warm);font-size:17px;white-space:nowrap}
+.surprise:hover{background:color-mix(in srgb,var(--warm) 15%,transparent)}
+@media (max-width:520px){.surprise .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.surprise{width:56px;padding:0;justify-content:center}}
 .find:focus-within{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .find input{flex:1;min-width:0;height:100%;border:0;outline:0;background:none;font:inherit;color:var(--ink);-webkit-appearance:none;appearance:none}
-.fam button{padding:7px 14px}
+.fam button{padding:6px 13px;min-height:36px;font-size:14px}
+@media (min-width:940px){.home-wrap .fam{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 2px}}
+@media (min-width:700px){   /* headline, lede and filters centred over the full-width search */
+  .home-wrap h1,.home-wrap .lede{text-align:center;margin-left:auto;margin-right:auto}
+  .home-wrap .fam button:first-child{margin-left:auto}
+  .home-wrap .fam button:last-child{margin-right:auto}
+}
 .count{margin:16px 0 10px;font-size:14px;color:var(--soft)}
 .grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px 12px}
 .grid li[hidden]{display:none}

@@ -19,7 +19,7 @@ better: more faithful to the engraving, more correct in their motion, clearer to
 No build, no dependencies to run the site:
 
 ```sh
-python3 -m http.server 8000     # open http://localhost:8000/index.html#m24
+python3 scripts/serve.py        # open http://localhost:8000/brown/24
 ```
 
 To check a movement and remake its card picture you need Playwright:

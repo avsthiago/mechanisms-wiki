@@ -19,10 +19,10 @@ M507.define({
     "When the edge rises, it lifts the wheel and the lever swings up. When the edge falls, the lever sinks back by its own weight. The rod hangs from the lever, so it rises and falls with it. The two cams point in different directions, so the two rods do not move together.",
     "Turning in one direction at a steady speed gives rods that go up and down, again and again. Try Nearly round, Medium and Long, and watch how far each rod moves."
   ],
-  note: "This model is rebuilt from Brown's drawing. The sizes, the exact oval shapes, the shaft, the pin, the back plate, the guides and the base were made up. The two cams sit side by side on the shaft so that each lever has its own. The levers are held down on the cams only by their weight. Brown draws the rods as if fixed to the levers, but a rod that stays upright cannot be fixed to a lever that swings in an arc, so each rod's pin slides in a slot. The lever heights are worked out exactly from the shapes of the cams. The choice of cam shape was added for comparison.",
+  note: "This model is rebuilt from Brown's drawing. The sizes, the exact oval shapes, the shaft, the pin, the back plate, the guides and the base were made up. The two cams sit side by side on the shaft so that each lever has its own. The levers are held down on the cams only by their weight. Brown draws the rods as if fixed to the levers, but a rod that stays upright cannot be fixed to a lever that swings in an arc, so each rod's pin slides in a slot. The lever heights are worked out exactly from the shapes of the cams. With the long cams, the edge sometimes rises beside the wheel, and then the lever rests on the cam for a moment. The choice of cam shape was added for comparison.",
 
   G: { P0: [-153, 23], SH: [90, -21], RR: 10, XR: [6, 13], ZC: [0, 20], RL: 130, GY: [-35, -55],
-       CAM: [{ a: 70, b: 38, e: 20, psi: Math.PI / 2, L: 262 }, { a: 44, b: 26, e: 12, psi: 0, L: 264 }] },
+       CAM: [{ a: 70, b: 38, e: 20, psi: Math.PI / 2, L: 240 }, { a: 44, b: 26, e: 12, psi: 0, L: 240 }] },
 
   // Edge of cam i (shape factor k) as a closed list of [x, y] in the shaft frame at turn 0.
   poly: function (i, k) {
@@ -46,8 +46,21 @@ M507.define({
     return Math.sqrt(best);
   },
 
-  // Lever angle for lever i with the cam turned by th: the lowest swing at which the wheel just touches the cam, found from above.
+  // Lever angle for lever i with the cam turned by th: the lowest swing at which neither the wheel nor the lever's
+  // underside (6 below its centre line) cuts into the cam. Where the cam rises left of the wheel, the lever rests on it.
   angle: function (i, th, pt, rmax) {
+    return Math.max(this.wheelAngle(i, th, pt, rmax), this.barAngle(i, th, pt));
+  },
+  barAngle: function (i, th, pt) {
+    var G = this.G, L = G.CAM[i].L, cs = Math.cos(th), sn = Math.sin(th), best = -9, j;
+    for (j = 0; j < pt.length; j += 2) {
+      var x = pt[j][0] * cs - pt[j][1] * sn + G.SH[0] - G.P0[0], y = pt[j][0] * sn + pt[j][1] * cs + G.SH[1] - G.P0[1], R = Math.hypot(x, y);
+      if (x > L || R < 7) continue;                                                     // past the lever's end: the wheel's job
+      best = Math.max(best, Math.atan2(y, x) + Math.asin(6 / R));
+    }
+    return best;
+  },
+  wheelAngle: function (i, th, pt, rmax) {
     var G = this.G, L = G.CAM[i].L, r = G.RR, cs = Math.cos(-th), sn = Math.sin(-th), self = this;
     function d(f) {
       var x = G.P0[0] + L * Math.cos(f) - G.SH[0], y = G.P0[1] + L * Math.sin(f) - G.SH[1];

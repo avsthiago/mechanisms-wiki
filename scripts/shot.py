@@ -8,6 +8,7 @@ Writes out/NNN-VIEW.png (model only) and prints the readouts. Exit code 1 if the
 Needs: pip install playwright && playwright install chromium"""
 import argparse, pathlib, shutil, sys, tempfile
 from playwright.sync_api import sync_playwright
+from serve import serve
 root = pathlib.Path(__file__).resolve().parent.parent
 ap = argparse.ArgumentParser()
 ap.add_argument("n"); ap.add_argument("--view"); ap.add_argument("--click", action="append", default=[])
@@ -16,9 +17,9 @@ ap.add_argument("--page", action="store_true", help="capture the whole page at p
 a = ap.parse_args()
 n = a.n
 if n == "_template":   # serve the template as movement 999
-    url = (root / "index.html").as_uri() + "#m999"; tmp = root / "movements" / "999"; shutil.copytree(root / "movements" / "_template", tmp, dirs_exist_ok=True)
+    url = "/brown/999"; tmp = root / "movements" / "999"; shutil.copytree(root / "movements" / "_template", tmp, dirs_exist_ok=True)
 else:
-    tmp = None; url = (root / "index.html").as_uri() + "#m" + str(int(n))
+    tmp = None; url = "/brown/" + str(int(n))
 errs = []
 try:
     with sync_playwright() as p:
@@ -26,7 +27,7 @@ try:
         pg = b.new_page(viewport={"width": 400, "height": 760} if a.page else {"width": a.size + 60, "height": a.size + 400})
         pg.on("pageerror", lambda e: errs.append(str(e)))
         pg.on("console", lambda m: errs.append(m.text) if m.type == "error" and "fonts.g" not in m.text and "ERR_" not in m.text else None)
-        pg.goto(url); pg.wait_for_selector("#view canvas", timeout=8000)
+        pg.goto(serve() + url); pg.wait_for_selector("#view canvas", timeout=8000)
         if a.view: pg.click("#v-" + a.view)
         for c in a.click: pg.evaluate("id => document.getElementById(id).click()", c)   # works on controls inside closed drawers
         pg.wait_for_timeout(int(a.wait * 1000))

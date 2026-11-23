@@ -1,7 +1,7 @@
 <h1 align="center">mechanisms.wiki</h1>
 
 <p align="center">
-  <b>Mechanical movements as 3D models you can turn, take apart and operate.</b><br>
+  <b>See how machines move.</b><br>
   All 507 movements from Henry T. Brown's <i>Five Hundred and Seven Mechanical Movements</i> (1868), rebuilt in the browser.
 </p>
 
@@ -27,34 +27,35 @@ beautiful, but a drawing cannot show motion.
 mechanisms.wiki turns every one of them into a live model:
 
 - **It really moves.** Motion comes from the kinematics (gear ratios, linkage geometry, cam profiles), not from keyframes.
-- **You can take it apart.** Turn it, zoom in, pick a part to see what it does, open or close the casing.
+- **You can look inside.** Spin it round, zoom in, pick out a part to see what it does, open or close the casing.
 - **One control that teaches.** Each model has a slider or a choice that shows the idea: change the bend, add pulleys, raise the pressure.
 - **Plain words.** Every page explains what you see and why, written for a curious 12-year-old. Brown's original text sits beside it.
 - **Honest.** Where a support, a size or a tooth count had to be invented, the page says so.
 
 ## Run it
 
-There is no build step and no server code. Serve the folder with any static server:
+There is no build step and no server code. The pages have real addresses (`/brown/53`), so the server must
+answer any path that is not a file with `index.html`. The included one does:
 
 ```sh
 git clone https://github.com/avsthiago/mechanisms-wiki.git
 cd mechanisms-wiki
-python3 -m http.server 8000
+python3 scripts/serve.py
 ```
 
-Then open <http://localhost:8000>.
+Then open <http://localhost:8000>. On Cloudflare Pages it works as it is: no build command, output folder `/`.
 
 | Address | Page |
 |---|---|
-| `index.html` | Contents: search, families, a card for every movement |
-| `index.html#m53` | One movement (here No. 53) |
-| `index.html#index` | Brown's own index, A to Z |
-| `index.html#about` | About |
+| `/` | Contents: search, families, a card for every movement |
+| `/brown/53` | One movement (here No. 53) |
+| `/brown/index` | Brown's own index, A to Z |
+| `/about` | About |
 
 ## How it is organised
 
 ```
-index.html              the one page; routed by the address hash
+index.html              the one page; routed by the address path
 engine/engine.js        page shell, controls, camera, render loop
 engine/parts.js         shared geometry: gears, racks, cams, pulleys, belts, springs...
 engine/engine.css       all styling
