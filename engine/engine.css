@@ -12,7 +12,7 @@
   --plate:rgba(32,35,39,.9); --edge:#3D4248;
   color-scheme:dark;
 }
-@supports (height:1dvh){:root{--stage:44dvh}}
+@supports (height:1svh){:root{--stage:44svh}}   /* the small viewport height: it stays put while Safari's toolbar shrinks and grows on scroll */
 
 *{box-sizing:border-box}
 html,body{margin:0}
