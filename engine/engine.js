@@ -12,6 +12,17 @@
   /** Addresses. Brown's movements live under /brown/; another book would get its own prefix. */
   function mPath(n) { return "/brown/" + n; }
   var INDEX_PATH = "/brown/index", ABOUT_PATH = "/about";
+  /** The 3D library, the camera controls and the parts library are only needed to show a movement, so the
+      contents page does not wait for them. They download together and run in order; cb runs once they have. */
+  var libsWaiting = null, routeTok = 0;
+  function need3d(cb) {
+    if (window.THREE && window.THREE.OrbitControls && window.M507Parts) return cb();
+    if (libsWaiting) return void libsWaiting.push(cb);
+    libsWaiting = [cb];
+    var files = ["/vendor/three.min.js", "/vendor/OrbitControls.js", "/engine/parts.js"], left = files.length;
+    function done() { if (--left) return; var q = libsWaiting; libsWaiting = null; q.forEach(function (f) { f(); }); }
+    files.forEach(function (f) { var s = document.createElement("script"); s.src = f; s.async = false; s.onload = s.onerror = done; document.head.appendChild(s); });
+  }
   /** Go to a path inside the site without reloading the page. */
   function go(path, replace) {
     if (path !== location.pathname + location.search) { try { history[replace ? "replaceState" : "pushState"](null, "", path); } catch (e) { location.href = path; return; } }
@@ -103,12 +114,15 @@
     var m = /^\/brown\/(\d+)$/.exec(path), n = m ? +m[1] : 0, back = popped;
     popped = false;
     teardown();
+    var tok = ++routeTok;
     if (path === ABOUT_PATH) return about();
     if (path === INDEX_PATH) return indexPage();
     if (!n) return home(back);
-    if (defs[n]) return start(defs[n]);
     var e0 = entry(n);
     if (e0 && !e0.built) return notBuilt();
+    need3d(function () { if (tok === routeTok) movement(); });   // skip if the reader has gone elsewhere meanwhile
+    function movement() {
+    if (defs[n]) return start(defs[n]);
     pending = n;
     var s = document.createElement("script");
     s.src = "/movements/" + pad(n) + "/movement.js";
@@ -122,6 +136,7 @@
       app().appendChild(h("nav", { "class": "bar" }, [goLink(n, -1), randBtn(n), goLink(n, 1)]));
     }
     document.body.appendChild(s);
+    }
   }
   M.boot = function (first) { window.addEventListener("hashchange", function () { if (location.hash) route(); });   /* an old #m53 address typed in */ if (first && location.pathname === "/") go(mPath(first), true); else route(); };
   M.define = function (def) { if (!def.number) def.number = pending; defs[def.number] = def; if (pending === def.number) { pending = 0; start(def); } };
@@ -147,18 +162,28 @@
     var tags = {}, famName = {};
     (window.INDEX || []).forEach(function (e) { e.n.forEach(function (n) { tags[n] = (tags[n] || "") + " " + (e.of ? e.of + " " : "") + e.t; }); });
     (site.families || []).forEach(function (f) { famName[f[0]] = f[1]; });
-    var cards = all.map(function (m) {
+    var hover = window.matchMedia && matchMedia("(hover: hover)").matches;
+    var cards = all.map(function (m, k) {
       var pic = h("span", { "class": "pic", "data-n": String(m.n) }, [h("span", { "class": "no", text: String(m.n) })]);   // the number sits in the picture's top-right corner, clear of the number Brown printed top-left
       function img(cls, src) {
-        var i = h("img", { "class": cls, src: src, alt: "", loading: "lazy", decoding: "async" });
+        var i = h("img", { "class": cls, src: src, alt: "", loading: k < 6 ? "eager" : "lazy", decoding: "async" });
         i.addEventListener("error", function () {   // with one picture missing there is nothing to swap on hover; with none, the big number fills the box
           i.remove(); pic.classList.remove("has-model");
           if (!pic.querySelector("img")) pic.classList.add("bare");
         });
         return i;
       }
-      pic.appendChild(img("eng", "/ref/" + pad(m.n) + ".png"));
-      if (m.built) { pic.classList.add("has-model"); pic.appendChild(img("model", "/thumbs/" + pad(m.n) + ".webp")); }
+      if (!m.built) pic.appendChild(img("eng", "/ref/" + pad(m.n) + ".png"));
+      else {
+        // the engraving only shows on hover, so it is fetched on the first hover; until it arrives the model stays
+        pic.classList.add("has-model"); pic.appendChild(img("model", "/thumbs/" + pad(m.n) + ".webp"));
+        if (hover) pic.addEventListener("mouseenter", function () {
+          if (pic.querySelector(".eng")) return;
+          var e = h("img", { "class": "eng", alt: "", decoding: "async" });
+          e.addEventListener("load", function () { pic.classList.add("eng-ok"); });
+          e.src = "/ref/" + pad(m.n) + ".png"; pic.insertBefore(e, pic.firstChild);
+        });
+      }
       var li = h("li", {}, [h("a", { "class": "card" + (m.built ? "" : " todo"), href: mPath(m.n), "aria-label": "No. " + m.n + ", " + m.title + (m.built ? "" : ", not built yet"), title: m.built ? null : "Not built yet" }, [pic,
         h("span", { "class": "cap" }, [h("b", { text: m.title })])])]);
       return { m: m, li: li, hay: (m.n + " " + m.title + " " + (m.text || "") + " " + (m.summary || "") + " " + (famName[m.family] || "") + (tags[m.n] || "")).toLowerCase() };
@@ -206,6 +231,11 @@
       h("ul", { "class": "grid" }, cards.map(function (c) { return c.li; }))]));
     apply();
     if (back && homeY.key === homeKey) window.scrollTo(0, homeY.y);
+    // fetch the 3D library as soon as the reader shows interest in a card, so the movement opens quickly
+    ["mouseover", "touchstart", "focusin"].forEach(function (t) { app().addEventListener(t, function warm(ev) {
+      if (!ev.target.closest || !ev.target.closest(".card")) return;
+      app().removeEventListener(t, warm); need3d(function () {});
+    }, { passive: true }); });
   }
 
   /* Brown's own index, A to Z. Each number is a link; numbers with no model yet are grey. */

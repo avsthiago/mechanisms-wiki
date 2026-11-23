@@ -6,10 +6,13 @@ in the code should assume the collection stops at 507.
 
 Static site, no build step, one page routed by path: `/` is the contents page, `/brown/53` shows No. 53,
 `/brown/index` Brown's index, `/about` the About page. Brown's movements sit under `/brown/` so another book can
-get its own prefix later. The host must answer every path that is not a file with `index.html` (Cloudflare Pages
-does this when there is no `404.html`, so never add one); locally run `python3 scripts/serve.py`, since opening
+get its own prefix later. The host must answer every path that is not a file with `index.html` (on Cloudflare,
+`wrangler.jsonc` sets `not_found_handling: single-page-application`; list anything that is not the site in `.assetsignore`); locally run `python3 scripts/serve.py`, since opening
 the file directly no longer works. Asset paths in the page are absolute (`/engine/...`, `/movements/...`).
 Old `#m53` addresses are moved to the new path. Links inside the site start with `/` and are handled without a reload.
+For speed, `index.html` loads only the data and `engine.js`. three.js, OrbitControls and `parts.js` are fetched
+when a movement opens (or when the reader first touches a card). On the contents page each card loads only its model
+picture, lazily; Brown's engraving is fetched on first hover. `_headers` sets cache times for `vendor/`, `ref/` and `thumbs/`.
 
 The page design was settled with the owner over many rounds. Do not redesign it. New work is new movements.
 
