@@ -33,6 +33,7 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 - `scripts/clash.py`: runs a movement fast through every control setting and lists moving parts that pass through each other (`--family cams` for a whole family, `--fixed` to include supports).
 - `scripts/thumbs.py`: makes `thumbs/NNN.webp` from the opening view on a see-through background (the engine draws that way when the address has `?thumb`).
 - `docs/ROADMAP.md`: what to build next and in what order.
+- `favicon.svg` (a gear in the driven and driver colours), with `favicon.ico` and `apple-touch-icon.png` rendered from it.
 - `vendor/`: three.js r128 and OrbitControls. Do not upgrade casually; the `examples/js` globals were removed in later versions.
 
 ## Adding a movement
