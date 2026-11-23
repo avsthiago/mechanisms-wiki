@@ -1,0 +1,9 @@
+# Cache rules for Cloudflare (read by wrangler, not served)
+# three.js r128 never changes
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+# pictures change rarely: keep them a day, then refresh in the background
+/ref/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/thumbs/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

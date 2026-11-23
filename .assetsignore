@@ -1,0 +1,19 @@
+# Files in the repository that are not part of the site (see wrangler.jsonc)
+.git
+.github
+.gitignore
+.assetsignore
+.DS_Store
+.venv
+__pycache__
+.wrangler
+node_modules
+wrangler.jsonc
+*.md
+LICENSE
+docs
+scripts
+hiscox
+out
+mechanisms.net
+movements/_template

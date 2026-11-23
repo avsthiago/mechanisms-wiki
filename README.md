@@ -43,7 +43,7 @@ cd mechanisms-wiki
 python3 scripts/serve.py
 ```
 
-Then open <http://localhost:8000>. On Cloudflare Pages it works as it is: no build command, output folder `/`.
+Then open <http://localhost:8000>. The live site runs on Cloudflare Workers: `wrangler.jsonc` serves the folder as static files, and `.assetsignore` keeps everything that is not the site (docs, scripts) out of the upload.
 
 | Address | Page |
 |---|---|

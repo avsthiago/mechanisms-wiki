@@ -1,0 +1,10 @@
+// Cloudflare Workers: serve this folder as a static site. `npx wrangler deploy` reads this file.
+// Any path that is not a file (/brown/53, /about) gets index.html, and the page routes itself.
+{
+  "name": "mechanisms-wiki",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "single-page-application"
+  }
+}
