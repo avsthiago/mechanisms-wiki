@@ -1,4 +1,4 @@
-/* Site-wide settings. menu: links in the top-right menu; leave href empty until the link exists. */
+/* Site-wide settings. about: paragraphs for the About page; a paragraph may be a list of text and {text, href} links. menu: links in the top-right menu; leave href empty until the link exists. */
 window.SITE = {
   menu: [
     { label: "About", href: "/about" },
@@ -14,7 +14,8 @@ window.SITE = {
   about: [
     "mechanisms.wiki is a growing collection of mechanical movements, built as working 3D models you can spin round, run and change.",
     "It starts from Henry T. Brown's Five Hundred and Seven Mechanical Movements, first published in 1868 and long in the public domain. The numbers on each page are Brown's.",
-    "The models are reconstructions from his engravings and descriptions. Where a support, a proportion or a tooth count had to be invented, the page says so."
+    "The models are reconstructions from his engravings and descriptions. Where a support, a proportion or a tooth count had to be invented, the page says so.",
+    ["Questions or ideas? Find me on ", { text: "LinkedIn", href: "https://www.linkedin.com/in/avsthiago" }, "."]
   ]
 };
 
