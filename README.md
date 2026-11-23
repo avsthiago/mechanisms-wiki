@@ -43,7 +43,8 @@ cd mechanisms-wiki
 python3 scripts/serve.py
 ```
 
-Then open <http://localhost:8000>. The live site runs on Cloudflare Workers: `wrangler.jsonc` serves the folder as static files, and `.assetsignore` keeps everything that is not the site (docs, scripts) out of the upload.
+Then open <http://localhost:8000>. Opening `index.html` straight from the folder shows a blank page, because
+the page loads its files from the site root (`/engine/...`). Use the server. The live site runs on Cloudflare Workers: `wrangler.jsonc` serves the folder as static files, and `.assetsignore` keeps everything that is not the site (docs, scripts) out of the upload.
 
 | Address | Page |
 |---|---|
