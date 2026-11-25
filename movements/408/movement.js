@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "d", label: "Pins from the joint", min: 70, max: 115, step: 5, value: 95, unit: " mm", presets: [[70, "Near"], [95, "Medium"], [115, "Far"]] }],
   speed: { min: 2, max: 16, value: 6, label: "Speed", unit: " cycles/min" },
   readouts: [{ id: "a", label: "Blade turned" }, { id: "n", label: "Lines" }, { id: "f", label: "Meeting point" }],
-  views: { "3d": [60, -140, 700], front: [60, 10, 800], side: [700, 10, 330] },
+  views: { "3d": [356, -140, 634], front: [60, 10, 800], side: [700, 10, 330] },
   target: [60, 10, 0],
   distance: [300, 1600],
   how: [

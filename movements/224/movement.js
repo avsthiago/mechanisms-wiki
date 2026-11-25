@@ -13,7 +13,7 @@ M507.define({
   controls: [{ type: "range", id: "turn", label: "Turn the small gear", min: 0, max: 270, step: 5, value: 240, unit: "°",
     presets: [[0, "Smallest"], [135, "Middle"], [270, "Largest"]] }],
   readouts: [{ id: "pin", label: "Small gear" }, { id: "size", label: "Size" }],
-  views: { "3d": [160, 120, 690], front: [0, 0, 730], side: [720, 30, -20] },
+  views: { "3d": [304, 166, 631], front: [0, 0, 730], side: [720, 30, -20] },
   target: [0, 0, -20],
   how: [
     "Turn the small gear and it turns the big slotted gear the other way. The arms cannot turn with the gear, because each one is held in a straight guide. They can only slide in and out.",

@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "load", label: "Water in the bucket", value: "full", options: [["half", "Half full"], ["full", "Full"]] }],
   readouts: [{ id: "pull", label: "Pull needed" }, { id: "lift", label: "Water lifted" }],
-  views: { "3d": [150, 20, 1180], front: [0, -5, 1130], side: [1100, -5, 60] },
+  views: { "3d": [490, 263, 1051], front: [0, -5, 1130], side: [1100, -5, 60] },
   target: [0, -5, 0],
   how: [
     "The rope is one length. When one bucket goes down, the other has to come up by the same distance. The pulley just turns the rope round.",

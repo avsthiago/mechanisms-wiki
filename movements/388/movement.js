@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "t", label: "Board thickness", value: "28", options: [["16", "Thin"], ["28", "Medium"], ["44", "Thick"]] }],
   readouts: [{ id: "bd", label: "Board" }, { id: "lo", label: "Smooth roller" }, { id: "up", label: "Toothed roller" }],
-  views: { "3d": [120, 50, 900], front: [0, 10, 920], side: [920, 10, 0] },
+  views: { "3d": [374, 205, 803], front: [0, 10, 920], side: [920, 10, 0] },
   target: [0, 0, 0],
   distance: [150, 2000],
   how: [

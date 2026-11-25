@@ -10,7 +10,7 @@ M507.define({
   ],
   speed: { min: 10, max: 100, value: 60, label: "Water flow", unit: " %" },
   readouts: [{ id: "w", label: "Wheel" }],
-  views: { "3d": [90, 80, 790], front: [0, 0, 820], side: [820, 40, 150] },
+  views: { "3d": [329, 180, 706], front: [0, 0, 820], side: [820, 40, 150] },
   target: [0, 0, 0],
   how: [
     "The water starts outside and moves toward the middle. The fixed plates of the outer ring send it round the wheel at a slant.",

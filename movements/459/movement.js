@@ -12,7 +12,7 @@ M507.define({
   ],
   speed: { min: 30, max: 150, value: 90, label: "Wind wheel", unit: "rpm" },
   readouts: [{ id: "rpm", label: "Wind wheel" }, { id: "drive", label: "Screw drives" }, { id: "h", label: "Left bucket" }],
-  views: { "3d": [120, -40, 980], front: [0, -85, 980], side: [980, -85, -5] },
+  views: { "3d": [407, 150, 872], front: [0, -85, 980], side: [980, -85, -5] },
   target: [0, -72, 0],
   how: [
     "Look at the screw between the two orange wheels. It leans towards one of them, and its thread pushes that wheel's pegs down. The wheel turns its pulley and winds the rope. One bucket comes up full and the other goes down empty.",

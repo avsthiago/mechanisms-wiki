@@ -13,7 +13,7 @@ M507.define({
   ],
   controls: [{ id: "cl", label: "Pulley", value: "0", options: [["0", "Released"], ["1", "Engaged"]] }],
   readouts: [{ id: "u", label: "Driving shaft" }, { id: "l", label: "Driven shaft" }, { id: "s", label: "Pulley slid" }],
-  views: { "3d": [60, 60, 470], front: [-5, 40, 720], side: [720, 40, 0] },
+  views: { "3d": [191, 147, 419], front: [-5, 40, 720], side: [720, 40, 0] },
   target: [-5, 40, 0],
   distance: [300, 1500],
   how: [

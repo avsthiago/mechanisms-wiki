@@ -11,7 +11,7 @@ M507.define({
   ],
   speed: { min: 10, max: 100, value: 60, label: "Water flow", unit: " %" },
   readouts: [{ id: "w", label: "Wheel" }],
-  views: { "3d": [90, 80, 760], front: [0, 0, 790], side: [850, 40, 150] },
+  views: { "3d": [317, 173, 680], front: [0, 0, 790], side: [850, 40, 150] },
   target: [0, 0, 0],
   how: [
     "Water comes in along the channel at the top and turns clockwise round the wheel. The casing curls in closer and closer, so the water is always right beside the vanes.",

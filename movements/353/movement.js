@@ -13,7 +13,7 @@ M507.define({
   controls: [{ id: "n", label: "Wipers on the wheel", value: "4", options: [["2", "2 wipers"], ["4", "4 wipers"], ["6", "6 wipers"]] }],
   speed: { min: 1, max: 30, value: 8, label: "Speed", unit: " rpm" },
   readouts: [{ id: "h", label: "Head raised" }, { id: "b", label: "Blows" }],
-  views: { "3d": [150, 0, 640], front: [10, -60, 680], side: [700, -60, 0] },
+  views: { "3d": [281, 88, 581], front: [10, -60, 680], side: [700, -60, 0] },
   target: [10, -60, 0],
   distance: [260, 1400],
   how: [

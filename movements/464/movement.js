@@ -13,7 +13,7 @@ M507.define({
   speed: { min: 0, max: 30, value: 10, label: "Pouring", unit: " cups/min" },
   closed: { label: "Vessels" },
   readouts: [{ id: "p", label: "Air pressure" }, { id: "j", label: "Jet height" }, { id: "m", label: "Middle bowl" }],
-  views: { "3d": [170, 275, 1000], front: [0, 270, 960], side: [960, 270, 40] },
+  views: { "3d": [418, 493, 896], front: [0, 270, 960], side: [960, 270, 40] },
   target: [0, 265, 0],
   how: [
     "Water poured into the upper vessel runs down the wide pipe into the lower vessel. The water rises there and squeezes the air above it. That air cannot escape. It goes up the thin pipe into the middle bowl.",

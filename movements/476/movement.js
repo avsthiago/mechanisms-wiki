@@ -12,7 +12,7 @@ M507.define({
   speed: false,
   readouts: [{ id: "q", label: "Flow" }, { id: "v", label: "Lifted" }],
   closed: { label: "Pipes" },
-  views: { "3d": [150, 70, 560], front: [8, 20, 600], side: [600, 20, 0] },
+  views: { "3d": [247, 150, 512], front: [8, 20, 600], side: [600, 20, 0] },
   target: [8, 20, 0],
   how: [
     "Steam comes down the thin pipe on the right, runs across inside one leg, and turns up at the fork. It shoots out of the narrow end straight up the discharge pipe. Water rises up both legs, meets at the fork and goes up too.",

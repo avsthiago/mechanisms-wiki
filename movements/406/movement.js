@@ -13,7 +13,7 @@ M507.define({
   controls: [{ id: "f", label: "Pin to straight edge", value: "40", options: [["25", "Near"], ["40", "Middle"], ["60", "Far"]] }],
   speed: { min: 1, max: 10, value: 3, label: "Speed", unit: " rounds/min" },
   readouts: [{ id: "p", label: "To pin" }, { id: "e", label: "To edge" }],
-  views: { "3d": [0, -330, 1000], front: [0, -120, 950], side: [900, -220, 300] },
+  views: { "3d": [423, -330, 906], front: [0, -120, 950], side: [900, -220, 300] },
   target: [0, -120, 0],
   distance: [300, 1600],
   how: [

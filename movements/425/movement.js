@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "steam", label: "Steam enters by", value: "right", options: [["left", "Left pipe"], ["right", "Right pipe"]] }],
   closed: { label: "Cylinder" },
   readouts: [{ id: "rpm", label: "Shaft" }, { id: "lift", label: "Plate lifted" }],
-  views: { "3d": [145, 120, 590], front: [0, 26, 620], side: [640, 26, 0] },
+  views: { "3d": [252, 178, 541], front: [0, 26, 620], side: [640, 26, 0] },
   target: [0, 40, 0],
   how: [
     "Look at the orange piston. The shaft does not go through its middle, so the piston swings round off-centre. It always touches the cylinder wall at one place, and that place travels round the wall.",

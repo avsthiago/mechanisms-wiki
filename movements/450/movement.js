@@ -12,7 +12,7 @@ M507.define({
   closed: { label: "Pump" },
   speed: { min: 4, max: 40, value: 16, label: "Strokes", unit: " a min" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Stroke" }],
-  views: { "3d": [110, 60, 640], front: [12, 45, 660], side: [660, 45, 0] },
+  views: { "3d": [279, 191, 572], front: [12, 45, 660], side: [660, 45, 0] },
   target: [12, 45, 0],
   how: [
     "Watch the piston rise. It leaves an empty space below it, and water from the well pushes up through the flap in the floor to fill it. The lid under the dome stays shut, so nothing comes back down the outlet pipe.",

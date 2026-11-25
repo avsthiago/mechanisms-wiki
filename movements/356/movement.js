@@ -12,7 +12,7 @@ M507.define({
   speed: { min: 2, max: 20, value: 8, label: "Stand speed", unit: " rpm" },
   controls: [{ id: "spin", label: "Ball", value: "on", options: [["on", "Spinning"], ["off", "Stopped"]] }],
   readouts: [{ id: "s", label: "Stand turned" }, { id: "a", label: "Axle turned" }],
-  views: { "3d": [150, 140, 740], front: [0, 0, 940], top: [0, 940, 1] },
+  views: { "3d": [319, 144, 683], front: [0, 0, 940], top: [0, 940, 1] },
   target: [0, -30, 0],
   how: [
     "Watch the red tip of the axle while the stand turns and tips under it. The stand and the outer ring go round. The tip does not follow. It keeps pointing at the same spot in the room.",

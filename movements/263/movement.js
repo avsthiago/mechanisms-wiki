@@ -14,11 +14,11 @@
         "The cone is also fixed off centre, so it wobbles. Each turn the roller rises and falls, and its speed goes up and down. Watch the Roller reading change through each turn while it slowly drops. Try Centred to stop the wobble, then More to make it bigger."
       ],
       note: "This model is rebuilt from Brown's drawing. The fork, the rod, the spring and the post and arm that hold them were made up; Brown only says a spring or weight presses the roller down. Brown says the roller also changes direction. With the cone only a little off centre, as he draws it, the roller never turns backwards; what goes back and forth is the roller itself, rising and falling, with each fall longer than each rise. When the roller nears the small end, the model starts the run again.",
-      views: { "3d": [-20, 45, 700], front: [-640, 55, 0], side: [-480, 230, 520] },
+      views: { "3d": [268, 202, 618], front: [-640, 55, 0], side: [-480, 230, 520] },
       viewLabels: { "3d": "Side", front: "End", side: "3D" },
       target: [-20, 45, 0], distance: [250, 1800]
     }));
   }
   if (window.M507EccCone) go();
-  else { var s = document.createElement("script"); s.src = "movements/262/movement.js"; s.onload = go; document.body.appendChild(s); }
+  else { var s = document.createElement("script"); s.src = "/movements/262/movement.js"; s.onload = go; document.body.appendChild(s); }
 })();

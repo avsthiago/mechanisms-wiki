@@ -153,7 +153,7 @@
     speed: { min: 2, max: 30, value: 12, label: "Wheel speed", unit: " rpm" },
     closed: { label: "Cylinder" },
     readouts: [{ id: "drive", label: "Driving" }, { id: "v", label: "Piston" }],
-    views: { "3d": [269, -35, 1509], front: [0, 10, 920], side: [920, 10, 0] },
+    views: { "3d": [634, 227, 1355], front: [0, 10, 920], side: [920, 10, 0] },
     target: [0, -119, -5],
     how: [
       "Look at the wheel first. Its left side moves down and its right side moves up. So a rack on the right can push it round while rising, and a rack on the left can push it round while falling. That is what the two racks do, taking turns.",

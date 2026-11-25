@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Pump" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Pushing" }],
-  views: { "3d": [160, 70, 780], front: [0, 50, 700], side: [700, 50, 0] },
+  views: { "3d": [328, 204, 704], front: [0, 50, 700], side: [700, 50, 0] },
   target: [0, 25, 0],
   how: [
     "Watch the left bellows open. The flap under it lifts and water rushes up from the suction pipe to fill the space. Meanwhile the right bellows is squeezed. Its water cannot go back down, because its bottom flap is shut, so it pushes open a flap into the middle pipe.",

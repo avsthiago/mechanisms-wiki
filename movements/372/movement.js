@@ -13,7 +13,7 @@ M507.define({
   ],
   controls: [{ id: "load", label: "Brake weight", value: "mid", options: [["low", "Light"], ["mid", "Medium"], ["high", "Heavy"]] }],
   readouts: [{ id: "rpm", label: "Shaft" }, { id: "w", label: "Weight on hoop" }, { id: "p", label: "Power" }],
-  views: { "3d": [170, 140, 990], front: [0, -30, 1020], side: [980, 50, 160] },
+  views: { "3d": [420, 199, 900], front: [0, -30, 1020], side: [980, 50, 160] },
   target: [0, -30, 0],
   how: [
     "Turn the crank and the shaft turns the left bevel gear. That gear turns the top and bottom gears, and they turn the right gear the opposite way. The right gear drives the drum, and the brake on the drum stands for the machine being tested.",

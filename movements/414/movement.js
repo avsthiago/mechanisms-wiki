@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [],
   readouts: [{ id: "p", label: "Pinion" }, { id: "a", label: "Plate" }],
-  views: { "3d": [110, 60, 660], front: [0, 0, 800], side: [800, 0, 60] },
+  views: { "3d": [277, 146, 594], front: [0, 0, 800], side: [800, 0, 60] },
   target: [0, -5, 0],
   how: [
     "The shaft turns at one steady speed, and so does the small gear on it, called a pinion. Its teeth push the teeth of the spiral sideways, so the plate turns. As it turns, the spiral under the shaft moves in or out, and the pinion slides along the shaft to stay on it.",

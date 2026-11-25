@@ -13,7 +13,7 @@ M507.define({
   speed: false,
   readouts: [{ id: "q", label: "Flow" }, { id: "v", label: "Lifted" }],
   closed: { label: "Pipes" },
-  views: { "3d": [150, 70, 560], front: [15, 15, 600], side: [600, 15, 0] },
+  views: { "3d": [253, 145, 511], front: [15, 15, 600], side: [600, 15, 0] },
   target: [15, 15, 0],
   how: [
     "Steam rushes out of the narrow end of the bent pipe and shoots straight up the discharge pipe. At first the chamber is full of air. Watch the water climb up the suction pipe until it fills the chamber.",

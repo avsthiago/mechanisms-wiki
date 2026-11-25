@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "arm", label: "Crank arm", value: "mid", options: [["short", "Short"], ["mid", "Medium"], ["long", "Long"]] }],
   readouts: [{ id: "h", label: "Rod end height" }, { id: "s", label: "Rod sliding" }],
-  views: { "3d": [-60, 120, 780], front: [-200, 0, 750], side: [800, 10, 0] },
+  views: { "3d": [102, 186, 712], front: [-200, 0, 750], side: [800, 10, 0] },
   target: [-230, 5, 0],
   distance: [400, 2200],
   how: [

@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "k", label: "Spring strength", min: 0, max: 10, step: 1, value: 5, unit: "", presets: [[1, "Weak"], [5, "As drawn"], [10, "Strong"]] }],
   speed: false,
   readouts: [{ id: "foot", label: "Foot" }, { id: "rpm", label: "Wheel" }, { id: "dc", label: "From dead spot" }],
-  views: { "3d": [60, -10, 900], front: [-30, -40, 920], side: [900, -40, -30] },
+  views: { "3d": [343, 164, 799], front: [-30, -40, 920], side: [900, -40, -30] },
   target: [-30, -40, 0],
   how: [
     "The foot presses the treadle for a few turns, then rests. Watch where the crank stops each time. The foot can only push down, so it drives the wheel for half of each turn. The heavy wheel carries it through the other half.",

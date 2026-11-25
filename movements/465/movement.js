@@ -12,7 +12,7 @@ M507.define({
   ],
   closed: { label: "Pumps" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Lifting" }],
-  views: { "3d": [150, 160, 780], front: [0, 115, 800], side: [800, 115, 0] },
+  views: { "3d": [328, 289, 703], front: [0, 115, 800], side: [800, 115, 0] },
   target: [0, 110, 0],
   how: [
     "Watch the person lean to the left. The left end of the beam goes down and the right end comes up. The right rod lifts its piston, and the water above that piston pours out of the spout.",

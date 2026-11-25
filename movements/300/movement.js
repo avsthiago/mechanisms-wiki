@@ -161,7 +161,7 @@
       "The balance wheel and its spring set the pace. Heavy weights make the balance slow to turn, so the beats come further apart. Try Light, then Heavy, and count the beats."
     ],
     note: "This model is rebuilt from Brown's two drawings and his description. Brown shows the wheels, the shaft and the half disc. The balance wheel, the balance spring and its post, the posts, the base, the slope on the half disc and all the sizes were made up. The weight that turns the wheels is left out. Rubbing between a resting tooth and the disc is left out, and the rubbing that keeps the swing steady is a simple guess.",
-    views: { "3d": [110, 70, 640], front: [0, 50, 660], side: [660, 50, 0] },
+    views: { "3d": [268, 196, 574], front: [0, 50, 660], side: [660, 50, 0] },
     target: [0, 50, 0]
   }));
 })();

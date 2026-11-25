@@ -25,7 +25,7 @@
     ],
     controls: [{ id: "dir", label: "Rim turns", value: "against", options: [["against", "Against the arrow"], ["with", "With the arrow"]] }],
     readouts: [{ id: "rim", label: "Rim" }, { id: "shaft", label: "Shaft" }, { id: "arms", label: "Arms" }],
-    views: { "3d": [0, -8, 500], side: [520, -8, -40], top: [300, 200, 380] },
+    views: { "3d": [214, 109, 439], side: [520, -8, -40], top: [300, 200, 380] },
     viewLabels: { "3d": "Front", side: "Side", top: "3D" },
     target: [0, -8, -20], distance: [250, 1600],
     how: [

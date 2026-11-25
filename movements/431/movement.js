@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "flow", label: "Water flow", value: "high", options: [["low", "Low"], ["high", "High"]] }],
   speed: false,
   readouts: [{ id: "rpm", label: "Wheel" }, { id: "gate", label: "Gate" }],
-  views: { "3d": [30, 30, 470], front: [0, -5, 470], side: [470, 0, 30] },
+  views: { "3d": [185, 96, 418], front: [0, -5, 470], side: [470, 0, 30] },
   target: [-10, -10, 0],
   how: [
     "On the left, a deep pool is held back by a gate. Water squeezes out under the gate and runs fast down the stream. The floats at the bottom of the wheel dip into it.",

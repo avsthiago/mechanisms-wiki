@@ -51,7 +51,7 @@
     controls: [{ type: "range", id: "q", label: "Water in the river", min: 50, max: 600, step: 10, value: 100, unit: "", presets: [[100, "Ordinary"], [450, "Flood"]] }],
     speed: { min: 1, max: 8, value: 4, label: "Time speed", unit: "×" },
     readouts: [{ id: "h", label: "Water" }, { id: "g", label: "Tilt" }, { id: "m", label: "Mud" }],
-    views: { "3d": [90, 170, 640], front: [10, 120, 650], side: [640, 150, 40] },
+    views: { "3d": [289, 272, 567], front: [10, 120, 650], side: [640, 150, 40] },
     target: [10, 120, -30],
     distance: [250, 1600],
     how: [

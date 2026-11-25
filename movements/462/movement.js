@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Pipe" },
   readouts: [{ id: "rpm", label: "Wheel" }, { id: "v", label: "Chain" }],
-  views: { "3d": [60, 30, 800], front: [-58, -6, 820], side: [820, -6, 0] },
+  views: { "3d": [275, 176, 715], front: [-58, -6, 820], side: [820, -6, 0] },
   target: [-58, -6, 0],
   how: [
     "Look at the chain. It is one endless loop that runs over a wheel at the top and a wheel at the bottom. Round discs are fixed on it, all the same distance apart. The left side goes up through the green pipe.",

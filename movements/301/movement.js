@@ -26,5 +26,5 @@
     }));
   }
   if (window.M507TwoWheel) go();
-  else { var s = document.createElement("script"); s.src = "movements/300/movement.js"; s.onload = go; document.body.appendChild(s); }
+  else { var s = document.createElement("script"); s.src = "/movements/300/movement.js"; s.onload = go; document.body.appendChild(s); }
 })();

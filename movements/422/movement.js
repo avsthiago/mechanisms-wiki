@@ -13,7 +13,7 @@ M507.define({
   ],
   closed: { label: "Cylinder" },
   readouts: [{ id: "sw", label: "Piston" }, { id: "st", label: "Steam on" }],
-  views: { "3d": [150, 140, 480], front: [25, 72, 520], side: [520, 72, 25] },
+  views: { "3d": [231, 185, 442], front: [25, 72, 520], side: [520, 72, 25] },
   target: [25, 72, 0],
   how: [
     "Watch the blade inside the cylinder. It swings from one side to the other, like a door that never opens all the way. The arm on its shaft swings up and down and turns the crank through the rod.",

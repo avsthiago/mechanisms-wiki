@@ -15,7 +15,7 @@ M507.define({
   controls: [{ id: "pull", label: "Pull the rope", value: "full", options: [["full", "All the way"], ["part", "A little"]] }],
   speed: { min: 1, max: 12, value: 4, label: "Speed", unit: " cycles a min" },
   readouts: [{ id: "lever", label: "Lever" }, { id: "boat", label: "Boat" }],
-  views: { "3d": [110, 40, 470], front: [0, 0, 480], side: [480, 0, 10] },
+  views: { "3d": [199, 109, 428], front: [0, 0, 480], side: [480, 0, 10] },
   target: [0, 0, 0],
   distance: [120, 1800],
   how: [

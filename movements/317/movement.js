@@ -30,7 +30,7 @@
     controls: [{ id: "temp", label: "Temperature", value: "20", options: [["5", "5 °C"], ["20", "20 °C"], ["35", "35 °C"]] }],
     speed: false,
     readouts: [{ id: "rod", label: "Rod longer" }, { id: "w", label: "Weights up" }, { id: "plain", label: "Plain bob" }],
-    views: { "3d": [170, -50, 640], front: [0, -110, 1150], side: [1150, -110, 0] },
+    views: { "3d": [274, 40, 587], front: [0, -110, 1150], side: [1150, -110, 0] },
     target: [0, -110, 0],
     how: [
       "Change the temperature and watch the bar. When it is warm, the rod gets longer and the bob drops. At the same time the bar curls up at its ends and lifts the two small weights. The red line stays level with the dark line on the board.",

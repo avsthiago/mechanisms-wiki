@@ -260,7 +260,7 @@
       "Watch the Now reading and the stud in the groove together. Back, Forward and Resting each belong to one stretch of the heart. Then pick the cam and watch the raised piece pass under the catch's pin."
     ],
     note: "This model is rebuilt from Brown's drawing and description. Brown shows the cam and the lever on two separate drawings, so how they sit together was made up. The cam is placed behind the lever, with its centre below and to the right of the roller. Brown puts the lifting projection on the back of the cam's wheel; here it is a raised piece on the front face, shaped so the catch lifts and falls at the right moments. The pin it strikes, the spring on the catch, the roller, the shafts and the stands were made up. Brown says the roller goes back a third of a turn and forward two thirds. With as many notches as his drawing shows, the lever cannot swing that far, so here it goes back one notch and forward two, which keeps his one to two share.",
-    views: { "3d": [150, 15, 560], front: [65, -32, 400], side: [600, 0, 40] },
+    views: { "3d": [290, 100, 503], front: [65, -32, 400], side: [600, 0, 40] },
     target: [55, -28, 0], distance: [250, 1800],
     start: function (K) { return ((K.thE + 90 * D) / D % 360 + 360) % 360; }        // heart upright, its point at the top, as drawn
   }));

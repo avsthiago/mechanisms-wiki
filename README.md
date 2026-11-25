@@ -44,7 +44,7 @@ python3 scripts/serve.py
 ```
 
 Then open <http://localhost:8000>. Opening `index.html` straight from the folder shows a blank page, because
-the page loads its files from the site root (`/engine/...`). Use the server. The live site runs on Cloudflare Workers: `wrangler.jsonc` serves the folder as static files, and `.assetsignore` keeps everything that is not the site (docs, scripts) out of the upload.
+the page loads its files from the site root (`/engine/...`). Use the server. Each page also has its own file (`brown/53.html`, written by `scripts/pages.py`) so search engines and link previews get its title, description and text without running the page. The live site runs on Cloudflare Workers: `wrangler.jsonc` serves the folder as static files, and `.assetsignore` keeps everything that is not the site (docs, scripts) out of the upload.
 
 | Address | Page |
 |---|---|
@@ -63,6 +63,8 @@ engine/engine.css       all styling
 movements/NNN/          one movement.js per movement; _template/ is a working start
 data/movements.js       titles, families and Brown's text for every movement
 data/index.js           Brown's index
+brown/NNN.html          one page per movement for search engines, written by scripts/pages.py
+og/NNN.jpg              link preview pictures, written by scripts/pages.py --og
 ref/NNN.png             Brown's engravings, cleaned from a scan of the book
 thumbs/NNN.webp         card pictures for the contents page
 scripts/                screenshot check, card pictures, engraving cutter

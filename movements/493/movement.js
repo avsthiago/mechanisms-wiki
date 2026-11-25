@@ -12,7 +12,7 @@ M507.define({
     { key: "shackle", color: "#D9B13B", name: "Shackle and rope", note: "The shackle is tied to the top of the wedge. The rope goes up to the crane. Watch the red mark rise." }
   ],
   readouts: [{ id: "stone", label: "Stone" }, { id: "grip", label: "Grip" }],
-  views: { "3d": [120, 70, 520], front: [0, 20, 540], side: [540, 20, 10] },
+  views: { "3d": [221, 141, 473], front: [0, 20, 540], side: [540, 20, 10] },
   target: [0, 20, 0],
   distance: [150, 2200],
   how: [

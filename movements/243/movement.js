@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "mid", label: "Middle pulley", value: "big", options: [["small", "Small"], ["big", "Big"]] }],
   readouts: [{ id: "mid", label: "Middle" }, { id: "up", label: "Upright shafts" }, { id: "bd", label: "Belt speed" }],
-  views: { "3d": [170, 110, 780], front: [0, 15, 800], top: [0, 820, 30] },
+  views: { "3d": [331, 196, 710], front: [0, 15, 800], top: [0, 820, 30] },
   target: [0, 15, 0],
   how: [
     "Turn the middle pulley and the belt moves with it. It goes round the two small pulleys, out to the tall pulley on the left, straight across to the tall pulley on the right, and back. Both tall shafts turn the same way.",

@@ -13,7 +13,7 @@ M507.define({
   controls: [{ id: "st", label: "Stitch length", value: "long", options: [["long", "Long"], ["short", "Short"]] }],
   speed: { min: 5, max: 60, value: 20, label: "Shaft speed", unit: "rpm" },
   readouts: [{ id: "fed", label: "Cloth fed" }, { id: "st", label: "Stitch length" }],
-  views: { "3d": [30, 45, 650], front: [8, 15, 660], top: [0, 760, 60] },
+  views: { "3d": [276, 161, 575], front: [8, 15, 660], top: [0, 760, 60] },
   target: [8, 15, 0],
   how: [
     "Watch the red tooth. It goes up, forward, down and back, then waits. Those are the four motions. The red line shows its box-shaped path.",

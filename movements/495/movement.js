@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "drive", label: "Turn by hand", value: "shaft", options: [["shaft", "The shaft"], ["drum", "The drum"]] }],
   readouts: [{ id: "s", label: "Shaft" }, { id: "d", label: "Drum" }],
-  views: { "3d": [70, 100, 480], front: [-30, 0, 500], side: [-520, 60, 60] },
+  views: { "3d": [177, 100, 444], front: [-30, 0, 500], side: [-520, 60, 60] },
   target: [-30, -15, 0],
   how: [
     "Turn the hand wheel. The shaft carries the middle gear round in a circle. That gear touches the fixed gear, which cannot turn, so the middle gear has to roll on it and spin on its own pin.",

@@ -14,7 +14,7 @@ M507.define({
   closed: { label: "Pump" },
   speed: { min: 4, max: 40, value: 16, label: "Strokes", unit: " a min" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Stroke" }],
-  views: { "3d": [130, 20, 540], front: [32, -5, 550], side: [550, -5, 30] },
+  views: { "3d": [258, 119, 485], front: [32, -5, 550], side: [550, -5, 30] },
   target: [32, -5, 0],
   how: [
     "Watch the piston as it rises. The lid on top of it is pressed shut, so it lifts all the water above it. Below it, the bottom valve opens and water from the well rushes up to fill the space. When the water above reaches the spout, it pours out.",

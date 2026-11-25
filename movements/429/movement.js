@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "steam", label: "Steam enters at the", value: "top", options: [["top", "Top"], ["bottom", "Bottom"]] }],
   closed: { label: "Casing" },
   readouts: [{ id: "l", label: "Left piston" }, { id: "r", label: "Right piston" }],
-  views: { "3d": [115, 90, 450], front: [0, 0, 480], side: [560, 0, 0] },
+  views: { "3d": [195, 106, 418], front: [0, 0, 480], side: [560, 0, 0] },
   target: [0, 0, 0],
   how: [
     "Look at the two ovals. Each turns on its own shaft, and their teeth lock together in the middle. When one turns clockwise, the other must turn anticlockwise. A long end of one always meets a flat side of the other, so no gap opens between them.",

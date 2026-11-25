@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "size", label: "Inner gear", value: "mid", options: [["small", "Small"], ["mid", "Medium"], ["big", "Big"]] }],
   readouts: [{ id: "in", label: "Pinion" }, { id: "a", label: "Inner gear" }, { id: "c", label: "Ring" }],
-  views: { "3d": [190, 190, 760], front: [0, 0, 820], side: [800, 0, 0] },
+  views: { "3d": [331, 190, 710], front: [0, 0, 820], side: [800, 0, 0] },
   target: [0, 0, 0],
   how: [
     "Turn the crank and the small gear, called a pinion, turns. Its teeth reach the inner gear on one side and the ring on the other. Both start to turn, but in opposite ways. A minus sign in the readout means the other way.",

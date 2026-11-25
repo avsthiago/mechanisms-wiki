@@ -2,22 +2,21 @@ M507.define({
   number: 32,
   title: "Friction wheels",
   lede: "Two plain wheels with no teeth press rim to rim. As one turns, it rubs the other round. They run quietly and smoothly, but they only work if they grip well.",
-  alt: "A small wheel on the left and a bigger wheel on the right, touching at their rims. Each turns on a short shaft sticking out of an upright plate. A crank turns the small wheel, which has a dark rubber band round its rim. A red stripe marks each wheel.",
+  alt: "A small wheel on the left and a bigger wheel on the right, touching at their rims. Each turns on a short shaft sticking out of an upright plate. The small wheel, which drives the other, has a dark rubber band round its rim. A red stripe marks each wheel.",
   parts: [
-    { key: "drive", color: "#5E7387", name: "Driving wheel", note: "Fixed to the crank's shaft. Its rim is covered with a dark band of rubber that grips the other wheel. Watch its red stripe." },
-    { key: "driven", color: "#C8873A", name: "Driven wheel", note: "A plain wheel with no teeth. Only the grip at the rims makes it turn. Watch its red stripe." },
-    { key: "crank", color: "#D9B13B", name: "Crank", note: "The handle that turns the driving wheel. In a real machine an engine or a water wheel would do this." }
+    { key: "drive", color: "#5E7387", name: "Driving wheel", note: "It turns at a steady speed. Its rim is covered with a dark band of rubber that grips the other wheel. Watch its red stripe." },
+    { key: "driven", color: "#C8873A", name: "Driven wheel", note: "A plain wheel with no teeth. Only the grip at the rims makes it turn. Watch its red stripe." }
   ],
   controls: [{ id: "rim", label: "Rims", value: "rubber", options: [["rubber", "Rubber faced"], ["bare", "Bare and smooth"]] }],
   readouts: [{ id: "in", label: "Driving" }, { id: "out", label: "Driven" }],
   views: { "3d": [255, 145, 545], front: [20, 0, 720], side: [720, 0, 0] },
   target: [20, 0, 0],
   how: [
-    "Turn the crank and the small wheel turns with it. Where the rims touch, it rubs the big wheel and drags it round. The two wheels turn opposite ways. A minus sign in the readout means the other way.",
+    "The small wheel is turned at a steady speed. Where the rims touch, it rubs the big wheel and drags it round. The two wheels turn opposite ways. A minus sign in the readout means the other way.",
     "When the rims grip, they move past the meeting point at the same speed. The big wheel has a longer rim, so it turns more slowly. Both red stripes start at the meeting point. After a few turns they meet there again, both at once.",
     "The driven wheel has work to do, so it pushes back. Smooth metal rims cannot grip hard enough, so they slide. That is why one rim is covered with rubber or leather. Try Rubber faced, then Bare and smooth, and watch the red stripes stop meeting."
   ],
-  note: "This model is rebuilt from Brown's drawing. Brown shows only the two wheels. The crank, the plate that holds the shafts and the sizes were made up. How much the bare wheels slip was also made up; a real pair slips more or less depending on how hard the wheels are pressed together and how much work the driven wheel does.",
+  note: "This model is rebuilt from Brown's drawing. Brown shows only the two wheels. The plate that holds the shafts and the sizes were made up. How much the bare wheels slip was also made up; a real pair slips more or less depending on how hard the wheels are pressed together and how much work the driven wheel does.",
 
   build: function (c) {
     var T = c.THREE, P = c.P, scene = c.scene, R1 = 60, R2 = 100, XD = -R1, XB = R2;
@@ -39,8 +38,6 @@ M507.define({
     P.at(P.cylZ(14, 10, c.mat("drive")), 0, 0, 9, o.g1);                      // hub z 4..14, on the web face
     P.at(P.box(R1 - 3 - 10 - 17, 5, 1, c.mat("drive", "mark")), 14 + 1.5 + (R1 - 30) / 2, 0, 5, o.g1);   // stripe x 15.5..45.5, z 4.5..5.5, on the web
     P.at(P.box(8, 5, 1, c.mat("drive", "mark")), 51, 0, 11, o.g1);            // rim mark x 47..55, z 10.5..11.5, clear of the band (r >= 56)
-    P.at(P.box(52, 12, 6, c.mat("crank")), -22, 0, 33, o.g1);                 // arm x -48..4, opposite the stripe, z 30..36, on the shaft end
-    P.at(P.cylZ(5, 24, c.mat("crank")), -44, 0, 48, o.g1);                     // handle z 36..60, on the arm face
     // driven wheel: rim radius 100, touching the band at x = 0 (centres R1 + R2 apart)
     o.g2 = new T.Group(); o.g2.position.set(XB, 0, 0); scene.add(o.g2);
     o.g2.add(wheel(R2, c.mat("driven")));

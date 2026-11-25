@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [],
   readouts: [{ id: "s", label: "Shaft" }, { id: "w", label: "Wheels" }, { id: "n", label: "Shaft turns" }],
-  views: { "3d": [150, 60, 620], front: [0, -20, 640], side: [640, -20, 0] },
+  views: { "3d": [272, 83, 572], front: [0, -20, 640], side: [640, -20, 0] },
   target: [0, -65, -10],
   how: [
     "The shaft does not rub on a bearing. It lies in the dip between two wheels and turns on their rims. As the shaft turns one way, the wheels turn the other way, the way two gears do.",

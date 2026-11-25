@@ -13,7 +13,7 @@ M507.define({
   speed: false,
   closed: { label: "Tube" },
   readouts: [{ id: "rpm", label: "Screw" }, { id: "n", label: "Poured out" }],
-  views: { "3d": [70, 55, 610], front: [-20, 10, 520], side: [540, 30, 0] },
+  views: { "3d": [239, 144, 546], front: [-20, 10, 520], side: [540, 30, 0] },
   target: [-15, 5, 0],
   distance: [250, 1800],
   how: [

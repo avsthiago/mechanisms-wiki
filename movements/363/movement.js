@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "m", label: "Right rider", value: "30", options: [["30", "Same weight"], ["40", "A bit heavier"], ["60", "Twice as heavy"]] }],
   speed: { min: 10, max: 60, value: 30, label: "Pace", unit: " pushes/min" },
   readouts: [{ id: "t", label: "Tilt" }, { id: "n", label: "Swings" }],
-  views: { "3d": [90, 70, 400], front: [0, 70, 420], side: [420, 70, 0] },
+  views: { "3d": [169, 157, 362], front: [0, 70, 420], side: [420, 70, 0] },
   target: [0, 65, 0],
   distance: [260, 1400],
   how: [

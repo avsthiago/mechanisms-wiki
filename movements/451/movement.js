@@ -15,7 +15,7 @@ M507.define({
   closed: { label: "Pump" },
   speed: { min: 4, max: 40, value: 16, label: "Strokes", unit: " a min" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Stroke" }, { id: "p", label: "Air" }],
-  views: { "3d": [95, 70, 580], front: [-12, 55, 600], side: [600, 55, -40] },
+  views: { "3d": [231, 188, 521], front: [-12, 55, 600], side: [600, 55, -40] },
   target: [-12, 55, 0],
   how: [
     "Watch the piston go down. It pushes water along the passage, past the flap and into the dome. The water has nowhere to go fast enough, so it rises in the dome and squeezes the air above it.",

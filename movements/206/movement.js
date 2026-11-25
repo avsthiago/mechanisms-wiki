@@ -62,6 +62,9 @@ M507.define({
     var K = this.K, o = this.o, k = o.k[i], g, lo, hi, Dlo, Dhi, j;
     for (g = 0; g < 12; g++) {
       lo = k * K.st; hi = lo + K.st; Dlo = this.dist(i, P, k, lo); Dhi = this.dist(i, P, k, hi);
+      // already at the foot of the steep face (a pushing pawl sits there to rounding error): say so, or the search below
+      // can land on the far end of the tooth for one frame and the pawl flickers between the two
+      if (Math.abs(Dlo) < 1e-7) { o.k[i] = k; return { push: true, th: o.th, a: lo }; }
       if (Dlo * Dhi <= 0) {
         var a0 = lo, a1 = hi;
         for (j = 0; j < 40; j++) { var mid = (a0 + a1) / 2; if ((this.dist(i, P, k, mid) > 0) === (Dlo > 0)) a0 = mid; else a1 = mid; }
@@ -84,7 +87,9 @@ M507.define({
   },
   noseAt: function (i, psi, P) { var L = this.K.pw[i].L; return [P[0] + L * Math.cos(psi), P[1] + L * Math.sin(psi)]; },
   aim: function (i) {                                                       // direction from pivot to nose at the present state
-    var K = this.K, o = this.o, a = o.res[i].a, rho = K.R - K.d + K.d * (a / K.st - Math.floor(a / K.st + 1e-12)), al = K.m * (a + o.th), P = this.pivot(i, o.phi);
+    // height on the tooth measured from the tooth the solver found (o.k), as in dist(): taking it from a alone wraps from top to root
+    // when a rounds to the next tooth's edge, and the pawl drops for one frame and snaps back (seen as flicker)
+    var K = this.K, o = this.o, a = o.res[i].a, f = Math.min(1, Math.max(0, (a - o.k[i] * K.st) / K.st)), rho = K.R - K.d + K.d * f, al = K.m * (a + o.th), P = this.pivot(i, o.phi);
     return Math.atan2(rho * Math.sin(al) - P[1], rho * Math.cos(al) - P[0]);
   },
   lever: function () {                                                      // crank angle g -> lever angle: the rod has a fixed length

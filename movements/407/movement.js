@@ -13,7 +13,7 @@ M507.define({
   controls: [{ type: "range", id: "w", label: "Width of the arch", min: 160, max: 240, step: 5, value: 215, unit: " mm", presets: [[170, "Narrow"], [215, "Medium"], [240, "Wide"]] }],
   speed: { min: 2, max: 16, value: 6, label: "Speed", unit: " cycles/min" },
   readouts: [{ id: "s", label: "Slide" }, { id: "h", label: "Height" }],
-  views: { "3d": [40, 30, 640], front: [115, 85, 760], side: [650, 90, 230] },
+  views: { "3d": [-157, 30, 584], front: [115, 85, 760], side: [650, 90, 230] },
   target: [115, 85, 0],
   distance: [250, 1400],
   how: [

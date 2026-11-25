@@ -13,7 +13,7 @@ M507.define({
   ],
   controls: [{ id: "g", label: "Block in the link", value: "part", options: [["full", "Full forward"], ["part", "Part way"], ["mid", "Middle"], ["back", "Full back"]] }],
   readouts: [{ id: "t", label: "Valve travel" }, { id: "c", label: "Steam cut off" }, { id: "s", label: "Shaft" }],
-  views: { "3d": [-190, 90, 860], front: [0, 15, 800], side: [800, 15, 0] },
+  views: { "3d": [-364, 214, 781], front: [0, 15, 800], side: [800, 15, 0] },
   target: [0, 15, 0],
   how: [
     "The shaft turns two discs fixed off-centre, called eccentrics. Each one pushes its rod to and fro. The two rods hold the two ends of a curved link, so the link rocks. A block in the slot of the link works a lever, and the lever slides the valve rod.",

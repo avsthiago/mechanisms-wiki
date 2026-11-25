@@ -14,7 +14,7 @@ M507.define({
     presets: [[0, "None"], [21, "Small"], [42, "Big"]], pauseOnInput: false }],
   readouts: [{ id: "x", label: "Slide" }, { id: "s", label: "Stroke" }],
   opacity: function (key) { return 1; },
-  views: { "3d": [-60, 120, 640], front: [-95, 0, 620], side: [800, 40, 0] },
+  views: { "3d": [174, 147, 576], front: [-95, 0, 620], side: [800, 40, 0] },
   target: [-95, 0, 0],
   how: [
     "The crank turns round at a steady speed. A red block rides in the crank slot. The block is also held in a round groove in the fixed plate. The groove is not centred on the shaft.",

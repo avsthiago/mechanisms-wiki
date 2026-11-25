@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Case" },
   readouts: [{ id: "r", label: "Fan" }, { id: "t", label: "Blade tips" }],
-  views: { "3d": [230, 110, 960], front: [45, -5, 990], side: [990, 20, 150] },
+  views: { "3d": [450, 216, 869], front: [45, -5, 990], side: [990, 20, 150] },
   target: [45, -5, 0],
   distance: [380, 2400],
   how: [

@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "bottom", label: "Lower gear", value: "held", options: [["held", "Held still"], ["same", "Same way as the top"], ["other", "Other way"]] }],
   readouts: [{ id: "t", label: "Upper gear" }, { id: "b", label: "Lower gear" }, { id: "a", label: "Arm" }],
   speed: { min: 1, max: 30, value: 8, label: "Upper gear speed", unit: " rpm" },
-  views: { "3d": [80, 60, 470], front: [0, 0, 480], side: [480, 30, 40] },
+  views: { "3d": [198, 100, 425], front: [0, 0, 480], side: [480, 30, 40] },
   target: [0, -8, 0],
   how: [
     "The upper gear turns and the lower gear is held still. The side gear is squeezed between them. It rolls on the still gear and is pushed along by the moving one, so it travels round and takes the arm with it.",

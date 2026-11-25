@@ -11,7 +11,7 @@ M507.define({
   ],
   readouts: [{ id: "sl", label: "Slide" }, { id: "w", label: "Wheel" }],
   speed: { min: 5, max: 40, value: 15, label: "Wheel speed", unit: "rpm" },
-  views: { "3d": [60, 20, 900], front: [0, -110, 900], side: [900, -110, 60] },
+  views: { "3d": [375, 95, 805], front: [0, -110, 900], side: [900, -110, 60] },
   target: [0, -110, 0],
   distance: [300, 2200],
   how: [

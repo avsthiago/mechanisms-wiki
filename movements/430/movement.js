@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "flow", label: "Water flow", value: "high", options: [["low", "Low"], ["high", "High"]] }],
   speed: false,
   readouts: [{ id: "rpm", label: "Wheel" }, { id: "full", label: "Full buckets" }],
-  views: { "3d": [70, 60, 500], front: [0, 15, 500], side: [500, 20, 40] },
+  views: { "3d": [214, 126, 447], front: [0, 15, 500], side: [500, 20, 40] },
   target: [5, 12, 0],
   how: [
     "Water runs along a wooden channel and pours into the buckets at the top of the wheel. The buckets on the right are full, so they are heavy. The buckets on the left are empty, so they are light.",

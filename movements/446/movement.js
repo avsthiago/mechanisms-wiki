@@ -20,5 +20,5 @@
     }));
   }
   if (window.M507Column) go();
-  else { var s = document.createElement("script"); s.src = "movements/445/movement.js"; s.onload = go; document.body.appendChild(s); }
+  else { var s = document.createElement("script"); s.src = "/movements/445/movement.js"; s.onload = go; document.body.appendChild(s); }
 })();

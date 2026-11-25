@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "p", label: "Treadle pressed", min: 0, max: 100, step: 5, value: 0, unit: "%", presets: [[0, "Up"], [50, "Half"], [100, "Down"]] }],
   speed: { min: 1, max: 30, value: 8, label: "Crank speed", unit: " rpm" },
   readouts: [{ id: "c", label: "Crank" }, { id: "d", label: "Drill" }, { id: "p", label: "Drill down" }],
-  views: { "3d": [80, 0, 560], front: [10, -15, 720], side: [740, -15, 10] },
+  views: { "3d": [242, 112, 499], front: [10, -15, 720], side: [740, -15, 10] },
   target: [10, -15, 0],
   distance: [400, 1800],
   how: [

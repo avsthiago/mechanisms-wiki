@@ -12,7 +12,7 @@ M507.define({
     presets: [[1, "A trickle"], [3, "Steady"], [5, "Full"]] }],
   speed: false,
   readouts: [{ id: "q", label: "Water" }, { id: "w", label: "Shaft" }],
-  views: { "3d": [170, 120, 590], front: [40, 0, 520], top: [40, 460, 40] },
+  views: { "3d": [294, 134, 545], front: [40, 0, 520], top: [40, 460, 40] },
   target: [40, -5, 0],
   distance: [200, 1500],
   how: [

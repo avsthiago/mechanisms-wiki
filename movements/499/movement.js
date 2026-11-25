@@ -14,7 +14,7 @@ M507.define({
     presets: [[0, "None"], [5, "Half"], [10, "Full"]] }],
   speed: false,
   readouts: [{ id: "p", label: "Pressure" }, { id: "a", label: "Pointer" }],
-  views: { "3d": [70, 20, 520], front: [0, -15, 540], side: [540, -15, 40] },
+  views: { "3d": [217, 103, 464], front: [0, -15, 540], side: [540, -15, 40] },
   target: [0, -15, 0],
   how: [
     "The tube is flat, not round, and it is bent almost into a ring. It is held firmly at the top, and both of its ends are free. When steam or water is let in, the pressure tries to make the flat tube round. A flat tube that gets rounder also gets straighter, so the ring opens and its ends spread apart.",

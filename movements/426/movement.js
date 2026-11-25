@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "steam", label: "Top steam enters by", value: "right", options: [["left", "Left pipe"], ["right", "Right pipe"]] }],
   closed: { label: "Cylinder" },
   readouts: [{ id: "rpm", label: "Shaft" }, { id: "out", label: "Piston out" }],
-  views: { "3d": [130, 100, 500], front: [0, -8, 530], side: [600, -8, 0] },
+  views: { "3d": [217, 111, 466], front: [0, -8, 530], side: [600, -8, 0] },
   target: [0, -8, 0],
   how: [
     "Look at the two curved rooms, one above the hub and one below. An orange piston stands across each room like a door. Steam comes in behind the piston, shown as dark blue dots, and pushes it along. The pale dots in front of it are used steam on its way out.",

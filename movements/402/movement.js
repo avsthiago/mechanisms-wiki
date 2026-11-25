@@ -83,7 +83,7 @@
     controls: [{ id: "spring", label: "Balance springs", value: "m", options: [["s", "Soft"], ["m", "Medium"], ["h", "Stiff"]] }],
     speed: false,
     readouts: [{ id: "beat", label: "Beats" }, { id: "up", label: "Balance swing" }],
-    views: { "3d": [-20, 190, 800], front: [-163, 118, 830], side: [680, 118, -5] },
+    views: { "3d": [175, 303, 720], front: [-163, 118, 830], side: [680, 118, -5] },
     target: [-163, 118, -5],
     how: [
       "The escape wheel is always trying to turn. One pallet of the anchor sits in the way of a tooth and holds it. As the anchor rocks, that pallet lifts clear. The tooth slides off its sloping end and gives the anchor a small push. Then the other pallet catches the next tooth.",

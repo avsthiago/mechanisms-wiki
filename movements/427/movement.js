@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "steam", label: "Steam enters by", value: "right", options: [["left", "Left pipe"], ["right", "Right pipe"]] }],
   closed: { label: "Cylinder" },
   readouts: [{ id: "rpm", label: "Shaft" }, { id: "out", label: "Piston out" }],
-  views: { "3d": [145, 120, 600], front: [0, 4, 565], side: [620, 4, 0] },
+  views: { "3d": [258, 155, 553], front: [0, 4, 565], side: [620, 4, 0] },
   target: [0, 14, 0],
   how: [
     "Look at the blue hub. Its shaft sits above the centre of the cylinder. So the hub touches the wall at the top, between the two pipes, and leaves a wide gap round the bottom.",

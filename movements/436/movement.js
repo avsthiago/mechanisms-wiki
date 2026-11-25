@@ -11,7 +11,7 @@ M507.define({
   speed: { min: 10, max: 100, value: 60, label: "Water flow", unit: " %" },
   closed: { label: "Tube" },
   readouts: [{ id: "w", label: "Wheel" }],
-  views: { "3d": [150, 240, 1020], front: [110, 215, 1070], side: [1070, 230, 160] },
+  views: { "3d": [521, 445, 902], front: [110, 215, 1070], side: [1070, 230, 160] },
   target: [100, 215, 0],
   how: [
     "Water runs in down the sloping pipe and falls inside the tube. First it goes between the fixed plates. They are curved, so the water comes out going round as well as down.",

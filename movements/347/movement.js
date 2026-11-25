@@ -12,7 +12,7 @@ M507.define({
   speed: { label: "Flywheel", min: 1, max: 30, value: 8 },
   readouts: [{ id: "a", label: "Turned" }],
   closed: { label: "Case" },
-  views: { "3d": [60, 160, 1080], front: [-120, -40, 1150], side: [1100, -40, 0] },
+  views: { "3d": [338, 210, 983], front: [-120, -40, 1150], side: [1100, -40, 0] },
   target: [-120, -40, 0],
   how: [
     "The disc always leans over. One edge rests against the left cone and the opposite edge against the right cone. These two lines of touching cut the inside into spaces, and steam goes into them by turns.",

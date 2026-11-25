@@ -13,7 +13,7 @@ M507.define({
   controls: [{ type: "range", id: "swing", label: "Swing size", min: 10, max: 32, step: 1, value: 26, unit: "°", presets: [[14, "Too small"], [26, "Enough"], [32, "Big"]] }],
   speed: { min: 4, max: 12, value: 8, label: "Swings", unit: " a min" },
   readouts: [{ id: "tilt", label: "Tilt" }, { id: "out", label: "Water lifted" }],
-  views: { "3d": [70, 60, 1080], front: [-25, 10, 1090], side: [1050, 40, 260] },
+  views: { "3d": [422, 254, 958], front: [-25, 10, 1090], side: [1050, 40, 260] },
   target: [-25, 10, 0],
   how: [
     "The pipes make two zigzag paths that climb from the pool to the top. When the frame hangs still, every pipe slopes uphill, so the water inside stays where it is.",

@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ type: "range", id: "bend", label: "How far the end is bent", min: 4, max: 15, step: 1, value: 15, unit: "°", presets: [[5, "A little"], [10, "More"], [15, "As drawn"]] }],
   readouts: [{ id: "x", label: "Slide" }, { id: "st", label: "Stroke" }],
-  views: { "3d": [110, 70, 780], front: [-40, 10, 800], side: [780, 20, 60] },
+  views: { "3d": [288, 189, 703], front: [-40, 10, 800], side: [780, 20, 60] },
   target: [-40, 10, 0],
   how: [
     "Turn the handle and watch the bent end of the shaft. It points down and to the left, then round to the front, then up, then to the back. The sleeve on it goes round with it, but it does not spin with the shaft.",

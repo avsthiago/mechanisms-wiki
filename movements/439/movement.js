@@ -14,7 +14,7 @@ M507.define({
     presets: [[1, "A trickle"], [2, "Steady"], [5, "A flood"]] }],
   speed: false,
   readouts: [{ id: "w", label: "Water" }, { id: "v", label: "Valve" }, { id: "n", label: "Trips" }],
-  views: { "3d": [80, -120, 610], front: [30, -125, 680], side: [660, -125, 40] },
+  views: { "3d": [282, 13, 541], front: [30, -125, 680], side: [660, -125, 40] },
   target: [30, -125, 0],
   distance: [260, 1600],
   how: [

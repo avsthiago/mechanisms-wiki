@@ -12,7 +12,7 @@ M507.define({
   ],
   controls: [{ type: "range", id: "a", label: "Crank pin distance from the centre", min: 8, max: 30, step: 1, value: 30, unit: " mm", presets: [[10, "Short"], [20, "Medium"], [30, "As drawn"]] }],
   readouts: [{ id: "big", label: "Big wheel" }, { id: "rock", label: "Cradle" }],
-  views: { "3d": [130, 100, 920], front: [0, 45, 940], side: [920, 45, 40] },
+  views: { "3d": [383, 254, 822], front: [0, 45, 940], side: [920, 45, 40] },
   target: [0, 45, 0],
   how: [
     "Watch the small wheel at the bottom. It turns all the way round. The rod joins its crank pin to the big wheel, but the big wheel cannot follow it round. It swings one way, then back, once for each turn of the small wheel.",

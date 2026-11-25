@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ type: "range", id: "stroke", label: "Length of stroke", min: 20, max: 60, step: 1, value: 52, unit: " mm", presets: [[20, "Short"], [36, "Medium"], [52, "Long"]] }],
   readouts: [{ id: "h", label: "Blade" }, { id: "n", label: "Cuts" }],
-  views: { "3d": [115, 165, 652], front: [30, 120, 640], side: [650, 120, 40] },
+  views: { "3d": [298, 256, 583], front: [30, 120, 640], side: [650, 120, 40] },
   target: [25, 107, -2],
   how: [
     "The wheel turns. The crank pin goes round in a circle, and the rod pushes and pulls the bottom of the blade. The blade is held in guides, so it can only move straight up and down.",

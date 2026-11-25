@@ -14,7 +14,7 @@ M507.define({
   controls: [{ type: "range", id: "lift", label: "Lift before the steam is let out", min: 30, max: 85, step: 5, value: 55, unit: " cm",
     presets: [[30, "Light tap"], [55, "Middle"], [85, "Full blow"]] }],
   readouts: [{ id: "st", label: "Steam" }, { id: "bl", label: "Last blow" }, { id: "wk", label: "Iron" }],
-  views: { "3d": [200, 60, 1040], front: [0, 15, 1080], side: [1080, 15, 0] },
+  views: { "3d": [436, 253, 936], front: [0, 15, 1080], side: [1080, 15, 0] },
   closed: { label: "Cylinder" },
   opacity: function (key, S) { return key === "cyl" && !(S && S.controls.case === "closed" && !S.iso) ? .35 : 1; },   // closed: the cylinder solid
   target: [0, 15, 0],

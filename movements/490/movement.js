@@ -14,7 +14,7 @@ M507.define({
   ],
   controls: [{ id: "k", label: "Barrel", value: "1", options: [["0.6", "Thin"], ["1", "Medium"], ["1.3", "Thick"]] }],
   readouts: [{ id: "w", label: "Wheel" }, { id: "r", label: "Rudder" }],
-  views: { "3d": [60, -30, 440], front: [0, 0, 500], side: [560, 40, 20] },
+  views: { "3d": [196, -30, 400], front: [0, 0, 500], side: [560, 40, 20] },
   target: [0, 0, -20],
   distance: [120, 2000],
   how: [

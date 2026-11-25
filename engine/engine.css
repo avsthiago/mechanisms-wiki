@@ -260,3 +260,6 @@ input[type=range]{width:100%;margin:0;height:28px;accent-color:var(--ink)}
 .fig-dlg::backdrop{background:rgba(20,24,28,.72)}
 .fig-dlg img{display:block;max-width:100%;max-height:calc(92vh - 80px);margin:0 auto;object-fit:contain;mix-blend-mode:multiply}
 .fig-dlg p{margin:10px 0 0;font-size:13px;text-align:center;color:#5b6570}
+
+/* the page words scripts/pages.py writes for search engines; the engine replaces them */
+.js .pre { display: none; }

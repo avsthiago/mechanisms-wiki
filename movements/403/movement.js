@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "h", label: "Height of the arc", min: 40, max: 110, step: 5, value: 75, unit: " mm", presets: [[45, "Low"], [75, "Medium"], [105, "High"]] }],
   speed: { min: 1, max: 12, value: 4, label: "Speed", unit: " sweeps/min" },
   readouts: [{ id: "a", label: "Corner" }, { id: "r", label: "Radius" }],
-  views: { "3d": [0, -150, 820], front: [0, -40, 860], side: [860, -200, 300] },
+  views: { "3d": [347, -150, 743], front: [0, -40, 860], side: [860, -200, 300] },
   target: [0, -40, 0],
   distance: [300, 1600],
   how: [

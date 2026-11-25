@@ -58,7 +58,7 @@
     controls: [{ id: "spring", label: "Balance spring", value: "m", options: [["s", "Soft"], ["m", "Medium"], ["h", "Stiff"]] }],
     speed: false,
     readouts: [{ id: "beat", label: "Beats" }, { id: "swing", label: "Swing" }],
-    views: { "3d": [120, 90, 475], front: [0, 36, 520], side: [560, 36, -5] },
+    views: { "3d": [205, 148, 435], front: [0, 36, 520], side: [560, 36, -5] },
     target: [0, 36, -5],
     how: [
       "The wheel is always trying to turn. The tip of a long tooth leans on the little roller, so the wheel cannot move. The roller turns to and fro with the balance and the tooth just slides on it.",

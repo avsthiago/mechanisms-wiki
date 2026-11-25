@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "fold", label: "Folding", type: "range", min: 0, max: 100, step: 1, value: 0, unit: "%", presets: [[0, "Open"], [45, "Partly open"], [100, "Closed"]], pauseOnInput: true }],
   readouts: [{ id: "gap", label: "Gap" }, { id: "ang", label: "Rounds lean" }],
-  views: { "3d": [63, 14, 855], front: [0, 50, 1000], side: [1000, 50, 0] },
+  views: { "3d": [340, 196, 758], front: [0, 50, 1000], side: [1000, 50, 0] },
   target: [-14, 3, 0],
   distance: [150, 2000],
   how: [

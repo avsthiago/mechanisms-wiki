@@ -11,7 +11,7 @@ M507.define({
   ],
   speed: { min: 2, max: 30, value: 10, label: "Gas flow", unit: " turns/min" },
   readouts: [{ id: "f", label: "Fills" }, { id: "v", label: "Gas" }],
-  views: { "3d": [100, 60, 620], front: [0, -10, 620], side: [620, -10, -20] },
+  views: { "3d": [268, 137, 555], front: [0, -10, 620], side: [620, -10, -20] },
   target: [0, -10, -20],
   how: [
     "Each moving plate splits its side into two leather bags. The valve lets gas into one bag, and the gas pushes the plate along. The bag on the other side of the plate is squeezed, and its gas goes out to the house. Then the valve swaps them over.",

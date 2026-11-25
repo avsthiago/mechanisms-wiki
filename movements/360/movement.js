@@ -14,7 +14,7 @@ M507.define({
   controls: [{ type: "range", id: "sw", label: "How far the beam rocks", min: 8, max: 20, step: 2, value: 14, unit: "°", presets: [[8, "Small"], [14, "Medium"], [20, "Big"]] }],
   speed: { min: 4, max: 30, value: 12, label: "Beam rocks", unit: " per min" },
   readouts: [{ id: "b", label: "Beam" }, { id: "d", label: "Drum" }, { id: "f", label: "Big wheel" }],
-  views: { "3d": [60, 30, 540], front: [-32, 8, 640], side: [640, 8, 20] },
+  views: { "3d": [186, 127, 487], front: [-32, 8, 640], side: [640, 8, 20] },
   target: [-32, 8, 20],
   distance: [300, 1400],
   how: [

@@ -13,7 +13,7 @@ M507.define({
   controls: [{ id: "big", label: "Big centre gear", value: "held", options: [["held", "Held still"], ["with", "Turning with the arm"], ["against", "Turning against the arm"]] }],
   readouts: [{ id: "arm", label: "Arm" }, { id: "top", label: "Upper gear" }, { id: "small", label: "Small centre gear" }],
   speed: { min: 1, max: 30, value: 8, label: "Arm speed", unit: " rpm" },
-  views: { "3d": [90, 50, 800], front: [0, 0, 1000], side: [1000, 60, 60] },
+  views: { "3d": [332, 181, 712], front: [0, 0, 1000], side: [1000, 60, 60] },
   target: [0, 0, 0],
   how: [
     "The arm swings round the centre pin. The big centre gear is held still. The back gear of the middle pair touches it, so the pair has to roll round it and spin on its pin.",

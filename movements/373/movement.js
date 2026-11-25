@@ -14,7 +14,7 @@ M507.define({
   controls: [{ id: "load", label: "Wagon load", value: "light", options: [["light", "Light"], ["heavy", "Heavy"]] }],
   speed: { min: 2, max: 40, value: 12, label: "Big wheel" },
   readouts: [{ id: "v", label: "Rim speed" }, { id: "f", label: "Spring pull" }],
-  views: { "3d": [110, 145, 1000], front: [10, 35, 1040], side: [1000, 85, 160] },
+  views: { "3d": [426, 262, 893], front: [10, 35, 1040], side: [1000, 85, 160] },
   target: [10, 35, 0],
   how: [
     "The belt turns the big wheel, and its top runs under the wagon's wheels. The wagon's wheels spin, but the wagon does not go anywhere. The rod holds it back.",

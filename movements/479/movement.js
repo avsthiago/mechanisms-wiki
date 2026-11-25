@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "cw", label: "Counterweights", value: "mid", options: [["small", "Small"], ["mid", "Medium"], ["large", "Big"]] }],
   readouts: [{ id: "g", label: "Flow" }, { id: "v", label: "Gas" }, { id: "p", label: "Push" }],
   closed: { label: "Tank" },
-  views: { "3d": [110, 70, 790], front: [0, 25, 800], side: [800, 25, 0] },
+  views: { "3d": [329, 198, 706], front: [0, 25, 800], side: [800, 25, 0] },
   target: [0, 18, 0],
   how: [
     "Gas goes into the bell through one pipe. The bell has no bottom, so the gas pushes up on the roof and the bell rises. When gas leaves by the other pipe, the bell sinks. The water seals the rim in every position.",
