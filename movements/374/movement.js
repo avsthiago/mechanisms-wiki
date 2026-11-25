@@ -13,7 +13,7 @@ M507.define({
   controls: [{ type: "range", id: "throw", label: "How far off-centre the disc is", min: 15, max: 50, step: 1, value: 33, unit: " mm", presets: [[15, "Little"], [33, "As drawn"], [50, "Much"]] }],
   readouts: [{ id: "a", label: "Treadle" }, { id: "y", label: "Foot end" }],
   speed: { min: 1, max: 30, value: 8, label: "Shaft speed", unit: " rpm" },
-  views: { "3d": [30, -60, 760], front: [-45, -95, 760], side: [760, -90, -40] },
+  views: { "3d": [270, 77, 675], front: [-45, -95, 760], side: [760, -90, -40] },
   target: [-45, -95, 0],
   how: [
     "Watch the big disc. It is fixed on the shaft away from its middle, so as the shaft turns, the middle of the disc goes round in a circle. The dotted circle shows the disc half a turn later.",

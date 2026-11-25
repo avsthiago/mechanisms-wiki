@@ -53,7 +53,7 @@
     controls: [{ type: "range", id: "pos", label: "Roller along the drum", min: 0, max: 100, step: 1, value: 60, unit: " %",
       presets: [[0, "Big end"], [50, "Middle"], [100, "Small end"]] }],
     readouts: [{ id: "roll", label: "Roller" }, { id: "rad", label: "Drum radius" }],
-    views: { "3d": [40, 30, 640], side: [-700, 60, 40], top: [40, 720, 60] },
+    views: { "3d": [304, 154, 565], side: [-700, 60, 40], top: [40, 720, 60] },
     viewLabels: { "3d": "Front", side: "End", top: "Top" },
     target: [40, 10, 0], distance: [250, 1800],
     how: [

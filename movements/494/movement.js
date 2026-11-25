@@ -13,7 +13,7 @@ M507.define({
   ],
   controls: [{ id: "w", label: "Stone", value: "97", options: [["70", "Narrow"], ["97", "Medium"], ["118", "Wide"]] }],
   readouts: [{ id: "gap", label: "Jaws" }, { id: "lift", label: "Stone lifted" }],
-  views: { "3d": [90, 70, 560], front: [0, 30, 580], side: [580, 30, 10] },
+  views: { "3d": [234, 158, 502], front: [0, 30, 580], side: [580, 30, 10] },
   target: [0, 30, 0],
   distance: [150, 2400],
   how: [

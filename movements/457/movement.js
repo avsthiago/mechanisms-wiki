@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "cw", label: "Counterweight", value: "half", options: [["none", "None"], ["half", "Half the load"], ["full", "Full load"]] }],
   readouts: [{ id: "hand", label: "Hand" }, { id: "fill", label: "Bucket" }],
-  views: { "3d": [-40, 190, 800], front: [-110, 185, 660], side: [700, 185, -40] },
+  views: { "3d": [221, 331, 710], front: [-110, 185, 660], side: [700, 185, -40] },
   target: [-110, 150, 0],
   how: [
     "The pole tips on the post like a seesaw. The long end carries the bucket. The short end carries a heavy weight. When one end goes down, the other goes up.",

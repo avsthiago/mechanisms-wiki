@@ -14,7 +14,7 @@ M507.define({
     presets: [[24, "Small"], [36, "As drawn"], [60, "Big"]] }],
   closed: { label: "Cylinders" },
   readouts: [{ id: "gn", label: "Push made" }, { id: "nk", label: "Strokes" }, { id: "up", label: "Ram raised" }],
-  views: { "3d": [110, 20, 1260], front: [5, 0, 1070], side: [1070, 0, 0] },
+  views: { "3d": [526, 284, 1117], front: [5, 0, 1070], side: [1070, 0, 0] },
   target: [5, 0, 0],
   how: [
     "Watch the pump. When the plunger rises, the lower ball lifts and water comes up from the tank. When it goes down, that ball shuts, the ball in the pipe lifts, and the water is pushed along the pipe under the ram.",

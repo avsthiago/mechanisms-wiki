@@ -2,22 +2,21 @@ M507.define({
   number: 33,
   title: "Elliptical gears",
   lede: "Two oval gears turn each other. The first one turns steadily, but the second one speeds up and slows down twice in every turn. Machines used this when a part had to move quickly at one moment and slowly at the next.",
-  alt: "Two oval toothed gears side by side on an upright plate, their teeth locked together. The left one stands upright and the right one lies level. A crank turns the left gear, and a red stripe marks the right gear.",
+  alt: "Two oval toothed gears side by side on an upright plate, their teeth locked together. The left one stands upright and the right one lies level. The left gear drives, and a red stripe marks the right gear.",
   parts: [
-    { key: "drive", color: "#5E7387", name: "Driving gear", note: "An oval gear fixed to the crank's shaft. It turns at a steady speed." },
-    { key: "driven", color: "#C8873A", name: "Driven gear", note: "An oval gear of the same shape. Watch its red stripe. It hurries and then lags, twice in every turn." },
-    { key: "crank", color: "#D9B13B", name: "Crank", note: "The handle that turns the driving gear. In a real machine an engine or a water wheel would do this." }
+    { key: "drive", color: "#5E7387", name: "Driving gear", note: "An oval gear that turns at a steady speed. In a real machine an engine or a water wheel would turn it." },
+    { key: "driven", color: "#C8873A", name: "Driven gear", note: "An oval gear of the same shape. Watch its red stripe. It hurries and then lags, twice in every turn." }
   ],
   controls: [{ id: "shape", label: "Gear shape", value: "oval", options: [["round", "Nearly round"], ["oval", "Oval"], ["long", "Long oval"]] }],
   readouts: [{ id: "in", label: "Driving" }, { id: "out", label: "Driven" }],
   views: { "3d": [300, 145, 545], front: [78, 0, 720], side: [770, 0, 0] },
   target: [78, 0, 0],
   how: [
-    "Turn the crank and the blue gear turns steadily. Now watch the red stripe on the orange gear. It hurries, then lags, twice in every turn. Both gears still finish each full turn together. A minus sign in the readout means the other way.",
+    "The blue gear turns steadily. Now watch the red stripe on the orange gear. It hurries, then lags, twice in every turn. Both gears still finish each full turn together. A minus sign in the readout means the other way.",
     "The reason is the place where the teeth touch. When a long end of the blue gear meets a flat side of the orange gear, the blue teeth are far from their shaft and the orange teeth are close to theirs. A long lever is driving a short one, so the orange gear turns faster. A quarter of a turn later it is the other way round, and the orange gear turns slower.",
     "The two shafts never move. So where one gear sticks out, the other must be tucked in by the same amount. Try Nearly round, then Long oval. The longer the oval, the more the speed rises and falls."
   ],
-  note: "This model is rebuilt from Brown's drawing. Brown draws true ellipses, each on a shaft through its middle. Two true ellipses held like that cannot stay in mesh, so the ovals here have a slightly different shape that rolls together properly. The crank, the plate that holds the shafts, the sizes and the number of teeth were made up. The choice of shape was added to show what it changes.",
+  note: "This model is rebuilt from Brown's drawing. Brown draws true ellipses, each on a shaft through its middle. Two true ellipses held like that cannot stay in mesh, so the ovals here have a slightly different shape that rolls together properly. The plate that holds the shafts, the sizes and the number of teeth were made up. The choice of shape was added to show what it changes.",
 
   /* Pitch curve of an oval gear turning on its centre: r(t) = p / (1 - e cos 2t), long half-axis a at t = 0, short half-axis b
      at 90 degrees. It is an ellipse about its focus with the polar angle halved. Two equal ones roll on each other without
@@ -36,12 +35,10 @@ M507.define({
   build: function (c) {
     var T = c.THREE, P = c.P, scene = c.scene, A = 156, N = 26, self = this;
     var o = this.o = { th: 0, A: A, sets: {} };
-    // driving gear and crank: gear z -8..8, shaft z -30..30 (starts at the plate face), crank arm z 30..36, handle z 36..60
+    // driving gear: gear z -8..8, shaft z -30..30 (starts at the plate face)
     o.g1 = new T.Group(); scene.add(o.g1);
     P.at(P.cylZ(6, 60, c.mat("drive")), 0, 0, 0, o.g1);                       // shaft z -30..30
     P.at(P.cylZ(11, 4, c.mat("drive")), 0, 0, 10, o.g1);                      // hub z 8..12, on the gear face
-    P.at(P.box(52, 12, 6, c.mat("crank")), 22, 0, 33, o.g1);                  // arm x -4..48, z 30..36, on the shaft end
-    P.at(P.cylZ(5, 24, c.mat("crank")), 44, 0, 48, o.g1);                     // handle z 36..60, on the arm face
     // driven gear: shafts are a + b apart for every shape, so they never move
     o.g2 = new T.Group(); o.g2.position.x = A; scene.add(o.g2);
     P.at(P.cylZ(6, 38, c.mat("driven")), 0, 0, -11, o.g2);                    // shaft z -30..8, plate face to gear face

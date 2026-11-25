@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "h", label: "Height of the arcs", min: -5, max: 8, step: 1, value: 0, unit: " mm", presets: [[-5, "Too low"], [0, "Just touching"], [8, "Too high"]] }],
   closed: { label: "Valve chest" },
   readouts: [{ id: "x", label: "Valve" }, { id: "gap", label: "Gap under valve" }, { id: "seat", label: "Presses on seat" }],
-  views: { "3d": [140, 120, 1000], front: [20, 30, 1040], side: [1040, 30, 60] },
+  views: { "3d": [436, 257, 893], front: [20, 30, 1040], side: [1040, 30, 60] },
   target: [20, 30, 0],
   how: [
     "Watch the valve slide left and right. The rod leans one way, then the other. Its top pin moves up and down in the upright slot, and the red rollers run along the curved slots in the hanging plates.",

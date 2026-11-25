@@ -14,7 +14,7 @@ M507.define({
   speed: { min: 4, max: 30, value: 12, label: "Pumping", unit: " a min" },
   readouts: [{ id: "p", label: "Inside" }, { id: "v", label: "Gas drawn" }],
   closed: { label: "Tubs" },
-  views: { "3d": [120, 40, 600], front: [0, 25, 620], side: [620, 25, 0] },
+  views: { "3d": [252, 163, 541], front: [0, 25, 620], side: [620, 25, 0] },
   target: [0, 25, 0],
   how: [
     "Watch the upper tub go up and down in the water. As it rises, the flap on the pipe opens and gas from the pit flows up into the tub. As it falls, that flap shuts, the flap on top opens, and the gas is pushed out into the open air.",

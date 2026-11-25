@@ -69,7 +69,7 @@
       presets: [[220, "Short"], [280, "Medium"], [340, "Long"]] }],
     speed: false,
     readouts: [{ id: "beat", label: "Beats" }, { id: "swing", label: "Swing" }],
-    views: { "3d": [170, 115, 585], front: [20, 60, 600], side: [860, 20, -5] },
+    views: { "3d": [272, 198, 535], front: [20, 60, 600], side: [860, 20, -5] },
     target: [20, 60, -5],
     how: [
       "The wheel is always trying to turn. A stud runs up against the curved face of a pallet and rests there, so the wheel cannot move.",

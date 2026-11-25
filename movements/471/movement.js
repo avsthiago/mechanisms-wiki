@@ -14,7 +14,7 @@ M507.define({
   controls: [],
   readouts: [{ id: "lo", label: "Air below" }, { id: "hi", label: "Air above" }, { id: "bl", label: "Last blow" }],
   closed: { label: "Cylinder" },
-  views: { "3d": [170, 50, 860], front: [0, 20, 880], side: [880, 20, 0] },
+  views: { "3d": [361, 217, 775], front: [0, 20, 880], side: [880, 20, 0] },
   target: [0, 20, 0],
   how: [
     "The crank lifts and lowers the cylinder. The hammer is not tied to it. A small hole in the middle of the cylinder wall lets air in, and the piston shuts it off as it slides past.",

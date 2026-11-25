@@ -71,7 +71,7 @@
     controls: [{ id: "spring", label: "Balance spring", value: "m", options: [["s", "Soft"], ["m", "Medium"], ["h", "Stiff"]] }],
     speed: false,
     readouts: [{ id: "beat", label: "Beats" }, { id: "swing", label: "Swing" }],
-    views: { "3d": [95, 105, 545], front: [-46, 45, 560], side: [600, 45, -5] },
+    views: { "3d": [189, 173, 499], front: [-46, 45, 560], side: [600, 45, -5] },
     target: [-46, 45, -5],
     how: [
       "The escape wheel is always trying to turn, but the anchor will not let it. One pallet sits in the way of a tooth and holds it. For most of each swing the balance touches nothing at all.",

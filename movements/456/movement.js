@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Case" },
   readouts: [{ id: "rpm", label: "Drum" }, { id: "out", label: "Red piston" }],
-  views: { "3d": [90, -10, 665], front: [46, -27, 670], side: [700, -27, 0] },
+  views: { "3d": [321, 123, 589], front: [46, -27, 670], side: [700, -27, 0] },
   target: [46, -27, 0],
   how: [
     "Look at the two green pistons. They turn with the orange drum. Each has a pin on its inner end, and the pin runs in the groove of the yellow cam. The cam stands still, so the groove steers each pin as it goes round.",

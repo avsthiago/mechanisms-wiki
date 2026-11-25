@@ -14,7 +14,7 @@ M507.define({
   speed: false,
   readouts: [{ id: "d", label: "Pipe grows" }, { id: "g", label: "Gap" }],
   closed: { label: "Ball" },
-  views: { "3d": [40, 50, 330], front: [-15, -20, 370], side: [380, -20, -60] },
+  views: { "3d": [126, 57, 302], front: [-15, -20, 370], side: [380, -20, -60] },
   target: [-15, -20, 0],
   how: [
     "Water collects at the end of the long pipe. While the plunger stands a little away from the pipe's end, the water runs out of the gap, into the ball and away down the bottom pipe. Then steam follows it.",

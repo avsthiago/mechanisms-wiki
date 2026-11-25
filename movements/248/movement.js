@@ -11,7 +11,7 @@ M507.define({
   controls: [],
   closed: { label: "Joint" },
   readouts: [{ id: "n", label: "Nut turned" }, { id: "h", label: "Nut raised" }, { id: "g", label: "Pipes apart" }],
-  views: { "3d": [120, 150, 720], front: [0, 0, 720], top: [0, 700, 120] },
+  views: { "3d": [307, 168, 658], front: [0, 0, 720], top: [0, 700, 120] },
   target: [0, 0, 0],
   how: [
     "The picture is cut in half, so you see the walls as flat surfaces. Look at the zigzag where the nut meets the lower pipe. That is the screw thread. Each turn of the nut moves it up or down by one thread.",

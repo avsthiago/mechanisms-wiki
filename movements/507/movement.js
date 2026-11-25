@@ -13,7 +13,7 @@ M507.define({
   controls: [{ id: "fast", label: "Time", value: "1", options: [["1", "Real speed"], ["200", "200 times faster"]] }],
   readouts: [{ id: "a", label: "Arm" }, { id: "e", label: "Upper gear" }, { id: "c", label: "Big gear" }],
   speed: { min: 1, max: 30, value: 12, label: "Arm speed", unit: " rpm" },
-  views: { "3d": [-45, 60, 850], front: [-75, 25, 860], side: [860, 60, 60] },
+  views: { "3d": [276, 216, 752], front: [-75, 25, 860], side: [860, 60, 60] },
   target: [-75, 25, 0],
   how: [
     "The arm whirls round and its pair of gears rolls round the two gears below it. Those two gears hardly seem to move. The big gear at the side meshes with both tubes, one above its centre and one below, so the tubes can only turn opposite ways at the same speed.",

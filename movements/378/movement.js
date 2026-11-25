@@ -13,7 +13,7 @@ M507.define({
   controls: [{ type: "range", id: "len", label: "Where the block sits on the rod", min: 120, max: 170, step: 1, value: 150, unit: " mm", presets: [[120, "High"], [150, "Middle"], [170, "Low"]] }],
   readouts: [{ id: "a", label: "Swing" }, { id: "n", label: "Strokes" }, { id: "d", label: "Cut depth" }],
   speed: false,
-  views: { "3d": [60, 215, 470], front: [-5, 112, 470], side: [470, 125, 20] },
+  views: { "3d": [187, 217, 432], front: [-5, 112, 470], side: [470, 125, 20] },
   target: [-5, 112, 19],
   how: [
     "The rod swings from the top of the stand. As it swings right it lets the cord go. As it swings left it pulls the cord, and the saw is pulled left with it. The weights on the ropes pull the saw back again.",

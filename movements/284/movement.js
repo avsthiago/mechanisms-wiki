@@ -99,7 +99,7 @@
       presets: [[52, "Short"], [75, "As drawn"], [103, "Long"]] }],
     speed: { min: 4, max: 40, value: 15, label: "Crank speed", unit: " rpm" },
     readouts: [{ id: "feed", label: "Last pull" }, { id: "bed", label: "Bed fed" }],
-    views: { "3d": [420, 190, 1080], front: [130, 40, 1120], side: [1050, 60, -40] },
+    views: { "3d": [605, 320, 990], front: [130, 40, 1120], side: [1050, 60, -40] },
     target: [130, 60, -30],
     how: [
       "The crank goes round and its rod pulls the level arm of the bell crank down, then pushes it up. So the upright arm swings left and right. The pawl hangs from that arm. When the arm swings left, the pawl is pulled up and its tip drags a tooth of the wheel with it.",

@@ -12,7 +12,7 @@ M507.define({
     { key: "spring", color: "#8E7AA8", name: "Spring", note: "Pulls the rod gently up, so it always rises as far as the rods allow." }
   ],
   readouts: [{ id: "a", label: "Driving gear" }, { id: "b", label: "Big gear" }, { id: "h", label: "Rod lift" }],
-  views: { "3d": [300, 220, 1000], front: [100, 140, 840], side: [800, 150, 40] },
+  views: { "3d": [521, 380, 903], front: [100, 140, 840], side: [800, 150, 40] },
   target: [100, 150, 0],
   how: [
     "Turn the small driving gear. Its teeth push the middle gear the other way, and the middle gear pushes the big one. Each gear has a pin, and each pin pulls a thin rod. The lower rods rock the lower bar. A short rod carries that rocking up to the upper bar.",

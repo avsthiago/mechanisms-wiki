@@ -13,7 +13,7 @@ M507.define({
     presets: [[0, "None"], [20, "Low"], [40, "Medium"], [60, "High"]] }],
   speed: false,
   readouts: [{ id: "p", label: "Steam" }, { id: "h", label: "Level gap" }],
-  views: { "3d": [70, 15, 600], front: [-30, -20, 600], side: [600, -20, 30] },
+  views: { "3d": [221, 117, 538], front: [-30, -20, 600], side: [600, -20, 30] },
   target: [-30, -20, 0],
   how: [
     "With no steam, both sides of the U hold the mercury at the same level. Then the steam is let in at the top of the left side. It pushes the mercury down there, and the mercury climbs the right side, which only has air above it.",

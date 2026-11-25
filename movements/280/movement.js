@@ -80,7 +80,7 @@
       presets: [[5, "Short"], [12, "As drawn"], [16, "Long"]] }],
     speed: { min: 4, max: 40, value: 16, label: "Strokes", unit: " a min" },
     readouts: [{ id: "st", label: "Short lever" }, { id: "per", label: "Last stroke" }, { id: "tot", label: "Wheel" }],
-    views: { "3d": [420, 250, 1160], front: [110, 105, 1180], side: [1120, 120, -20] },
+    views: { "3d": [615, 396, 1063], front: [110, 105, 1180], side: [1120, 120, -20] },
     target: [110, 120, -20],
     how: [
       "Rock the hand lever and the rod goes up and down. On the way up, the short lever first turns on its pin until its round end meets the rim. Then the rim is caught tight between that end and the ledges on the inside. The block, the short lever and the wheel all turn together.",

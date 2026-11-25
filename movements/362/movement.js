@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "g", label: "Groove slant", value: "10", options: [["5", "Gentle"], ["10", "Steep"]] }],
   readouts: [{ id: "c", label: "Cylinder" }, { id: "d", label: "Drum moved" }],
-  views: { "3d": [60, 50, 480], front: [-10, 30, 700], top: [-10, 800, 2] },
+  views: { "3d": [190, 139, 429], front: [-10, 30, 700], top: [-10, 800, 2] },
   target: [-10, 30, 0],
   distance: [300, 1500],
   how: [

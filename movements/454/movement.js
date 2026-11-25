@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Pump" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Stroke" }],
-  views: { "3d": [145, 55, 640], front: [0, -15, 680], side: [680, -15, 0] },
+  views: { "3d": [263, 134, 585], front: [0, -15, 680], side: [680, -15, 0] },
   target: [-10, -15, 0],
   how: [
     "Watch the middle of the diaphragm. When the handle lifts it, the space under it grows. Water pushes up the lifting valve at the bottom and fills the chamber. The flap on the right stays shut, so nothing comes back down the delivery pipe.",

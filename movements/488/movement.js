@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "pitch", label: "Pitch", value: "330", options: [["200", "Fine"], ["330", "As drawn"], ["520", "Coarse"]] }],
   readouts: [{ id: "p", label: "Advance per turn" }, { id: "v", label: "Boat" }],
-  views: { "3d": [-150, 70, 560], front: [0, 0, 740], side: [-740, 0, 1] },
+  views: { "3d": [-470, 150, 470], front: [-567, 0, 476], side: [-740, 0, 1] },
   viewLabels: { side: "End-on" },
   target: [-10, 0, 0],
   distance: [300, 2000],
@@ -20,7 +20,7 @@ M507.define({
     "A screw turning in a nut moves along by one thread each turn. The propeller tries to do the same in the water, so each turn should carry the boat forward by one twist of the blade. That distance is called the pitch. Water gives way a little, so the boat moves a bit less. That loss is called slip.",
     "Try a coarse pitch. The blades lie at a steeper slant, so each turn moves the boat further, but each turn is harder work for the engine. A fine pitch is easy to turn but moves the boat less. Compare how fast the dots leave."
   ],
-  note: "This model is rebuilt from Brown's drawing. The bearing on the left, the blade shape and the sizes were made up. The flow uses a simple rule: the water reaches the blades at the speed of the screw, and leaves faster than it came. Slip is set at one quarter.",
+  note: "This model is rebuilt from Brown's drawing. The sizes and the exact curve of the blades were made up. The flow uses a simple rule: the water reaches the blades at the speed of the screw, and leaves faster than it came. Slip is set at one quarter.",
 
   build: function (c) {
     var T = c.THREE, P = c.P, scene = c.scene, R = 150, i;
@@ -28,7 +28,7 @@ M507.define({
     o.rotor = new T.Group(); scene.add(o.rotor);
     var mh = c.mat("hub"), ms = c.mat("shaft");
     c.mat("blades").side = T.DoubleSide;
-    P.at(P.cylX(12, 195, ms), -5.5, 0, 0, o.rotor);                               // shaft x -103..92, starts at the bearing's face
+    P.at(P.cylX(12, 232, ms), -24, 0, 0, o.rotor);                                // shaft x -140..92, cut off plain on the left as drawn
     P.at(P.cylX(24, 64, mh), 0, 0, 0, o.rotor);                                    // boss x -32..32
     P.at(P.cylX(16, 18, mh), 41, 0, 0, o.rotor);                                   // collar x 32..50
     P.at(P.cylX(15, 14, mh), 99, 0, 0, o.rotor);                                   // end cap x 92..106
@@ -37,12 +37,10 @@ M507.define({
       var g = new T.Group(); g.visible = k === "330"; o.rotor.add(g); o.props[k] = g;
       for (var b = 0; b < 2; b++) {
         var bl = P.screwBlade({ rIn: 22, rOut: R, pitch: +k, thickness: 3, material: c.mat("blades"),
-          halfWidth: function (u) { return Math.min(28 * Math.PI / +k + 2 * u, (.3 + .45 * Math.pow(u, 1.2)) * Math.sqrt(Math.max(0, 1 - Math.pow(u, 6)))); } });   // root kept inside the boss
+          halfWidth: function (u) { return Math.min(28 * Math.PI / +k + 2 * u, (.18 + .5 * Math.pow(u, 1.3)) * Math.pow(Math.max(0, 1 - Math.pow(u, 14)), .3)); } });   // narrow root kept inside the boss, broad blunt tip as drawn
         bl.rotation.x = b * Math.PI; g.add(bl);
       }
     });
-    // stern bearing x -170..-103, ends where the shaft starts
-    P.at(P.cylX(30, 67, c.fixed), -136.5, 0, 0, scene);
     o.dots = P.waterDots(o.N, { radius: 2.2, color: c.spot, opacity: .8 }); scene.add(o.dots);
     for (i = 0; i < o.N; i++) o.d.push({ x: -240 + 540 * Math.random(), r0: 42 + 150 * Math.sqrt(Math.random()), a: 2 * Math.PI * Math.random() });
   },

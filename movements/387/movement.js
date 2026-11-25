@@ -14,7 +14,7 @@ M507.define({
     presets: [[50, "A little"], [110, "Normal"], [140, "A lot"]] }],
   speed: { min: 1, max: 12, value: 4, label: "Tide speed", unit: " a min" },
   readouts: [{ id: "t", label: "Tide down" }, { id: "s", label: "Ladder slope" }],
-  views: { "3d": [-20, 140, 1000], front: [-110, 40, 820], side: [-760, 120, 380] },
+  views: { "3d": [268, 258, 896], front: [-110, 40, 820], side: [-760, 120, 380] },
   target: [-150, 30, 0],
   how: [
     "At high tide the boat is level with the wharf and the ladder lies flat. As the water falls, the boat sinks and the far end of the ladder goes down. The steps stay flat all the same.",

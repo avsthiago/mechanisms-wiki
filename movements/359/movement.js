@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "m", label: "Disc weight", value: "400", options: [["150", "Light"], ["400", "Medium"], ["900", "Heavy"]] }],
   speed: { min: 1, max: 10, value: 5, label: "Push on the bar", unit: "" },
   readouts: [{ id: "w", label: "Spindle" }, { id: "y", label: "Bar" }, { id: "t", label: "Cord wound" }],
-  views: { "3d": [110, 30, 480], front: [0, -22, 720], side: [720, -22, 0] },
+  views: { "3d": [204, 89, 437], front: [0, -22, 720], side: [720, -22, 0] },
   target: [0, -22, 0],
   how: [
     "Look at the cords. They are wound round the top of the spindle and tied to the ends of the bar. When the bar goes down, the cords pull out and unwind. Pulling a cord off makes the spindle spin.",

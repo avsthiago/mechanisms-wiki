@@ -56,7 +56,7 @@
     ],
     controls: [{ id: "wood", label: "Board", value: "mid", options: [["thin", "Thin"], ["mid", "Medium"], ["thick", "Thick"]] }],
     readouts: [{ id: "depth", label: "Pushed in" }, { id: "turn", label: "Jaw turned" }],
-    views: { "3d": [280, 100, 880], front: [75, 60, 760], side: [640, 60, 90] },
+    views: { "3d": [447, 263, 799], front: [75, 60, 760], side: [640, 60, 90] },
     target: [75, 60, 0],
     how: [
       "Push the board down. Its lower corner slides along the curved edge of the jaw and pushes it. The jaw can only turn on its screw, so it swings aside to let the board pass.",

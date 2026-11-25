@@ -13,7 +13,7 @@ M507.define({
   speed: { min: 1, max: 12, value: 4, label: "Main pressure swings", unit: " /min" },
   readouts: [{ id: "m", label: "Main" }, { id: "o", label: "Burners" }, { id: "v", label: "Valve" }],
   closed: { label: "Box" },
-  views: { "3d": [80, 60, 470], front: [-20, 0, 560], side: [540, 0, -60] },
+  views: { "3d": [187, 113, 425], front: [-20, 0, 560], side: [540, 0, -60] },
   target: [-20, 0, -20],
   how: [
     "Gas from the main comes up the pipe on the right and out through the notches of the small valve. It fills the space under the big bell, and from there it goes out of the pipe on the left to the burners. The gas under the bell pushes up on its roof.",

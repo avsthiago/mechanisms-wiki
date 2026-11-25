@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "ratio", label: "Brush cylinder turns", value: "1", options: [["1", "With the cloth"], ["2.5", "Faster"], ["-1.5", "Against the cloth"]] }],
   speed: { min: 2, max: 30, value: 12, label: "Cloth speed", unit: "rpm" },
   readouts: [{ id: "top", label: "Upper roller" }, { id: "cyl", label: "Cylinder" }, { id: "bot", label: "Lower roller" }],
-  views: { "3d": [133, 66, 1089], front: [0, 0, 930], side: [930, 0, 0] },
+  views: { "3d": [452, 252, 970], front: [0, 0, 930], side: [930, 0, 0] },
   target: [0, 5, 0],
   distance: [150, 2000],
   how: [

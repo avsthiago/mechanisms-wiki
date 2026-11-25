@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "g", label: "Cross-head", value: "shaped", options: [["shaped", "Shaped groove"], ["plain", "Straight slot"]] }],
   readouts: [{ id: "v", label: "Rod speed" }, { id: "y", label: "Rod height" }],
-  views: { "3d": [90, 60, 580], front: [0, 10, 400], side: [620, 10, 0] },
+  views: { "3d": [243, 128, 521], front: [0, 10, 400], side: [620, 10, 0] },
   target: [0, -5, 0],
   how: [
     "The shaft turns, and the red peg goes round in a circle. The peg runs in a groove in the cross-head. The groove is a loop that bulges up on one side and down on the other, and crosses itself in the middle.",

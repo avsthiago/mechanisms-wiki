@@ -12,7 +12,7 @@ M507.define({
   controls: [],
   closed: { label: "Rod" },
   readouts: [{ id: "st", label: "Stage" }, { id: "f", label: "Foot pushed up" }, { id: "w", label: "Weight" }],
-  views: { "3d": [190, 80, 900], front: [0, 20, 920], side: [900, 20, 0] },
+  views: { "3d": [380, 227, 814], front: [0, 20, 920], side: [900, 20, 0] },
   target: [0, 20, 0],
   how: [
     "The weight sits on the nose of the catch and hangs on the rod. The rod goes down with it. The flat foot at the bottom reaches the sea bed first.",

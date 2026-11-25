@@ -27,6 +27,7 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 - `data/index.js`: `window.INDEX`, Brown's own index (term, movement numbers). Shown at `/brown/index` and searched by the contents page. Not yet proofread against the scan; doubts are listed at the top of the file.
 - `thumbs/NNN.webp`: the card picture on the contents page, made by `scripts/thumbs.py`, with a half-size copy in `thumbs/s/` for ordinary screens.
 - `sitemap.xml` and `robots.txt`: for search engines. `scripts/sitemap.py` rebuilds the sitemap from `data/movements.js`.
+- `brown/NNN.html`, `about.html` and the head of `index.html`: written by `scripts/pages.py`, never by hand. Each is `index.html` with the page's own title, description, canonical address, preview tags and structured data, and the page's words inside `#app` (hidden by the `js` class; the engine replaces them). The host serves `brown/53.html` at `/brown/53`. `seo()` in `engine.js` sets the same title and description when the reader moves between pages; keep the two in step. `og/NNN.jpg` is the link preview picture (engraving beside the model), made by `scripts/pages.py --og`. Edit the shared head of `index.html` only outside the `<!--page-->` markers, then rerun the script so every page gets it.
 - `vendor/fonts/`: Atkinson Hyperlegible, served from the site (SIL Open Font License).
 - `scripts/serve.py`: local server that behaves like the host (any path that is not a file gets `index.html`). The other scripts start it themselves.
 - `scripts/shot.py`: screenshot and error check.
@@ -41,7 +42,7 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 2. Copy `movements/_template/` to `movements/NNN/` and edit `movement.js`.
 3. Add or update the entry in `data/movements.js` with `built: true` and a `family`.
 4. Run `python3 scripts/shot.py NNN --view front` once and look at the image. Fix what is wrong, then run it once more at most. Make the second shot the `3d` or `side` view, because gaps and parts buried in supports do not show from the front. If Playwright is not installed, run `uv run --with playwright==1.48.0 python scripts/shot.py ...`; pin a Playwright version that matches the Chromium you have installed.
-5. When the model is right, run `python3 scripts/thumbs.py NNN` to make its card picture, and `python3 scripts/sitemap.py` if the movement is new. This does not count as a screenshot; do not look at it unless the opening view is unusual.
+5. When the model is right, run `python3 scripts/thumbs.py NNN` to make its card picture, then `uv run --with pillow python scripts/pages.py --og` to rewrite the pages and preview pictures, and `python3 scripts/sitemap.py` if the movement is new. Rerun `scripts/pages.py` whenever a title, lede or `how` changes. This does not count as a screenshot; do not look at it unless the opening view is unusual.
 6. Say what was invented (supports, proportions, tooth counts) in the movement's `note`.
 
 ## The movement contract
@@ -53,7 +54,7 @@ The page design was settled with the owner over many rounds. Do not redesign it.
 - `speed`: omit for the standard 1 to 30 rpm slider; `{min, max, value, label, unit}` to rename or rescale it (its value arrives as `S.rpm`); `false` to hide it when the input is not a rotation.
 - `readouts`: `[{id, label}]`, three at most. They sit over the top-left of the model.
 - `opacity(key, S)`: optional, return 0..1 to fade a part in some state.
-- `views`: camera positions for `3d`, `front`, `top`, `side`. The page always opens on `3d` and always shows all four as cube-icon buttons; any view left out is made from `target` at the 3D view's distance, so give the ones that matter.
+- `views`: camera positions for `3d`, `front`, `top`, `side`. The page always opens on `3d` and always shows all four as cube-icon buttons; any view left out is made from `target` at the 3D view's distance, so give the ones that matter. The `3d` view looks from about 25° to one side and 10 to 15° above the target, never nearly head-on, so the model reads as solid on its card and when the page opens; Brown's straight-on drawing is what the `front` view is for.
 - `closed`: `true` or `{label}` when the real machine is closed up (a cylinder, pump barrel, valve chest, clock case) and the model shows it cut away or see-through. The engine adds a last control, `label` (default "Casing") with Open and Closed (ids `case-open`, `case-closed`); Open is the default. In `build`, register casing pieces with `c.shell(obj, mode)`: mode `"both"` (default) for a `c.fixed` casing that turns solid when closed; `"closed"` for pieces shown only when closed (the half a cut-away leaves out, made with `P.wholeSection` or a full box, in the part's own material); `"open"` for pieces shown only when open (the cut-away half, marks on the cut face). Picking a part opens the casing. `S.controls.case` is available in `step`. Never hide water, steam or air when closed: the casing hides it inside, and it must still be seen coming out of the pipe ends and openings.
 - Meshes whose geometry changes every frame: set `mesh.userData.live = true`.
 

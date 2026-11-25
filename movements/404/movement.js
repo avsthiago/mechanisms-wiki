@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "t", label: "Arc to draw", value: "104", options: [["80", "Flat"], ["92", "Medium"], ["104", "Curved"]] }],
   speed: { min: 1, max: 10, value: 4, label: "Speed", unit: " arcs/min" },
   readouts: [{ id: "n", label: "Screw turns" }, { id: "r", label: "Radius" }],
-  views: { "3d": [0, -130, 640], front: [0, -25, 680], side: [700, -175, 260] },
+  views: { "3d": [270, -130, 580], front: [0, -25, 680], side: [700, -175, 260] },
   target: [0, -25, 0],
   distance: [300, 1600],
   how: [

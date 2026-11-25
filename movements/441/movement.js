@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "flow", label: "Stream speed", value: "high", options: [["low", "Slow"], ["high", "Fast"]] }],
   speed: false,
   readouts: [{ id: "rpm", label: "Wheel" }, { id: "n", label: "Emptied" }],
-  views: { "3d": [45, -5, 780], front: [0, -12, 780], side: [780, 10, 40] },
+  views: { "3d": [317, 164, 690], front: [0, -12, 780], side: [780, 10, 40] },
   target: [-5, -12, 0],
   distance: [200, 1600],
   how: [

@@ -2,22 +2,21 @@ M507.define({
   number: 45,
   title: "Frictional grooved gearing",
   lede: "Two wheels with no teeth turn each other just by pressing together. Their rims are cut into ridges and grooves that fit into each other. The sloping sides wedge tight, so they grip much harder than flat rims would.",
-  alt: "Two wide wheels, one above the other, on level shafts that stick out of an upright plate. Each rim is cut into rings of V-shaped ridges, and the ridges of the top wheel sit in the grooves of the bottom one. A crank turns the top wheel, and a red stripe marks the bottom wheel.",
+  alt: "Two wide wheels, one above the other, on level shafts that stick out of an upright plate. Each rim is cut into rings of V-shaped ridges, and the ridges of the top wheel sit in the grooves of the bottom one. The top wheel drives, and a red stripe marks the bottom wheel.",
   parts: [
-    { key: "drive", color: "#5E7387", name: "Driving wheel", note: "Turned by the crank. Its ridges press down into the grooves of the wheel below." },
-    { key: "driven", color: "#C8873A", name: "Driven wheel", note: "It has no teeth. Only the rub in its grooves makes it turn. Watch the red stripe to count its turns." },
-    { key: "crank", color: "#D9B13B", name: "Crank", note: "The handle that turns the driving wheel. In a real machine an engine or a water wheel would do this." }
+    { key: "drive", color: "#5E7387", name: "Driving wheel", note: "It turns at a steady speed. Its ridges press down into the grooves of the wheel below." },
+    { key: "driven", color: "#C8873A", name: "Driven wheel", note: "It has no teeth. Only the rub in its grooves makes it turn. Watch the red stripe to count its turns." }
   ],
   controls: [{ id: "press", label: "Wheels", value: "in", options: [["in", "Pressed together"], ["out", "Pulled apart"]] }],
   readouts: [{ id: "in", label: "Driving" }, { id: "out", label: "Driven" }],
   views: { "3d": [560, 270, 740], front: [0, 20, 980], side: [980, 20, 0] },
   target: [0, 20, 0],
   how: [
-    "Turn the crank and the top wheel turns. Its rim presses on the rim of the bottom wheel, and the rub between them turns that wheel too. The two wheels turn opposite ways. A minus sign in the readout means the other way.",
+    "The top wheel turns at a steady speed. Its rim presses on the rim of the bottom wheel, and the rub between them turns that wheel too. The two wheels turn opposite ways. A minus sign in the readout means the other way.",
     "Look at the wheels from the front. The rims are cut into V-shaped rings, and each ridge sits in a groove of the other wheel. When the wheels are pressed together, the sloping sides squeeze into each other like a wedge. That squeeze makes the rub much stronger than on flat rims, so the wheels slip less. The smaller wheel turns faster, because a turn of its rim covers less ground.",
     "Try Pulled apart, then Pressed together. Apart, the top wheel spins alone and the bottom wheel stops. There are no teeth, so only the pressing makes it work."
   ],
-  note: "This model is rebuilt from Brown's drawing. Brown shows two wheels edge on, the bottom one a bit larger, and a close-up of the ridges fitting together. The plate that holds the shafts, the crank, the number and depth of the ridges and the exact sizes were made up. The choice to pull the wheels apart was added to show that only the pressing makes them drive.",
+  note: "This model is rebuilt from Brown's drawing. Brown shows two wheels edge on, the bottom one a bit larger, and a close-up of the ridges fitting together. The plate that holds the shafts, the number and depth of the ridges and the exact sizes were made up. The choice to pull the wheels apart was added to show that only the pressing makes them drive.",
 
   build: function (c) {
     var T = c.THREE, P = c.P, scene = c.scene;
@@ -39,8 +38,6 @@ M507.define({
     P.at(P.cylX(6, 186, c.mat("drive")), -3, 0, 0, o.top);                    // shaft x -96..90, starts at the plate face
     P.at(P.cylX(6, 166, c.mat("driven")), -13, 0, 0, o.bot);                  // shaft x -96..70, starts at the plate face
     P.at(P.cylX(9, 6, c.mat("driven")), 67, 0, 0, o.bot);                     // collar x 64..70, on the hub
-    P.at(P.box(6, 52, 12, c.mat("crank")), 93, 22, 0, o.top);                 // arm x 90..96, y -4..48, on the shaft end
-    P.at(P.cylX(5, 24, c.mat("crank")), 108, 44, 0, o.top);                   // handle x 96..120, on the arm face
     // supports
     P.at(P.box(10, 395, 300, c.fixed), -101, 2.5, 0, scene);                  // plate x -106..-96, y -195..200, z -150..150; shafts end at x -96
     P.at(P.box(260, 12, 320, c.fixed), -10, -201, 0, scene);                 // base x -140..120, y -207..-195, z -160..160; plate stands on y -195

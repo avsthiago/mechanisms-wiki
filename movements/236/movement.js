@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "swing", label: "Lever swing", value: "48", options: [["26", "Small"], ["36", "Medium"], ["48", "Big"]] }],
   speed: { min: 1, max: 30, value: 6, label: "Crank speed", unit: " rpm" },
   readouts: [{ id: "turns", label: "Wheel" }, { id: "lever", label: "Lever" }],
-  views: { "3d": [150, 330, 1000], front: [-60, 100, 860], side: [1000, 150, -10] },
+  views: { "3d": [371, 336, 925], front: [-60, 100, 860], side: [1000, 150, -10] },
   target: [-60, 100, 0],
   how: [
     "A crank rocks the long lever to and fro about its fixed pin. One pawl hangs from the lever on one side of the pin and the other pawl hangs on the other side. Their tips rest on the teeth of the wheel.",
@@ -63,6 +63,7 @@ M507.define({
     var K = this.K, o = this.o, k = o.k[i], g, lo, hi, Dlo, Dhi, j;
     for (g = 0; g < 12; g++) {
       lo = k * K.st; hi = lo + K.st; Dlo = this.dist(i, P, k, lo); Dhi = this.dist(i, P, k, hi);
+      if (Math.abs(Dlo) < 1e-7) { o.k[i] = k; return { push: true, th: o.th, a: lo }; }   // already at the foot of the steep face: say so, or the search can land on the far end of the tooth for one frame
       if (Dlo * Dhi <= 0) {
         var a0 = lo, a1 = hi;
         for (j = 0; j < 40; j++) { var mid = (a0 + a1) / 2; if ((this.dist(i, P, k, mid) > 0) === (Dlo > 0)) a0 = mid; else a1 = mid; }
@@ -85,7 +86,8 @@ M507.define({
   },
   noseAt: function (i, psi, P) { var L = this.K.pw[i].L; return [P[0] + L * Math.cos(psi), P[1] + L * Math.sin(psi)]; },
   aim: function (i) {                                                       // direction from pivot to nose at the present state
-    var K = this.K, o = this.o, a = o.res[i].a, rho = K.R - K.d + K.d * (a / K.st - Math.floor(a / K.st + 1e-12)), al = K.m * (a + o.th), P = this.pivot(i, o.phi);
+    // height on the tooth measured from the tooth the solver found (o.k), as in dist(), so a tip near a tooth edge cannot wrap to the root for one frame
+    var K = this.K, o = this.o, a = o.res[i].a, f = Math.min(1, Math.max(0, (a - o.k[i] * K.st) / K.st)), rho = K.R - K.d + K.d * f, al = K.m * (a + o.th), P = this.pivot(i, o.phi);
     return Math.atan2(rho * Math.sin(al) - P[1], rho * Math.cos(al) - P[0]);
   },
   lever: function () {                                                      // crank angle g -> lever angle: the rod has a fixed length

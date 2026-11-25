@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "a", label: "Length of cord", value: "84", options: [["95", "Short"], ["84", "Medium"], ["70", "Long"]] }],
   speed: { min: 1, max: 6, value: 2, label: "Speed", unit: " rounds/min" },
   readouts: [{ id: "r1", label: "To rule pin" }, { id: "r2", label: "To cord pin" }, { id: "d", label: "Difference" }],
-  views: { "3d": [0, -290, 1120], front: [0, -20, 1040], side: [1000, -200, 320] },
+  views: { "3d": [473, -290, 1015], front: [0, -20, 1040], side: [1000, -200, 320] },
   target: [0, -60, 0],
   distance: [300, 1800],
   how: [

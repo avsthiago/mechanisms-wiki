@@ -12,7 +12,7 @@ M507.define({
   ],
   controls: [{ id: "dir", label: "Wheel turns", value: "ccw", options: [["ccw", "Anticlockwise"], ["cw", "Clockwise"]] }],
   readouts: [{ id: "l", label: "Lever" }, { id: "w", label: "Wheel turned" }],
-  views: { "3d": [40, 10, 790], front: [30, 0, 800], side: [800, 0, 80] },
+  views: { "3d": [355, 173, 698], front: [30, 0, 800], side: [800, 0, 80] },
   target: [30, -5, 0],
   how: [
     "The crank rocks the lever over and back. The pawl that is down presses its end on the inside of the rim. On one stroke the wheel goes round with the lever. On the way back the wheel stays still and the pawl slides over the rim.",

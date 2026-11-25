@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "turns", label: "Blade", value: "1", options: [["0.5", "Half a turn"], ["1", "One turn"], ["2", "Two turns"]] }],
   speed: { min: 1, max: 30, value: 12, label: "Flow", unit: " of 30" },
   readouts: [{ id: "v", label: "Flow" }, { id: "r", label: "Drum" }],
-  views: { "3d": [170, 130, 1000], front: [0, -45, 1020], side: [1000, -30, 140] },
+  views: { "3d": [424, 187, 909], front: [0, -45, 1020], side: [1000, -30, 140] },
   target: [0, -45, 0],
   how: [
     "The water runs along the drum, from one end to the other. Each bit of water meets the slanted blade and pushes on it. A push on a slant is partly a sideways push, so the blade swings round and the drum turns with it.",

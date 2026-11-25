@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "boat", label: "Boat", value: "free", options: [["free", "Free to move"], ["tied", "Tied up"]] }],
   readouts: [{ id: "v", label: "Boat" }, { id: "u", label: "Boards" }],
-  views: { "3d": [170, 60, 980], front: [0, -25, 1180], side: [1180, -10, 140] },
+  views: { "3d": [411, 200, 882], front: [0, -25, 1180], side: [1180, -10, 140] },
   target: [0, -25, 0],
   distance: [380, 2400],
   how: [

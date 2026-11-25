@@ -13,7 +13,7 @@ M507.define({
   ],
   controls: [{ id: "dir", label: "Push the bars", value: "fwd", options: [["fwd", "Forwards"], ["back", "Backwards"]] }],
   readouts: [{ id: "turns", label: "Drum" }, { id: "clicks", label: "Clicks" }],
-  views: { "3d": [90, 140, 400], front: [0, 100, 430], side: [430, 100, 10] },
+  views: { "3d": [170, 178, 365], front: [0, 100, 430], side: [430, 100, 10] },
   target: [0, 85, 0],
   distance: [120, 1600],
   how: [

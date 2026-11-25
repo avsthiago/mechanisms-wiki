@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ id: "adj", label: "Adjustment", value: "all", options: [["all", "All three"], ["height", "Height"], ["turn", "Turn"], ["tilt", "Tilt"]] }],
   readouts: [{ id: "h", label: "Height" }, { id: "t", label: "Turn" }, { id: "k", label: "Tilt" }],
-  views: { "3d": [196, 237, 925], front: [0, 230, 800], side: [800, 230, 0] },
+  views: { "3d": [375, 421, 839], front: [0, 230, 800], side: [800, 230, 0] },
   target: [-12, 209, 8],
   distance: [150, 2000],
   how: [

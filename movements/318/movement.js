@@ -31,7 +31,7 @@
       presets: [[-5, "Slow"], [0, "Middle"], [5, "Fast"]] }],
     speed: false,
     readouts: [{ id: "len", label: "Spring used" }, { id: "beat", label: "Beats" }, { id: "gain", label: "Gains" }],
-    views: { "3d": [170, -80, 900], front: [0, -30, 740], side: [740, -30, 0] },
+    views: { "3d": [387, -80, 830], front: [0, -30, 740], side: [740, -30, 0] },
     target: [0, -30, 0],
     how: [
       "The balance wheel swings to and fro, and the coiled spring winds and unwinds with it. The spring always pulls the wheel back towards the middle, so it keeps swinging. Each swing lets the watch move on one tick.",

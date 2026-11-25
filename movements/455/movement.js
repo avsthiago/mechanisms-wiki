@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Case" },
   readouts: [{ id: "rpm", label: "Drum" }, { id: "valve", label: "Red valve" }],
-  views: { "3d": [65, 5, 715], front: [20, -15, 720], side: [740, -15, 0] },
+  views: { "3d": [315, 146, 633], front: [20, -15, 720], side: [740, -15, 0] },
   target: [20, -15, 0],
   how: [
     "Look at the two green valves. Each is a curved flap hinged on the drum. It swings out until its edge touches the casing wall. Then it works like a door across the space between drum and wall.",

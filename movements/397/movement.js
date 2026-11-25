@@ -11,7 +11,7 @@ M507.define({
   ],
   readouts: [{ id: "cr", label: "Crank" }, { id: "sh", label: "Shuttle" }],
   speed: { min: 5, max: 40, value: 15 },
-  views: { "3d": [70, 10, 684], front: [-10, -10, 860], side: [860, -10, 0] },
+  views: { "3d": [274, 142, 608], front: [-10, -10, 860], side: [860, -10, 0] },
   target: [-10, -13, 0],
   how: [
     "The crank turns at a steady speed. Its red pin sits in a curved slot in the lever. The lever can only swing on the pivot at its foot.",

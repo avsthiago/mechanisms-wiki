@@ -11,6 +11,20 @@
   function pad(n) { return ("00" + n).slice(-3); }
   /** Addresses. Brown's movements live under /brown/; another book would get its own prefix. */
   function mPath(n) { return "/brown/" + n; }
+  /* Title, description and canonical address of the page shown, kept the same as the files scripts/pages.py writes
+     for search engines and link previews. noindex for numbers with no model. */
+  var SITE_URL = "https://mechanisms.wiki", HOME_TITLE = "mechanisms.wiki: Brown's 507 mechanical movements in 3D";
+  function lead(t) { var o = ""; (t || "").replace(/\. /g, ".\n").split("\n").some(function (x) { if (o && (o + " " + x).length > 160) return true; o = o ? o + " " + x : x; }); return o; }
+  function seo(title, desc, path, noindex) {
+    document.title = title;
+    var hd = document.head;
+    function tag(sel, make) { var e = hd.querySelector(sel); if (!e) { e = make(); hd.appendChild(e); } return e; }
+    tag('meta[name="description"]', function () { var e = document.createElement("meta"); e.name = "description"; return e; }).content = desc;
+    tag('link[rel="canonical"]', function () { var e = document.createElement("link"); e.rel = "canonical"; return e; }).href = SITE_URL + path;
+    var r = hd.querySelector('meta[name="robots"]');
+    if (noindex && !r) { r = document.createElement("meta"); r.name = "robots"; r.content = "noindex"; hd.appendChild(r); }
+    if (!noindex && r) r.remove();
+  }
   var INDEX_PATH = "/brown/index", ABOUT_PATH = "/about";
   /** The 3D library, the camera controls and the parts library are only needed to show a movement, so the
       contents page does not wait for them. They download together and run in order; cb runs once they have. */
@@ -126,11 +140,13 @@
     pending = n;
     var s = document.createElement("script");
     s.src = "/movements/" + pad(n) + "/movement.js";
-    // the host answers a missing file with the contents page, which loads but defines nothing
-    s.onload = function () { if (pending === n) { pending = 0; notBuilt(); } };
+    // the host answers a missing file with the contents page, which loads but defines nothing. Only for numbers
+    // with no built entry: a built movement may define itself later, after loading a helper (Nos. 218, 263, 295, 301, 446)
+    s.onload = function () { if (pending === n && !(e0 && e0.built)) { pending = 0; notBuilt(); } };
     s.onerror = function () { pending = 0; notBuilt(); };
     function notBuilt() {
       var e = entry(n) || {};
+      seo((e.title || "No. " + n) + " | mechanisms.wiki", "This movement has no model yet.", mPath(n), true);
       app().appendChild(topStrip(n, e.title));
       app().appendChild(h("section", { "class": "sheet" }, [h("h1", {}, [h("span", { "class": "n", text: "No. " + n }), e.title || "Not built yet"]), h("p", { "class": "lede", text: "This movement has no model yet." }), e.text ? h("blockquote", { text: e.text }) : null]));
       app().appendChild(h("nav", { "class": "bar" }, [goLink(n, -1), randBtn(n), goLink(n, 1)]));
@@ -142,7 +158,7 @@
   M.define = function (def) { if (!def.number) def.number = pending; defs[def.number] = def; if (pending === def.number) { pending = 0; start(def); } };
 
   function about() {
-    document.title = "About | mechanisms.wiki";
+    seo("About | mechanisms.wiki", lead(((window.SITE || {}).about || [""])[0]), ABOUT_PATH);
     app().appendChild(topStrip(0));
     app().appendChild(h("section", { "class": "sheet" }, [
       h("h1", { text: "About" })].concat(((window.SITE || {}).about || []).map(function (t) {
@@ -156,7 +172,7 @@
   /* Contents: a search box, one button per family and a card for every movement.
      The search and the family live in the address (/?q=clutch&f=gears) so Back from a movement returns to them. */
   function home(back) {
-    document.title = "mechanisms.wiki";
+    seo(HOME_TITLE, "See how machines move: every mechanism from Henry T. Brown's 1868 book, rebuilt as a working 3D model you can spin round, run and change.", "/");
     var all = list(), site = window.SITE || {}, built = all.filter(function (m) { return m.built; }).length, st = { q: "", f: "" };
     location.search.replace(/^\?/, "").split("&").forEach(function (kv) {
       var p = kv.split("=");
@@ -246,7 +262,7 @@
 
   /* Brown's own index, A to Z. Each number is a link; numbers with no model yet are grey. */
   function indexPage() {
-    document.title = "Index | mechanisms.wiki";
+    seo("Brown's index of mechanical movements | mechanisms.wiki", "Henry T. Brown's own index to his 507 mechanical movements, A to Z, with a link to the working 3D model of each.", INDEX_PATH);
     var have = {}, letters = [], by = {};
     list().forEach(function (m) { have[m.n] = m; });
     (window.INDEX || []).forEach(function (e) {
@@ -281,7 +297,7 @@
       set: function (id, t) { var e = document.getElementById("r-" + id); if (e && e.textContent !== t) e.textContent = t; },
       setControl: function (id, v) { S.controls[id] = v; var e = document.getElementById(id); if (e && +e.value !== v) { e.value = v; e.dispatchEvent(new Event("sync")); } }
     };
-    document.title = def.title + " | mechanisms.wiki";
+    seo(def.title + ": how it works in 3D | mechanisms.wiki", lead(def.lede), mPath(def.number));
     var e0 = entry(def.number) || {};
 
     // ---------- page ----------

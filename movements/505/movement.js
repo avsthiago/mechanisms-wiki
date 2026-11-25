@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "hold", label: "Held still", value: "ring", options: [["ring", "The ring"], ["sun", "The centre gear"]] }],
   readouts: [{ id: "a", label: "Arm" }, { id: "s", label: "Centre gear" }, { id: "r", label: "Ring" }],
   speed: { min: 1, max: 30, value: 8, label: "Arm speed", unit: " rpm" },
-  views: { "3d": [130, 70, 670], front: [0, 0, 690], side: [690, 40, 60] },
+  views: { "3d": [283, 154, 606], front: [0, 0, 690], side: [690, 40, 60] },
   target: [0, 0, 0],
   how: [
     "The ring is held still and the arm turns. The small gear rolls round the inside of the ring. As it rolls it spins on its pin, and its teeth push the centre gear round.",

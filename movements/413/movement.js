@@ -11,7 +11,7 @@ M507.define({
   ],
   controls: [{ type: "range", id: "nut", label: "Nut tightened", min: 0, max: 2, step: .05, value: 0, unit: " turns", presets: [[0, "Loose"], [1, "Half"], [2, "Tight"]] }],
   readouts: [{ id: "a", label: "Grooved wheel" }, { id: "b", label: "Rubber wheel" }, { id: "s", label: "Slip" }],
-  views: { "3d": [-210, 20, 880], front: [0, 0, 800], side: [-800, 30, 0] },
+  views: { "3d": [-364, 179, 802], front: [0, 0, 800], side: [-800, 30, 0] },
   target: [10, -25, 0],
   how: [
     "Turn the crank and the grooved wheel turns. The rubber edge of the upper wheel sits in its groove. Rubbing between the two carries the turn up, and the upper wheel goes the other way.",

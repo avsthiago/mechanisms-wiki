@@ -11,7 +11,7 @@ M507.define({
   controls: [{ type: "range", id: "amp", label: "How far it swings", min: 0, max: 20, step: 1, value: 15, unit: "°", presets: [[5, "A little"], [12, "Medium"], [20, "Most"]] }],
   closed: { label: "Socket" },
   readouts: [{ id: "a", label: "Tilt" }, { id: "x", label: "Pipe end moves" }],
-  views: { "3d": [160, 100, 850], front: [0, 0, 880], side: [880, 0, 0] },
+  views: { "3d": [359, 196, 769], front: [0, 0, 880], side: [880, 0, 0] },
   target: [0, 0, 0],
   how: [
     "The picture is cut in half, so you see inside. The ball sits in a socket of the same round shape. The two touch all round, so nothing can leak out between them. The upper pipe swings from side to side as the ball turns.",

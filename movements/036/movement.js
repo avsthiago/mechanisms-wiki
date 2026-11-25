@@ -2,13 +2,12 @@ M507.define({
   number: 36,
   title: "Mangle wheel and pinion",
   lede: "A small gear turns steadily one way, yet the big wheel turns one way and then back again. The small gear runs along both sides of a curved strip of teeth. Mangles, machines that press wet washing between rollers, used this to roll the cloth back and forth.",
-  alt: "A large upright wheel with a strip of teeth shaped like the letter C fixed to its face. A small gear at the bottom meshes with the strip. Its shaft passes through a slot in an upright bar and ends in a crank.",
+  alt: "A large upright wheel with a strip of teeth shaped like the letter C fixed to its face. A small gear at the bottom meshes with the strip. Its shaft passes through a slot in an upright bar.",
   parts: [
     { key: "pinion", color: "#5E7387", name: "Pinion", note: "The small gear. It always turns the same way. It runs along the outside of the strip, round the end, and back along the inside." },
     { key: "wheel", color: "#C8873A", name: "Mangle wheel", note: "The big wheel. It turns one way, stops, and turns back. The groove in its face holds the end of the pinion's shaft so the teeth stay together." },
     { key: "track", color: "#8E7AA8", name: "Strip of teeth", note: "Fixed to the wheel, with teeth on both edges and round both ends. Watch which edge the pinion is on when the wheel changes direction." },
-    { key: "bar", color: "#4FA58A", name: "Slotted bar", note: "It stands still. The pinion's shaft slides up and down in its slot, so the pinion can move from one edge of the strip to the other." },
-    { key: "crank", color: "#D9B13B", name: "Crank", note: "The handle that turns the pinion. In a real machine an engine or a water wheel would do this." }
+    { key: "bar", color: "#4FA58A", name: "Slotted bar", note: "It stands still. The pinion's shaft slides up and down in its slot, so the pinion can move from one edge of the strip to the other." }
   ],
   controls: [{ id: "strip", label: "Strip of teeth", value: "long", options: [["long", "Long"], ["short", "Short"]] }],
   speed: { min: 5, max: 60, value: 30 },
@@ -16,11 +15,11 @@ M507.define({
   views: { "3d": [470, 200, 900], front: [0, -15, 1020], side: [1020, -15, 0] },
   target: [0, -15, 0],
   how: [
-    "Turn the crank and the small gear, called a pinion, turns with it. It runs along the outside of the red strip of teeth and pushes the wheel round. At the end of the strip it rolls round the end and comes back along the inside.",
+    "The small gear, called a pinion, is turned at a steady speed. It runs along the outside of the red strip of teeth and pushes the wheel round. At the end of the strip it rolls round the end and comes back along the inside.",
     "On the inside the same turning pushes the wheel the other way, so the wheel goes back. A minus sign in the readout means the other way. The inside edge is a smaller circle than the outside edge, so the wheel goes back a little faster. The pinion's shaft slides up and down in the slot of the green bar to change sides. A groove in the wheel holds the end of the shaft, so the teeth cannot come apart.",
     "Try Long, then Short. Watch how far the wheel turns before it goes back."
   ],
-  note: "This model is rebuilt from Brown's drawing. The crank, the post behind the wheel, the base, the sizes and the number of teeth were made up. Brown draws the groove further from the teeth near the middle of the wheel. Here it keeps the same distance from the teeth all the way round, so the pinion stays in mesh. The short strip was added to show what the length changes.",
+  note: "This model is rebuilt from Brown's drawing. The post behind the wheel, the base, the sizes and the number of teeth were made up. Brown draws the groove further from the teeth near the middle of the wheel. Here it keeps the same distance from the teeth all the way round, so the pinion stays in mesh. The short strip was added to show what the length changes.",
 
   // Sizes. Module 6, pinion 10 teeth. The strip's pitch outline is a closed curve: outer arc (radius RO), a half circle
   // round the end (radius H), inner arc (radius RI) and a half circle round the other end. B is the angle between the ends.
@@ -69,15 +68,13 @@ M507.define({
   build: function (c) {
     var T = c.THREE, P = c.P, scene = c.scene, D = this.dims, self = this;
     var o = this.o = { a: 0, sets: {} };
-    // pinion, its shaft and crank. Gear z 1..15 (the strip is z 0..14), pin z -3..1 in the groove (dark floor at z -3.5)
+    // pinion and its shaft. Gear z 1..15 (the strip is z 0..14), pin z -3..1 in the groove (dark floor at z -3.5)
     o.pin = new T.Group(); scene.add(o.pin);
     o.rot = new T.Group(); o.pin.add(o.rot);
     P.at(P.spurGear({ teeth: D.NP, module: D.MD, width: 14, material: c.mat("pinion") }), 0, 0, 8, o.rot);   // z 1..15
     P.at(P.cylZ(5, 4, c.mat("pinion")), 0, 0, -1, o.rot);                      // guide pin z -3..1, on the gear's back face; clear of the groove floor
     P.at(P.cylZ(10, 3, c.mat("pinion")), 0, 0, 16.5, o.rot);                   // hub z 15..18, on the gear's front face
     P.at(P.cylZ(6, 45, c.mat("pinion")), 0, 0, 37.5, o.rot);                   // shaft z 15..60, through the slot (bar z 22..30)
-    P.at(P.box(40, 10, 6, c.mat("crank")), 14, 0, 63, o.rot);                  // arm x -6..34, z 60..66, on the shaft end
-    P.at(P.cylZ(4.5, 22, c.mat("crank")), 28, 0, 77, o.rot);                   // handle z 66..88, on the arm face
 
     function ring(B, off, n) {                                                 // the outline pushed `off` outward, as Vector2s
       var pts = [], L = self.outline(B, 0).L, i, p;

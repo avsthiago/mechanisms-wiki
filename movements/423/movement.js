@@ -13,7 +13,7 @@ M507.define({
   ],
   closed: { label: "Case" },
   readouts: [{ id: "st", label: "Steam on" }],
-  views: { "3d": [150, 120, 600], front: [6, 4, 650], side: [650, 4, 6] },
+  views: { "3d": [265, 145, 554], front: [6, 4, 650], side: [650, 4, 6] },
   target: [6, 4, 0],
   how: [
     "Watch the two blades. The top one swings down and up, and the bottom one swings up and down. Each pulls its rod, and both rods turn the one crank in the middle.",

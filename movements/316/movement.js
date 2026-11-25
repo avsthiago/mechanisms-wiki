@@ -29,7 +29,7 @@
     controls: [{ id: "temp", label: "Temperature", value: "20", options: [["5", "5 °C"], ["20", "20 °C"], ["35", "35 °C"]] }],
     speed: false,
     readouts: [{ id: "rod", label: "Rod longer" }, { id: "hg", label: "Mercury up" }, { id: "plain", label: "Plain bob" }],
-    views: { "3d": [170, -50, 640], front: [0, -110, 1150], side: [1150, -110, 0] },
+    views: { "3d": [274, 40, 587], front: [0, -110, 1150], side: [1150, -110, 0] },
     target: [0, -110, 0],
     opacity: function (key) { return key === "jar" ? .3 : 1; },
     how: [

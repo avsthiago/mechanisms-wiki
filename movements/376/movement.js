@@ -11,7 +11,7 @@ M507.define({
   controls: [{ type: "range", id: "pos", label: "Where the horse stands", min: 10, max: 60, step: 1, value: 40, unit: "°", presets: [[15, "Low"], [40, "Part way up"], [60, "High up"]] }],
   speed: { min: 1, max: 8, value: 3, label: "Wheel speed", unit: "rpm" },
   readouts: [{ id: "w", label: "Wheel" }, { id: "v", label: "Horse pace" }, { id: "t", label: "Turning force" }],
-  views: { "3d": [120, 60, 800], front: [0, 0, 820], side: [820, 60, -60] },
+  views: { "3d": [342, 182, 714], front: [0, 0, 820], side: [820, 60, -60] },
   target: [0, -5, -20],
   how: [
     "The horse walks up the sloping floor on the left side of the wheel. Each step pushes the floor backwards and down, so the wheel turns and the horse stays in about the same place. Watch the red stripe on the floor go round.",

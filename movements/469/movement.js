@@ -15,7 +15,7 @@ M507.define({
     presets: [[15, "Same as the cold"], [60, "Warm"], [95, "Nearly boiling"]] }],
   readouts: [{ id: "w", label: "Wheel" }, { id: "g", label: "Air grows" }],
   closed: { label: "Tube" },
-  views: { "3d": [110, 70, 700], front: [0, 5, 720], side: [720, 5, 10] },
+  views: { "3d": [289, 163, 630], front: [0, 5, 720], side: [720, 5, 10] },
   target: [0, 5, 10],
   how: [
     "Follow the white bubbles. The screw in the cold tank pushes pockets of air down into the bell. The air climbs the pipe, crosses over, and bubbles out under the wheel in the warm tank. It is caught under the blades on the left and floats that side up, so the wheel turns. The wheel drives the screw through the gears.",

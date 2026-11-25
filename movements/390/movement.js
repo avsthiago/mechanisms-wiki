@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "fly", label: "Flywheel", value: "heavy", options: [["heavy", "Heavy"], ["light", "Light"]] }],
   speed: { min: 2, max: 30, value: 12, label: "Rocking speed", unit: " a min" },
   readouts: [{ id: "lev", label: "Lever" }, { id: "fw", label: "Flywheel" }, { id: "dr", label: "Pushing" }],
-  views: { "3d": [294, 36, 1173], front: [0, -120, 940], side: [940, -120, 0] },
+  views: { "3d": [513, 83, 1085], front: [0, -120, 940], side: [940, -120, 0] },
   target: [0, -198, -16],
   how: [
     "Push one end of the lever down and the half wheel rocks. The belts are tied to its ends, so one side of each belt is pulled in and the other is let out. Both pulleys turn, but in opposite ways, because one belt is crossed.",

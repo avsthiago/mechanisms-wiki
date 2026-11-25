@@ -16,7 +16,7 @@ M507.define({
     presets: [[2, "Low"], [3, "Middle"], [4, "High"]] }],
   readouts: [{ id: "hi", label: "Air above" }, { id: "lo", label: "Air below" }, { id: "bl", label: "Last blow" }],
   closed: { label: "Cylinder and pump" },
-  views: { "3d": [120, 40, 990], front: [-15, 5, 820], side: [820, 5, 0] },
+  views: { "3d": [397, 230, 883], front: [-15, 5, 820], side: [820, 5, 0] },
   target: [-15, 5, 0],
   how: [
     "The pump on the left squeezes air into the hollow frame. The frame keeps it at a steady push, like a tank. On top of the hammer's cylinder, a small valve slides back and forth as the shaft turns.",

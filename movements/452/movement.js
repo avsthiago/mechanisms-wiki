@@ -11,7 +11,7 @@ M507.define({
   ],
   closed: { label: "Pump" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Stroke" }],
-  views: { "3d": [160, 70, 690], front: [0, 32, 620], side: [620, 32, 0] },
+  views: { "3d": [293, 170, 628], front: [0, 32, 620], side: [620, 32, 0] },
   target: [0, 10, 0],
   how: [
     "Watch the piston go down. Above it the space gets bigger, so water is drawn in through the top right flap. Below it the space gets smaller, so water is pushed out through the bottom left flap.",

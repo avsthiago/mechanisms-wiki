@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "size", label: "Rollers", value: "same", options: [["same", "Same size"], ["diff", "Different sizes"]] }],
   readouts: [{ id: "in", label: "Upper" }, { id: "out", label: "Lower" }],
-  views: { "3d": [-20, 130, 600], front: [0, 0, 620], side: [620, 20, 0] },
+  views: { "3d": [-254, 130, 544], front: [0, 0, 620], side: [620, 20, 0] },
   target: [0, -10, 0],
   how: [
     "Turn the upper roller and the lower one turns the other way. Their shafts cross at a slant and never meet. Yet the two rollers touch all along one straight line, from end to end.",

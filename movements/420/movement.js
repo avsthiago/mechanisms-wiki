@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "k", label: "Spring strength", min: 1, max: 20, step: .5, value: 8, unit: "", presets: [[1.5, "Too weak"], [8, "As drawn"], [20, "Too stiff"]] }],
   speed: false,
   readouts: [{ id: "gap", label: "Gap to bell" }, { id: "ring", label: "Bell ringing" }],
-  views: { "3d": [90, 70, 800], front: [10, 15, 820], side: [820, 15, 40] },
+  views: { "3d": [342, 196, 712], front: [10, 15, 820], side: [820, 15, 40] },
   target: [10, 15, 0],
   how: [
     "Every few seconds the wire gets a sharp tug. The hammer flies at the bell and strikes it. Then it bounces back, and the spring catches it and holds it a little way off.",

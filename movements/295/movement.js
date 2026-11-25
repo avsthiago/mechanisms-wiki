@@ -14,11 +14,11 @@
       ],
       note: "This model is rebuilt from Brown's drawing and description. Brown draws the cylinder in several positions at once, with dotted lines. Here it is shown once and it moves. The balance wheel, the balance spring and the top of the cylinder are drawn faint so you can see the teeth below them. Pick one to see it solid. The arrow in Brown's drawing points the other way from the wheel here, because teeth of this shape only work when their low points lead. The rim, arms and posts of the wheel, the balance, the balance spring, the plate and the sizes were made up. The rubbing that keeps the swing steady is a simple guess.",
       ghostTop: true,
-      views: { "3d": [-15, -50, 200], front: [-5, -8, 200], side: [420, -60, 60] },
+      views: { "3d": [-71, -50, 186], front: [-5, -8, 200], side: [420, -60, 60] },
       target: [-5, -8, 43], distance: [100, 1800],
       opacity: function (key, S) { return ((key !== "balance" && key !== "spring") || S.iso === key) ? 1 : .12; }
     }));
   }
   if (window.M507Cylinder) go();
-  else { var s = document.createElement("script"); s.src = "movements/294/movement.js"; s.onload = go; document.body.appendChild(s); }
+  else { var s = document.createElement("script"); s.src = "/movements/294/movement.js"; s.onload = go; document.body.appendChild(s); }
 })();

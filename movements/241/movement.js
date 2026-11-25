@@ -10,7 +10,7 @@ M507.define({
     { key: "crank", color: "#D9B13B", name: "Crank", note: "The handle that turns the small gear. In a real machine an engine would do this." }
   ],
   readouts: [{ id: "in", label: "Small gear" }, { id: "out", label: "Big gear" }],
-  views: { "3d": [150, 190, 800], front: [-50, 0, 880], side: [800, 0, 0] },
+  views: { "3d": [298, 190, 747], front: [-50, 0, 880], side: [800, 0, 0] },
   target: [-50, 0, 0],
   how: [
     "Turn the crank and the small gear goes round steadily. Once each turn, its one tooth swings into a gap between two teeth of the big gear. It pushes that wheel round by one tooth, then leaves the gap.",

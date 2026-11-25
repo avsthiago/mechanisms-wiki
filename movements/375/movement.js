@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "slide", label: "Slide the axle sideways", min: -14, max: 14, step: 0.5, value: 0, unit: " mm", presets: [[-14, "Right wheel in"], [-3.75, "Equal paths"], [0, "As drawn"], [14, "Left wheel in"]] }],
   readouts: [{ id: "l", label: "Left wheel" }, { id: "r", label: "Right wheel" }, { id: "s", label: "Driving shaft" }],
   speed: { min: 1, max: 30, value: 10, label: "Level shaft speed", unit: " rpm" },
-  views: { "3d": [90, 190, 690], front: [0, 115, 700], side: [700, 130, 0] },
+  views: { "3d": [288, 272, 618], front: [0, 115, 700], side: [700, 130, 0] },
   target: [0, 115, 0],
   how: [
     "The level shaft at the top turns the big flat gear. The big gear is on the upright shaft, so it carries the axle round and round. The wheels at the ends of the axle roll in a circle round the pan.",

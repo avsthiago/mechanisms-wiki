@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "ld", label: "Bell weight", value: "mid", options: [["light", "Light"], ["mid", "Medium"], ["heavy", "Heavy"]] }],
   readouts: [{ id: "g", label: "Flow" }, { id: "v", label: "Gas" }, { id: "p", label: "Push" }],
   closed: { label: "Tank" },
-  views: { "3d": [95, 60, 790], front: [0, 5, 650], side: [650, 5, 0] },
+  views: { "3d": [328, 184, 704], front: [0, 5, 650], side: [650, 5, 0] },
   target: [0, 5, 0],
   how: [
     "Gas goes into the bell through one pipe, so the bell rises. When gas leaves through the other pipe, the bell sinks. Its open rim always stays under the water, which seals the gas in.",

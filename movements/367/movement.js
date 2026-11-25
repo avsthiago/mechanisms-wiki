@@ -13,7 +13,7 @@ M507.define({
   controls: [{ type: "range", id: "step", label: "Space between lines", min: 2, max: 5, step: 1, value: 4, unit: " mm", presets: [[2, "Close"], [4, "Medium"], [5, "Wide"]] }],
   speed: { min: 2, max: 16, value: 6, label: "Speed", unit: " cycles/min" },
   readouts: [{ id: "g", label: "Gap" }, { id: "n", label: "Lines" }],
-  views: { "3d": [0, -75, 440], front: [5, -15, 760], side: [820, -15, 260] },
+  views: { "3d": [-181, -75, 399], front: [5, -15, 760], side: [820, -15, 260] },
   target: [5, -15, 0],
   distance: [300, 1600],
   how: [

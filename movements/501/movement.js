@@ -12,7 +12,7 @@ M507.define({
     presets: [[700, "Mountain top"], [965, "Storm"], [1013, "Normal"], [1040, "Fine"]] }],
   speed: false,
   readouts: [{ id: "p", label: "Air" }, { id: "h", label: "Column" }],
-  views: { "3d": [110, 10, 520], front: [0, -15, 540], side: [540, -15, 30] },
+  views: { "3d": [226, 104, 468], front: [0, -15, 540], side: [540, -15, 30] },
   target: [8, -15, 0],
   how: [
     "Look at the two mercury surfaces. The one in the short side is open to the air, and the air pushes down on it. The one in the long side has nothing above it, not even air. So the air pushes the mercury round the bend and up the long side.",

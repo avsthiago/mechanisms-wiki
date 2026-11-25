@@ -10,7 +10,7 @@ M507.define({
   ],
   speed: { min: 10, max: 100, value: 60, label: "Water flow", unit: " %" },
   readouts: [{ id: "w", label: "Wheel" }],
-  views: { "3d": [90, 75, 790], front: [0, 0, 820], side: [820, 40, 150] },
+  views: { "3d": [329, 180, 705], front: [0, 0, 820], side: [820, 40, 150] },
   target: [0, 0, 0],
   how: [
     "Water comes down into the middle and spreads outward. First it runs between the fixed plates. They are curved, so the water comes out sideways, going round as well as out.",

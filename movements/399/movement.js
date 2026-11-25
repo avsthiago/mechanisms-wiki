@@ -12,7 +12,7 @@ M507.define({
   controls: [],
   speed: { min: 1, max: 20, value: 6, label: "Nut speed", unit: " rpm" },
   readouts: [{ id: "len", label: "Link length" }, { id: "t", label: "Nut turns" }],
-  views: { "3d": [56, 24, 240], front: [0, 0, 300], side: [300, 0, 0] },
+  views: { "3d": [102, 56, 219], front: [0, 0, 300], side: [300, 0, 0] },
   target: [0, 0, 0],
   distance: [150, 1200],
   how: [

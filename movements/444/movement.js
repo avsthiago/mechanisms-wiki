@@ -34,7 +34,7 @@
     speed: { min: 10, max: 100, value: 40, label: "Time speed", unit: " %" },
     closed: { label: "Ram" },
     readouts: [{ id: "jet", label: "Jet top" }, { id: "v", label: "Pipe flow" }, { id: "b", label: "Beats" }],
-    views: { "3d": [110, 95, 650], front: [-5, 35, 660], side: [620, 70, -260] },
+    views: { "3d": [276, 189, 583], front: [-5, 35, 660], side: [620, 70, -260] },
     target: [-5, 35, -20],
     distance: [250, 1600],
     how: [

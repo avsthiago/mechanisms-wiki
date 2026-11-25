@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "swing", label: "Lever swing", value: "0.34", options: [["0.22", "Small"], ["0.34", "Medium"], ["0.46", "Big"]] }],
   speed: { min: 1, max: 30, value: 8, label: "Rocking speed", unit: " rpm" },
   readouts: [{ id: "bar", label: "Bar" }, { id: "lever", label: "Lever" }, { id: "who", label: "Pulling" }],
-  views: { "3d": [-20, 110, 860], front: [-175, 0, 780], side: [700, 20, 0] },
+  views: { "3d": [188, 198, 778], front: [-175, 0, 780], side: [700, 20, 0] },
   target: [-175, 0, 0],
   distance: [400, 2500],
   how: [

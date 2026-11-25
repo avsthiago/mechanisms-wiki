@@ -14,7 +14,7 @@ M507.define({
     presets: [[1, "A crack"], [2, "A little"], [5, "Wide"]] }],
   closed: { label: "Jack" },
   readouts: [{ id: "lf", label: "Lift" }, { id: "nk", label: "Strokes" }],
-  views: { "3d": [120, 20, 1300], front: [-20, 0, 1110], side: [1110, 0, 0] },
+  views: { "3d": [523, 284, 1154], front: [-20, 0, 1110], side: [1110, 0, 0] },
   target: [-15, -10, 0],
   how: [
     "Watch the lever on the left rock up and down. Its plunger draws water from the base and pushes it up the pipe in the middle of the ram. The water fills the space between the top of the ram and the top of the cylinder, and pushes the cylinder up.",

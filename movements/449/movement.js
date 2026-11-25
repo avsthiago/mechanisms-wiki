@@ -12,7 +12,7 @@ M507.define({
   closed: { label: "Pump" },
   speed: { min: 4, max: 40, value: 16, label: "Strokes", unit: " a min" },
   readouts: [{ id: "q", label: "Delivered" }, { id: "s", label: "Stroke" }],
-  views: { "3d": [120, 60, 730], front: [15, 35, 630], side: [630, 35, 0] },
+  views: { "3d": [319, 211, 651], front: [15, 35, 630], side: [630, 35, 0] },
   target: [15, 45, 0],
   how: [
     "Watch the piston go up. Its lid is pressed shut, so it pushes all the water above it out of the side pipe. The flap in that pipe swings open to let it pass. Below the piston, the flap in the floor opens and water from the well follows the piston up.",

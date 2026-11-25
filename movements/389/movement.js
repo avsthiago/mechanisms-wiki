@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "swing", label: "Handle swing", value: "35", options: [["35", "Short"], ["75", "Long"]] }],
   speed: { min: 5, max: 60, value: 24, label: "Handle speed", unit: " a min" },
   readouts: [{ id: "n", label: "Strokes" }, { id: "y", label: "Raised" }],
-  views: { "3d": [234, 397, 1072], front: [20, 315, 950], side: [950, 315, 20] },
+  views: { "3d": [488, 510, 970], front: [20, 315, 950], side: [950, 315, 20] },
   target: [36, 263, 0],
   how: [
     "Swing the handle up and the disc lifts its ring and the curved arm. The tip of the arm is under a tooth, so the bar and its load go up too. Near the top, the holding pawl slips past a tooth.",

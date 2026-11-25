@@ -70,7 +70,7 @@
       speed: { min: 10, max: 100, value: page.speed || 60, label: "Time speed", unit: " %" },
       closed: { label: "Tubes" },
       readouts: [{ id: "col", label: "Column" }, { id: "cone", label: "Cone" }, { id: "cyc", label: "Beats" }],
-      views: { "3d": [100, 65, 660], front: [5, 7, 580], side: [580, 20, -80] },
+      views: { "3d": [287, 166, 589], front: [5, 7, 580], side: [580, 20, -80] },
       target: [5, 12, -15], distance: [250, 1600],
 
       build: function (c) {

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Serve the site locally the way Cloudflare Pages does: a path that is a file gets that file, any other path
-(/brown/53, /about) gets index.html, and the page routes itself.
+"""Serve the site locally the way Cloudflare does: a path that is a file gets that file, /brown/53 gets brown/53.html
+when it exists (the pages scripts/pages.py writes), any other path gets index.html, and the page routes itself.
   python3 scripts/serve.py            # http://localhost:8000
   python3 scripts/serve.py 8080
 The other scripts call serve() to start it in the background on a free port."""
@@ -11,8 +11,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     quiet = True
     def __init__(self, *a, **k): super().__init__(*a, directory=str(root), **k)
     def send_head(self):
-        if not os.path.isfile(self.translate_path(self.path)) and not os.path.isfile(os.path.join(self.translate_path(self.path), "index.html")):
-            self.path = "/index.html"
+        f = self.translate_path(self.path)
+        if not os.path.isfile(f) and not os.path.isfile(os.path.join(f, "index.html")):
+            path, q, query = self.path.partition("?")
+            self.path = path + ".html" + q + query if os.path.isfile(f + ".html") else "/index.html"
         return super().send_head()
     def log_message(self, *a):
         if not self.quiet: super().log_message(*a)

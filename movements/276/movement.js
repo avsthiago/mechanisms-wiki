@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [{ id: "r", label: "Lobes", value: "33", options: [["20", "Shallow"], ["33", "As drawn"], ["42", "Deep"]] }],
   readouts: [{ id: "x", label: "Bar" }, { id: "s", label: "Stroke" }],
-  views: { "3d": [150, 120, 780], front: [-45, 0, 800], side: [800, 80, 60] },
+  views: { "3d": [290, 183, 718], front: [-45, 0, 800], side: [800, 80, 60] },
   target: [-45, 0, 0],
   how: [
     "The cam turns on a fixed shaft. The two pins on the bar are always the same distance apart. Measured straight across the centre of the cam, in any direction, the cam is that same size. So both pins keep touching it.",

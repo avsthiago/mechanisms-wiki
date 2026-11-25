@@ -90,7 +90,7 @@
     controls: [{ id: "spring", label: "Balance spring", value: "m", options: [["s", "Soft"], ["m", "Medium"], ["h", "Stiff"]] }],
     speed: false,
     readouts: [{ id: "beat", label: "Beats" }, { id: "swing", label: "Swing" }],
-    views: { "3d": [60, 75, 750], front: [-72, -5, 770], side: [770, -5, -5] },
+    views: { "3d": [245, 168, 676], front: [-72, -5, 770], side: [770, -5, -5] },
     target: [-72, -5, -5],
     how: [
       "The escape wheel is always trying to turn, but one pallet of the lever sits in the way of a tooth and holds it. For most of each swing the balance touches nothing at all.",

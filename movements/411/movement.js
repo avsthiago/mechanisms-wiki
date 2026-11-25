@@ -13,7 +13,7 @@ M507.define({
   controls: [{ id: "g", label: "Ground", value: "hilly", options: [["level", "Level"], ["gentle", "Gentle"], ["hilly", "Hilly"]] }],
   readouts: [{ id: "s", label: "Slope" }, { id: "t", label: "Rolled" }],
   speed: { min: 1, max: 30, value: 10, label: "Wheel speed", unit: " rpm" },
-  views: { "3d": [180, 100, 730], front: [0, 60, 640], side: [640, 60, 40] },
+  views: { "3d": [318, 229, 662], front: [0, 60, 640], side: [640, 60, 40] },
   target: [0, 55, -20],
   how: [
     "The cart rolls over the ground and tips up and down with it. The pendulum hangs from the top of the arch and keeps pointing straight down. So when the cart tips, the pencil on the pendulum slides across the drum, to the left going uphill and to the right going downhill.",

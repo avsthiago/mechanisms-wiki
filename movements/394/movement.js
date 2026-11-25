@@ -13,7 +13,7 @@ M507.define({
   speed: { min: 5, max: 40, value: 15 },
   closed: { label: "Cylinder" },
   readouts: [{ id: "turns", label: "Pinion" }, { id: "pos", label: "Piston" }],
-  views: { "3d": [-22, 18, 558], front: [-110, 0, 480], top: [-70, 800, 40] },
+  views: { "3d": [168, 105, 497], front: [-110, 0, 480], top: [-70, 800, 40] },
   target: [-56, -17, 16],
   distance: [250, 2000],
   how: [

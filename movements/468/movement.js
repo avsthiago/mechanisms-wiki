@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "bed", label: "Bed shape", value: "drawn", options: [["drawn", "Bank"], ["flat", "Flat"], ["valley", "River channel"], ["ridge", "Ridge"]] }],
   speed: { min: 1, max: 30, value: 10, label: "Water speed", unit: "" },
   readouts: [{ id: "bend", label: "Bend" }, { id: "drop", label: "Drop" }],
-  views: { "3d": [80, 80, 560], front: [0, 25, 570], top: [0, 600, 1] },
+  views: { "3d": [235, 138, 503], front: [0, 25, 570], top: [0, 600, 1] },
   target: [0, 10, 0],
   how: [
     "The main is a chain of short, stiff pipes. At each joint, a ball sits inside a socket, so one pipe can tilt a little against the next. Each pipe lies on two logs, and iron plates and a pin at each joint let the logs swing too.",

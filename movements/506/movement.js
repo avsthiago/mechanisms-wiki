@@ -14,7 +14,7 @@ M507.define({
   controls: [{ id: "top", label: "Big upper gear", value: "joined", options: [["joined", "Joined to the small upper gear"], ["shaft", "Fixed to the upright shaft"]] }],
   readouts: [{ id: "c", label: "Lower gears" }, { id: "f", label: "Small upper" }, { id: "a", label: "Arm" }],
   speed: { min: 1, max: 30, value: 12, label: "Crank speed", unit: " rpm" },
-  views: { "3d": [70, 90, 790], front: [-45, 5, 800], side: [760, 70, 60] },
+  views: { "3d": [286, 186, 709], front: [-45, 5, 800], side: [760, 70, 60] },
   target: [-45, 5, 0],
   how: [
     "Turn the crank. One of its gears drives the big gear at the top, the other the big gear below. They are driven from opposite edges, so they turn opposite ways. Each carries a smaller gear that faces the arm in the middle.",

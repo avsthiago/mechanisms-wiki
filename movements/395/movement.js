@@ -12,7 +12,7 @@ M507.define({
   speed: false,
   closed: { label: "Casing" },
   readouts: [{ id: "in", label: "Steam goes to" }, { id: "out", label: "Exhaust from" }],
-  views: { "3d": [60, 38, 320], front: [0, 0, 330], side: [330, 0, 30] },
+  views: { "3d": [135, 74, 289], front: [0, 0, 330], side: [330, 0, 30] },
   target: [0, 0, 0],
   how: [
     "Steam comes in at the top pipe. The left and right pipes go to the two ends of a steam cylinder. The bottom pipe lets used steam escape. The plug has two curved passages. Each one joins two pipes that are next to each other.",

@@ -10,7 +10,7 @@ M507.define({
   ],
   controls: [],
   readouts: [{ id: "d", label: "Tube pushed in" }, { id: "t", label: "Twist" }],
-  views: { "3d": [170, 190, 640], front: [0, 105, 500], side: [700, 120, 0] },
+  views: { "3d": [275, 255, 590], front: [0, 105, 500], side: [700, 120, 0] },
   target: [0, 105, 0],
   how: [
     "Watch the red pin. It starts at the end of the sideways part of the slot, which is the locked place. First the tube is twisted back. The pin slides along to the open end of the slot.",

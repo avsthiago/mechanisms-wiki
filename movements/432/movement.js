@@ -11,7 +11,7 @@ M507.define({
   controls: [{ id: "flow", label: "Water flow", value: "high", options: [["low", "Low"], ["high", "High"]] }],
   speed: false,
   readouts: [{ id: "rpm", label: "Wheel" }, { id: "full", label: "Full buckets" }],
-  views: { "3d": [60, 35, 470], front: [0, -5, 470], side: [470, -10, 30] },
+  views: { "3d": [201, 92, 420], front: [0, -5, 470], side: [470, -10, 30] },
   target: [5, -15, 0],
   how: [
     "A stream comes in from the right and flows into the buckets at the height of the axle. The buckets on the right fill up and become heavy.",

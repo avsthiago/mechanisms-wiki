@@ -14,7 +14,7 @@ M507.define({
     presets: [[20, "Short"], [45, "Medium"], [55, "Long"]]
   }],
   readouts: [{ id: "d", label: "Moving pin" }, { id: "b", label: "Bar" }, { id: "t", label: "Lever lean" }],
-  views: { "3d": [140, 80, 570], front: [0, -10, 600], side: [580, 20, 40] },
+  views: { "3d": [245, 124, 524], front: [0, -10, 600], side: [580, 20, 40] },
   target: [0, -10, 0],
   how: [
     "Watch the lever. Its upper slot slides over the fixed pin, so the lever can only lean about that pin. The moving pin in the lower slot pushes the bottom of the lever left and right, and the lever leans with it.",

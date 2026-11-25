@@ -15,7 +15,7 @@ M507.define({
   ],
   controls: [{ id: "d", label: "Pull-out", value: "4", options: [["2", "Small"], ["4", "Medium"], ["6", "Big"]] }],
   readouts: [{ id: "draft", label: "Front faster" }, { id: "twist", label: "Twist" }],
-  views: { "3d": [70, 40, 400], front: [0, 0, 400], side: [400, 0, 10] },
+  views: { "3d": [168, 92, 360], front: [0, 0, 400], side: [400, 0, 10] },
   target: [0, 0, 0],
   distance: [150, 2000],
   how: [

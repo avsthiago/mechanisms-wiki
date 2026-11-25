@@ -14,7 +14,7 @@ M507.define({
     presets: [[0, "Down"], [50, "Half"], [100, "All the way"]], pauseOnInput: true }],
   speed: { min: 6, max: 40, value: 15, label: "Shots a minute", unit: "" },
   readouts: [{ id: "ch", label: "Top chamber" }, { id: "turn", label: "Turned" }],
-  views: { "3d": [130, 70, 820], front: [20, 0, 800], top: [-40, 800, 40] },
+  views: { "3d": [362, 187, 733], front: [20, 0, 800], top: [-40, 800, 40] },
   target: [20, 0, 0],
   distance: [300, 1800],
   how: [

@@ -11,7 +11,7 @@ M507.define({
   speed: { min: 1, max: 12, value: 4, label: "Gas flow", unit: " turns/min" },
   readouts: [{ id: "n", label: "Drum turns" }, { id: "v", label: "Gas" }],
   closed: { label: "Case" },
-  views: { "3d": [100, 55, 480], front: [0, 5, 520], side: [520, 5, -30] },
+  views: { "3d": [215, 122, 431], front: [0, 5, 520], side: [520, 5, -30] },
   target: [0, 5, -30],
   how: [
     "The gas comes out of the pipe in the middle, just above the water. The door of one room is open to it there, and the gas fills that room. The darker grey shows fresh gas. The room's outer slot is still under water, so the gas cannot escape.",

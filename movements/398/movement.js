@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "dw", label: "Stops in the groove", value: "long", options: [["short", "Short"], ["long", "Long"]] }],
   speed: { min: 2, max: 20, value: 6, label: "Cam speed", unit: "rpm" },
   readouts: [{ id: "w", label: "Wheel" }, { id: "n", label: "Turns" }],
-  views: { "3d": [10, 30, 670], front: [-12, 0, 680], side: [-760, 40, 120] },
+  views: { "3d": [264, 151, 593], front: [-12, 0, 680], side: [-760, 40, 120] },
   target: [-12, 0, 0],
   how: [
     "The cam turns steadily. Its pin cannot leave the groove, and the frame can only slide sideways. So as the groove's distance from the centre changes, the frame is pushed out and pulled in. The rod passes this to the crank on the wheel.",

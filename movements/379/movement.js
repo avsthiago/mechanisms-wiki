@@ -12,7 +12,7 @@ M507.define({
   controls: [{ id: "feed", label: "How hard the drill bites", value: "1", options: [["0.5", "Light"], ["1", "Medium"], ["2", "Heavy"]] }],
   speed: { min: 5, max: 60, value: 30, label: "Crank speed", unit: "rpm" },
   readouts: [{ id: "d", label: "Crank" }, { id: "s", label: "Feed screw" }, { id: "h", label: "Hole depth" }],
-  views: { "3d": [50, 110, 660], front: [-35, 5, 660], side: [660, 5, 0] },
+  views: { "3d": [242, 157, 595], front: [-35, 5, 660], side: [660, 5, 0] },
   target: [-35, 5, 0],
   how: [
     "Turn the crank and the drill spins. The screw at the bottom turns slowly and lifts the plate. When the plate touches the spinning bit, the bit starts to cut a hole.",

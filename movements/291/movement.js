@@ -66,7 +66,7 @@
     controls: [{ id: "spring", label: "Balance spring", value: "m", options: [["s", "Soft"], ["m", "Medium"], ["h", "Stiff"]] }],
     speed: false,
     readouts: [{ id: "beat", label: "Beats" }, { id: "swing", label: "Swing" }],
-    views: { "3d": [215, 100, 585], front: [72, 44, 660], side: [700, 44, -5] },
+    views: { "3d": [323, 181, 533], front: [72, 44, 660], side: [700, 44, -5] },
     target: [72, 44, -5],
     how: [
       "The escape wheel is always trying to turn. One tooth rests against the small stop under the long spring, so the wheel cannot move. For most of its swing the balance touches nothing at all.",

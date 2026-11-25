@@ -12,7 +12,7 @@ M507.define({
   controls: [{ type: "range", id: "ratio", label: "Ratio of the gaps", min: 1, max: 3, step: 0.1, value: 1.3, unit: "", presets: [[1, "Same size"], [2, "Double"], [3, "Three times"]] }],
   speed: { min: 2, max: 16, value: 6, label: "Speed", unit: " cycles/min" },
   readouts: [{ id: "s", label: "Short end" }, { id: "l", label: "Long end" }, { id: "r", label: "Ratio" }],
-  views: { "3d": [150, -130, 880], front: [0, -23, 900], side: [900, -23, 120] },
+  views: { "3d": [377, -130, 809], front: [0, -23, 900], side: [900, -23, 120] },
   target: [0, -23, 0],
   distance: [250, 1400],
   how: [

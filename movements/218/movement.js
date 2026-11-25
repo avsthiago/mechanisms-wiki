@@ -15,7 +15,7 @@
         "Watch the Roller reading. It goes below zero, then up to its highest, then stays there while the Now reading says Resting. Each turn of the disc leaves the roller one notch further on. Pick the catch to follow its nose in and out of the notches."
       ],
       note: "This model is rebuilt from Brown's drawing and description. Brown shows the lever and the cam on two separate drawings, so how they sit together was made up. The cam is placed behind the lever, with its centre below and to the right of the roller. On this page the cam is drawn faint so the wheel and lever can be seen; pick it to see it solid. Brown puts the lifting projection on the back of the cam's wheel; here it is a raised piece on the cam's front face, and the catch has a tail with a pin for it to strike. The spring on the catch, the roller, the shafts and the stands were made up. Brown says the roller goes back a third of a turn and forward two thirds. With as many notches as his drawing shows, the lever cannot swing that far, so here it goes back one notch and forward two, which keeps his one to two share.",
-      views: { "3d": [75, 45, 370], front: [8, -12, 290], side: [600, 0, 40] },
+      views: { "3d": [162, 82, 336], front: [8, -12, 290], side: [600, 0, 40] },
       target: [12, 0, 15], distance: [200, 1800],
       opacity: function (key, S) { return (key !== "cam" || S.iso === key) ? 1 : .3; },
       start: function (K, G) {                                // lever upright as drawn, on its forward swing, catch in a notch
@@ -26,5 +26,5 @@
     }));
   }
   if (window.M507WoolComb) go();
-  else { var s = document.createElement("script"); s.src = "movements/217/movement.js"; s.onload = go; document.body.appendChild(s); }
+  else { var s = document.createElement("script"); s.src = "/movements/217/movement.js"; s.onload = go; document.body.appendChild(s); }
 })();
