@@ -81,14 +81,21 @@ def make_og(nums):
     b = Image.open(root / "docs/img/banner.webp").convert("RGBA")
     c = Image.new("RGB", (1200, 630), "white"); b = fit(flat(b), 1160, 590); c.paste(b, ((1200 - b.width) // 2, (630 - b.height) // 2))
     c.save(root / "og/home.jpg", quality=82)
+    from PIL import ImageDraw, ImageFont
+    big, small = ImageFont.truetype(str(root / "vendor/fonts/atkinson-700.woff2"), 64), ImageFont.truetype(str(root / "vendor/fonts/atkinson-400.woff2"), 30)
+    # WhatsApp and others crop the picture to a square from its middle, so the model fills the middle square (x 285..915)
+    # and Brown's engraving and the number sit in the side strips, seen only in the wide preview.
     for n in nums:
-        c = Image.new("RGB", (1200, 630), "white")
+        c = Image.new("RGB", (1200, 630), "white"); d = ImageDraw.Draw(c)
         ref, th = root / f"ref/{n:03d}.png", root / f"thumbs/{n:03d}.webp"
-        if ref.exists():
-            r = fit(flat(Image.open(ref)), 540, 570); c.paste(r, (30 + (540 - r.width) // 2, (630 - r.height) // 2))
         if th.exists():
-            t = Image.open(th).convert("RGBA"); t = t.resize((t.width * 570 // t.height, 570), Image.LANCZOS) if t.height < 570 else fit(t, 570, 570)
-            t = fit(t, 570, 570); c.paste(t, (630 + (540 - t.width) // 2, (630 - t.height) // 2), t)
+            t = Image.open(th).convert("RGBA"); t = t.crop(t.split()[3].getbbox() or (0, 0, t.width, t.height))
+            k = min(580 / t.width, 580 / t.height); t = t.resize((max(1, round(t.width * k)), max(1, round(t.height * k))), Image.LANCZOS)
+            c.paste(t, (600 - t.width // 2, 315 - t.height // 2), t)
+        if ref.exists():
+            r = fit(flat(Image.open(ref)), 255, 450); c.paste(r, (20 + (255 - r.width) // 2, 315 - r.height // 2))
+        d.text((1055, 290), f"No. {n}", font=big, fill="#222222", anchor="ms")
+        d.text((1055, 345), "mechanisms.wiki", font=small, fill="#777777", anchor="ms")
         c.save(root / f"og/{n:03d}.jpg", quality=80)
     print(f"og/: {len(nums) + 1} pictures")
 
